@@ -38,7 +38,12 @@ from hamta_menyer import USER_AGENT, far_hamta, hamta
 
 ROT = Path(__file__).resolve().parent.parent
 REGISTER = ROT / "data" / "restauranger.json"
-OVERPASS = "https://overpass-api.de/api/interpreter"
+# Kartservrar med samma OpenStreetMap-data. Svarar den första inte provas nästa.
+OVERPASS = [
+    "https://overpass-api.de/api/interpreter",
+    "https://overpass.kumi.systems/api/interpreter",
+    "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
+]
 
 START_LAT, START_LNG = 59.33675, 18.07175   # Birger Jarlsgatan 25
 SAMMA_STALLE_METER = 60
@@ -56,8 +61,21 @@ def hamta_fran_osm(lat: float, lng: float, radie: int) -> list[dict]:
     nwr["amenity"~"^(restaurant|cafe|fast_food)$"]["name"](around:{radie},{lat},{lng});
     out center tags;
     """
-    svar = requests.post(OVERPASS, data={"data": fraga}, headers={"User-Agent": USER_AGENT}, timeout=90)
-    svar.raise_for_status()
+    svar, senaste_fel = None, None
+    for forsok in range(2):                     # två varv genom alla servrar
+        for server in OVERPASS:
+            try:
+                svar = requests.post(server, data={"data": fraga}, headers={"User-Agent": USER_AGENT}, timeout=90)
+                svar.raise_for_status()
+                break
+            except Exception as fel:
+                print(f"Kartservern {urlparse(server).netloc} svarade inte ({str(fel)[:80]}), provar nästa ...")
+                senaste_fel, svar = fel, None
+        if svar is not None:
+            break
+        time.sleep(30)                          # vänta en stund innan nästa varv
+    if svar is None:
+        raise SystemExit(f"Ingen kartserver svarade. Försök igen om en stund. Senaste felet: {senaste_fel}")
     stallen = []
     for el in svar.json().get("elements", []):
         t = el.get("tags", {})
