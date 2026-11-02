@@ -12,6 +12,9 @@ on:
         description: "Radie i meter runt Birger Jarlsgatan 25"
         default: "1000"
 
+env:
+  PYTHONUNBUFFERED: "1"   # visa loggraderna direkt, inte först i slutet
+
 permissions:
   contents: write
 

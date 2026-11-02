@@ -11,6 +11,9 @@ on:
     - cron: "20 6 * * 1-5"
   workflow_dispatch:   # gör att du kan starta körningen för hand med en knapp på GitHub
 
+env:
+  PYTHONUNBUFFERED: "1"   # visa loggraderna direkt, inte först i slutet
+
 permissions:
   contents: write      # behövs för att få spara den nya menyfilen
 
