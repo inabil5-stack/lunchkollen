@@ -1,0 +1,43 @@
+# Registerkörningen: hittar nya restauranger på OpenStreetMap en gång i månaden.
+# Kan också startas för hand, med valfri radie, under fliken Actions.
+
+name: Uppdatera restaurangregistret
+
+on:
+  schedule:
+    - cron: "0 4 1 * *"     # den 1:a varje månad, 05:00 svensk vintertid
+  workflow_dispatch:
+    inputs:
+      radie:
+        description: "Radie i meter runt Birger Jarlsgatan 25"
+        default: "1000"
+
+permissions:
+  contents: write
+
+jobs:
+  register:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hämta projektets filer
+        uses: actions/checkout@v4
+
+      - name: Installera Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installera paket
+        run: pip install -r scripts/requirements.txt
+
+      - name: Hitta restauranger och lunchsidor
+        run: python scripts/bygg_register.py --radie "${{ github.event.inputs.radie || '1000' }}"
+
+      - name: Spara registret
+        run: |
+          git config user.name "lunchkollen-bot"
+          git config user.email "lunchkollen-bot@users.noreply.github.com"
+          git add data/restauranger.json
+          git diff --staged --quiet || git commit -m "Registret uppdaterat $(date +%F)"
+          git pull --rebase
+          git push

@@ -69,8 +69,11 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); ou
 .tag.fisk { background: var(--line); color: var(--ink); }
 .tag.veg { background: color-mix(in srgb, var(--veg) 18%, transparent); color: var(--veg); }
 .empty { text-align: center; color: var(--muted); padding: 32px 16px; background: var(--surface); border: 1px dashed var(--line); border-radius: 12px; }
-.missing { font-size: 0.85rem; color: var(--muted); margin: 0; }
+.missing { font-size: 0.85rem; color: var(--muted); }
+.missing summary { cursor: pointer; }
+.missing p { margin: 6px 0 0; }
 footer { color: var(--muted); font-size: 0.8rem; }
+footer a { color: inherit; }
 </style>
 </head>
 <body>
@@ -103,9 +106,12 @@ footer { color: var(--muted); font-size: 0.8rem; }
 
   <p class="count" id="count">Laddar dagens luncher …</p>
   <ul class="list" id="list"></ul>
-  <p class="missing" id="missing" hidden></p>
+  <details class="missing" id="missing" hidden>
+    <summary><span id="missingCount"></span> inom avståndet har ingen meny idag</summary>
+    <p id="missingList"></p>
+  </details>
 
-  <footer>Avstånd räknas fågelvägen. Gångtid uppskattas till 80 meter per minut. Listan visar det som är närmast och billigast först.</footer>
+  <footer>Avstånd räknas fågelvägen. Gångtid uppskattas till 80 meter per minut. Listan visar det som är närmast och billigast först. Restaurangdata delvis från © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap-bidragsgivare</a>.</footer>
 </div>
 
 <script>
@@ -169,13 +175,15 @@ function rita() {
     return `<li class="card">
       <h2>${esc(r.namn)}</h2>
       <div class="price"><small>från </small>${r.minPris} kr</div>
-      <div class="meta"><span class="num">${r.dist} m · ${gang} min</span><span>${esc(r.adress)}</span><span>Lunch ${esc(r.lunchtid)}</span></div>
+      <div class="meta"><span class="num">${r.dist} m · ${gang} min</span>${r.adress ? `<span>${esc(r.adress)}</span>` : ""}${r.lunchtid ? `<span>Lunch ${esc(r.lunchtid)}</span>` : ""}</div>
       <ul class="dishes">${ratter}</ul>
     </li>`;
   }).join("") : `<li class="empty">Inga luncher matchar. Höj maxpriset eller öka avståndet.</li>`;
 
+  // Ställen utan meny visas hopfällda, så att listan inte drunknar när registret växer
   $("missing").hidden = !utanMeny.length;
-  $("missing").textContent = utanMeny.length ? "Ingen meny hittad idag: " + utanMeny.map(r => r.namn).join(", ") : "";
+  $("missingCount").textContent = utanMeny.length === 1 ? "1 ställe" : utanMeny.length + " ställen";
+  $("missingList").textContent = utanMeny.map(r => r.namn).join(", ");
 }
 
 function visaInfo(data) {

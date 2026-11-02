@@ -1,4 +1,4 @@
 requests
 beautifulsoup4
 pypdf
-anthropic
+anthropic  # används bara om ANTHROPIC_API_KEY finns
