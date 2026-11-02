@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lunchkollen</title>
+<meta name="description" content="Dagens lunch i närheten, sorterat på avstånd och pris.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Färger och typsnitt. Ändra här för att byta utseende på hela sidan. */
+:root {
+  --bg: #eef2ef; --surface: #ffffff; --ink: #17231d; --muted: #5b6b63;
+  --line: #d3ddd7; --accent: #b3263a; --accent-soft: #f6dfe2; --veg: #2f7a4b;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111814; --surface: #1a231e; --ink: #e6ede9; --muted: #9aaaa1;
+    --line: #2c3a33; --accent: #ef6b7c; --accent-soft: #3a1d22; --veg: #6cc58f;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 24px 48px;
+}
+.wrap { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+header { display: flex; flex-direction: column; gap: 8px; }
+.brand { font-family: var(--font-display); font-weight: 700; font-size: 2rem; letter-spacing: -0.02em; line-height: 1.1; margin: 0; }
+.brand span { color: var(--accent); }
+.where { color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; }
+.pin { display: inline-flex; align-items: center; gap: 6px; color: var(--ink); font-weight: 500; }
+.pin svg { width: 14px; height: 14px; fill: var(--accent); }
+.locate { font: inherit; font-size: 0.85rem; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+.locate:hover { border-color: var(--accent); }
+.notice { font-size: 0.85rem; color: var(--muted); background: var(--surface); border: 1px dashed var(--line); border-radius: 8px; padding: 10px 12px; margin: 0; }
+.notice strong { color: var(--ink); }
+
+.filters { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 20px; }
+@media (max-width: 520px) { .filters { grid-template-columns: 1fr; } }
+.field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.field.wide { grid-column: 1 / -1; }
+.field > label, .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; display: flex; justify-content: space-between; }
+.field output { font-family: var(--font-data); color: var(--ink); text-transform: none; letter-spacing: 0; font-size: 0.85rem; }
+input[type=range] { width: 100%; accent-color: var(--accent); }
+.check { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; cursor: pointer; }
+.check input { accent-color: var(--veg); width: 18px; height: 18px; }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.count { color: var(--muted); font-size: 0.9rem; margin: 0; }
+.count b { color: var(--ink); font-family: var(--font-data); }
+.list { display: flex; flex-direction: column; gap: 12px; list-style: none; padding: 0; margin: 0; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; }
+.card h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; margin: 0; letter-spacing: -0.01em; min-width: 0; }
+.price { font-family: var(--font-data); font-size: 1.15rem; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.price small { font-size: 0.75rem; color: var(--muted); }
+.meta { grid-column: 1 / -1; color: var(--muted); font-size: 0.85rem; display: flex; flex-wrap: wrap; gap: 2px 14px; }
+.num { color: var(--ink); font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+.dishes { grid-column: 1 / -1; list-style: none; padding: 8px 0 0; margin: 4px 0 0; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; }
+.dishes li { display: flex; gap: 8px; align-items: baseline; min-width: 0; }
+.tag { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; padding: 1px 6px; border-radius: 4px; flex-shrink: 0; }
+.tag.kott { background: var(--accent-soft); color: var(--accent); }
+.tag.fisk { background: var(--line); color: var(--ink); }
+.tag.veg { background: color-mix(in srgb, var(--veg) 18%, transparent); color: var(--veg); }
+.empty { text-align: center; color: var(--muted); padding: 32px 16px; background: var(--surface); border: 1px dashed var(--line); border-radius: 12px; }
+.missing { font-size: 0.85rem; color: var(--muted); margin: 0; }
+footer { color: var(--muted); font-size: 0.8rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1 class="brand">Lunch<span>kollen</span></h1>
+    <div class="where">
+      <span class="pin"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span id="place">Birger Jarlsgatan 25</span></span>
+      <button type="button" class="locate" id="locate">Använd min position</button>
+      <span id="today"></span>
+    </div>
+  </header>
+
+  <p class="notice" id="notice" hidden></p>
+
+  <section class="filters" aria-label="Filter">
+    <div class="field">
+      <label for="dist">Max avstånd <output id="distOut"></output></label>
+      <input type="range" id="dist" min="100" max="2000" step="50" value="600">
+    </div>
+    <div class="field">
+      <label for="price">Max pris <output id="priceOut"></output></label>
+      <input type="range" id="price" min="90" max="250" step="5" value="160">
+    </div>
+    <div class="field wide">
+      <span class="label">Kost</span>
+      <label class="check" for="veg"><input type="checkbox" id="veg"> Har vegetariskt alternativ</label>
+    </div>
+  </section>
+
+  <p class="count" id="count">Laddar dagens luncher …</p>
+  <ul class="list" id="list"></ul>
+  <p class="missing" id="missing" hidden></p>
+
+  <footer>Avstånd räknas fågelvägen. Gångtid uppskattas till 80 meter per minut. Listan visar det som är närmast och billigast först.</footer>
+</div>
+
+<script>
+// ===== Inställningar =====
+const START = { lat: 59.33675, lng: 18.07175, namn: "Birger Jarlsgatan 25" }; // utgångsläge innan användaren delar sin position
+const GANG_M_PER_MIN = 80;
+const TAGS = { kott: "Kött", fisk: "Fisk", veg: "Veg" };
+
+let home = { ...START };
+let restauranger = [];   // från data/restauranger.json
+let menyer = {};         // från data/menyer.json
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
+
+// Avstånd i meter mellan två punkter på jorden (haversine-formeln)
+function avstand(a, b) {
+  const R = 6371000, rad = x => x * Math.PI / 180;
+  const dLat = rad(b.lat - a.lat), dLng = rad(b.lng - a.lng);
+  const h = Math.sin(dLat/2)**2 + Math.cos(rad(a.lat))*Math.cos(rad(b.lat))*Math.sin(dLng/2)**2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+
+// Skalar ett värde till 0–1 inom en lista, så att avstånd och pris kan vägas ihop
+function skala(v, arr) {
+  const lo = Math.min(...arr), hi = Math.max(...arr);
+  return hi === lo ? 0 : (v - lo) / (hi - lo);
+}
+
+function rita() {
+  const maxDist = +$("dist").value, maxPris = +$("price").value, baraVeg = $("veg").checked;
+  $("distOut").textContent = maxDist >= 1000 ? (maxDist / 1000).toLocaleString("sv-SE") + " km" : maxDist + " m";
+  $("priceOut").textContent = maxPris + " kr";
+
+  const alla = restauranger.map(r => {
+    const meny = menyer[r.id] || { status: "saknas", ratter: [] };
+    const ratter = (meny.ratter || []).filter(d => d.pris != null);
+    return {
+      ...r,
+      ratter,
+      dist: Math.round(avstand(home, r) / 10) * 10,
+      minPris: ratter.length ? Math.min(...ratter.map(d => d.pris)) : null,
+      harVeg: ratter.some(d => d.typ === "veg"),
+    };
+  }).filter(r => r.dist <= maxDist);
+
+  const medMeny = alla.filter(r => r.minPris != null);
+  const utanMeny = alla.filter(r => r.minPris == null);
+
+  const rader = medMeny.filter(r => r.minPris <= maxPris && (!baraVeg || r.harVeg));
+  const ds = rader.map(r => r.dist), ps = rader.map(r => r.minPris);
+  rader.forEach(r => { r.poang = skala(r.dist, ds) + skala(r.minPris, ps); });
+  rader.sort((a, b) => a.poang - b.poang || a.dist - b.dist);
+
+  $("count").innerHTML = `<b>${rader.length}</b> av ${medMeny.length} luncher matchar`;
+
+  $("list").innerHTML = rader.length ? rader.map(r => {
+    const ratter = r.ratter.filter(d => !baraVeg || d.typ === "veg").map(d =>
+      `<li><span class="tag ${esc(d.typ)}">${TAGS[d.typ] || "Rätt"}</span><span>${esc(d.namn)} · <span class="num">${d.pris} kr</span></span></li>`).join("");
+    const gang = Math.max(1, Math.round(r.dist / GANG_M_PER_MIN));
+    return `<li class="card">
+      <h2>${esc(r.namn)}</h2>
+      <div class="price"><small>från </small>${r.minPris} kr</div>
+      <div class="meta"><span class="num">${r.dist} m · ${gang} min</span><span>${esc(r.adress)}</span><span>Lunch ${esc(r.lunchtid)}</span></div>
+      <ul class="dishes">${ratter}</ul>
+    </li>`;
+  }).join("") : `<li class="empty">Inga luncher matchar. Höj maxpriset eller öka avståndet.</li>`;
+
+  $("missing").hidden = !utanMeny.length;
+  $("missing").textContent = utanMeny.length ? "Ingen meny hittad idag: " + utanMeny.map(r => r.namn).join(", ") : "";
+}
+
+function visaInfo(data) {
+  const idag = new Date().toLocaleDateString("sv-CA"); // ger formatet ÅÅÅÅ-MM-DD
+  const delar = [];
+  if (data.exempel) delar.push("<strong>Exempeldata.</strong> Restaurangerna är riktiga, men rätterna och priserna är påhittade tills morgonprogrammet har körts.");
+  else if (data.datum !== idag) delar.push(`<strong>Gamla menyer.</strong> Senaste uppdateringen gäller ${esc(data.datum)}.`);
+  if (delar.length) { $("notice").innerHTML = delar.join(" "); $("notice").hidden = false; }
+}
+
+$("locate").addEventListener("click", () => {
+  if (!navigator.geolocation) { $("place").textContent = "Platstjänster saknas i webbläsaren"; return; }
+  $("locate").textContent = "Hämtar position …";
+  navigator.geolocation.getCurrentPosition(pos => {
+    home = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+    $("place").textContent = "Din position";
+    $("locate").textContent = "Uppdatera position";
+    rita();
+  }, () => {
+    $("locate").textContent = "Använd min position";
+    $("place").textContent = START.namn + " (positionen kunde inte hämtas)";
+  }, { enableHighAccuracy: true, timeout: 10000 });
+});
+
+["dist", "price"].forEach(id => $(id).addEventListener("input", rita));
+$("veg").addEventListener("change", rita);
+
+$("today").textContent = "Dagens lunch, " + new Date().toLocaleDateString("sv-SE", { weekday: "long", day: "numeric", month: "long" });
+
+Promise.all([
+  fetch("data/restauranger.json").then(r => r.json()),
+  fetch("data/menyer.json", { cache: "no-store" }).then(r => r.json()),
+]).then(([reg, data]) => {
+  restauranger = reg;
+  menyer = data.menyer || {};
+  visaInfo(data);
+  rita();
+}).catch(() => {
+  $("count").textContent = "Kunde inte läsa lunchdatan. Öppna sidan via webbadressen, inte som en fil på datorn.";
+});
+</script>
+</body>
+</html>

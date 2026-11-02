@@ -1,0 +1,30 @@
+{
+  "datum": "2026-11-02",
+  "uppdaterad": "2026-11-02T07:30:00+01:00",
+  "exempel": true,
+  "menyer": {
+    "kung-carl": { "status": "ok", "ratter": [
+      { "typ": "kott", "namn": "Ärtsoppa med fläsk, pannkaka och sylt", "pris": 145 },
+      { "typ": "fisk", "namn": "Stekt strömming med potatismos och lingon", "pris": 155 },
+      { "typ": "veg", "namn": "Ärtsoppa utan fläsk, pannkaka", "pris": 145 } ] },
+    "sturehof": { "status": "ok", "ratter": [
+      { "typ": "fisk", "namn": "Pocherad torsk, äggsås och dillpotatis", "pris": 195 },
+      { "typ": "kott", "namn": "Köttbullar med gräddsås och pressgurka", "pris": 185 } ] },
+    "leche-negra": { "status": "ok", "ratter": [
+      { "typ": "kott", "namn": "Kycklingris med ají amarillo", "pris": 165 },
+      { "typ": "veg", "namn": "Rostad pumpa, quinoa och chimichurri", "pris": 155 } ] },
+    "langolo": { "status": "saknas", "ratter": [] },
+    "creme": { "status": "ok", "ratter": [
+      { "typ": "kott", "namn": "Kycklingsallad med fetaost och oliver", "pris": 159 },
+      { "typ": "fisk", "namn": "Grillad tonfisk med tzatziki", "pris": 175 } ] },
+    "supper": { "status": "ok", "ratter": [
+      { "typ": "kott", "namn": "Grillad pluma med chimichurri", "pris": 175 },
+      { "typ": "veg", "namn": "Empanadas med majs och ost", "pris": 155 } ] },
+    "dogtown": { "status": "saknas", "ratter": [] },
+    "proviant": { "status": "saknas", "ratter": [] },
+    "kale-crave": { "status": "ok", "ratter": [
+      { "typ": "veg", "namn": "Currysallad med krispig tempeh", "pris": 135 },
+      { "typ": "kott", "namn": "Thaisallad med kyckling", "pris": 139 } ] },
+    "panini": { "status": "saknas", "ratter": [] }
+  }
+}

@@ -1,0 +1,102 @@
+[
+  {
+    "id": "kung-carl",
+    "namn": "Kung Carl Mat & Bar",
+    "adress": "Birger Jarlsgatan 21",
+    "lat": 59.33637,
+    "lng": 18.07164,
+    "lunchtid": "11:00–14:00",
+    "menyadress": "https://kungcarl.se/en/lunch",
+    "kommentar": "Veckomeny som PDF, filnamnet byts varje vecka"
+  },
+  {
+    "id": "sturehof",
+    "namn": "Sturehof",
+    "adress": "Stureplan 2",
+    "lat": 59.33586,
+    "lng": 18.07330,
+    "lunchtid": "11:30–15:00",
+    "menyadress": "https://sturehof.com/en/menu/",
+    "kommentar": "Menyn uppdateras dagligen"
+  },
+  {
+    "id": "leche-negra",
+    "namn": "Leche Negra",
+    "adress": "Birger Jarlsgatan 32A",
+    "lat": 59.33841,
+    "lng": 18.06923,
+    "lunchtid": "11:30–14:30",
+    "menyadress": "https://www.lechenegra.com/",
+    "kommentar": "Kontrollera att lunchmenyn finns på startsidan"
+  },
+  {
+    "id": "langolo",
+    "namn": "L'angolo",
+    "adress": "Humlegårdsgatan 37",
+    "lat": 59.33761,
+    "lng": 18.07108,
+    "lunchtid": "11:00–14:00",
+    "menyadress": "",
+    "kommentar": "Lunchsida saknas, fyll i adressen"
+  },
+  {
+    "id": "creme",
+    "namn": "Crème Stockholm",
+    "adress": "Nybrogatan 16",
+    "lat": 59.33471,
+    "lng": 18.07753,
+    "lunchtid": "11:00–14:30",
+    "menyadress": "https://creme.se/meny",
+    "kommentar": ""
+  },
+  {
+    "id": "supper",
+    "namn": "Supper",
+    "adress": "Humlegårdsgatan 17",
+    "lat": 59.33655,
+    "lng": 18.07473,
+    "lunchtid": "11:30–14:00",
+    "menyadress": "https://www.supper.nu/stockholm",
+    "kommentar": "Kontrollera om lunchen ligger på en egen undersida"
+  },
+  {
+    "id": "dogtown",
+    "namn": "Dogtown",
+    "adress": "Sturegatan 18",
+    "lat": 59.33796,
+    "lng": 18.07466,
+    "lunchtid": "08:00–15:00",
+    "menyadress": "",
+    "kommentar": "Lunchsida saknas, fyll i adressen"
+  },
+  {
+    "id": "proviant",
+    "namn": "Proviant Humlegården",
+    "adress": "Humlegårdsgatan 26 (KB)",
+    "lat": 59.33823,
+    "lng": 18.07212,
+    "lunchtid": "11:00–14:00",
+    "menyadress": "",
+    "kommentar": "Lunchsida saknas, fyll i adressen"
+  },
+  {
+    "id": "kale-crave",
+    "namn": "Kale & Crave",
+    "adress": "Humlegårdsgatan 22",
+    "lat": 59.33708,
+    "lng": 18.07444,
+    "lunchtid": "11:00–19:30",
+    "menyadress": "https://kaleandcrave.se/",
+    "kommentar": "Fast meny, ingen dagens"
+  },
+  {
+    "id": "panini",
+    "namn": "Panini Internazionale",
+    "adress": "Humlegårdsgatan 20",
+    "lat": 59.33687,
+    "lng": 18.07495,
+    "lunchtid": "07:00–18:00",
+    "menyadress": "",
+    "kommentar": "Lunchsida saknas, fyll i adressen"
+  }
+]
