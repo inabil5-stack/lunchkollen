@@ -1,0 +1,46 @@
+# Tillfällig felsökning: sparar texten programmet ser för varje restaurang. Tas bort efteråt.
+name: Felsök menytexter
+on:
+  push:
+    branches: [felsok]
+permissions:
+  contents: write
+jobs:
+  felsok:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r scripts/requirements.txt
+      - name: Spara hämtad text
+        working-directory: scripts
+        run: |
+          mkdir -p ../felsok
+          python - <<'PY'
+          import json, traceback
+          import hamta_menyer as h
+          for r in json.load(open("../data/restauranger.json")):
+              url = r.get("menyadress")
+              if not url: continue
+              ut = open(f"../felsok/{r['id']}.txt", "w")
+              try:
+                  ut.write(f"URL: {url}\nrobots ok: {h.far_hamta(url)}\n")
+                  svar = h.hamta(url)
+                  text, pdfs = h.text_ur_html(svar.text)
+                  ut.write(f"Content-Type: {svar.headers.get('Content-Type')}\nHTML-längd: {len(svar.text)}\nPDF-länkar: {pdfs}\n")
+                  alla = [a.get('href') for a in h.BeautifulSoup(svar.text, 'html.parser').find_all('a', href=True)]
+                  ut.write("Alla länkar: " + json.dumps(alla, ensure_ascii=False) + "\n\n=== FULL TEXT (som programmet ser den) ===\n")
+                  ut.write(h.hamta_menytext(url))
+              except Exception:
+                  ut.write(traceback.format_exc())
+              ut.close()
+          PY
+      - name: Spara resultatet på grenen
+        run: |
+          git config user.name "lunchkollen-bot"
+          git config user.email "lunchkollen-bot@users.noreply.github.com"
+          git add felsok
+          git commit -m "Felsökningsutdata [skip ci]"
+          git push origin HEAD:felsok
