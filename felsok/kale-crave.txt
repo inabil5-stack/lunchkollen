@@ -1,0 +1,17 @@
+URL: https://kaleandcrave.se/
+robots ok: True
+Content-Type: text/html; charset=utf-8
+HTML-längd: 74876
+PDF-länkar: []
+Alla länkar: ["https://bstl.se/kaleandcrave", "#tw-main", "https://kaleandcrave.se/", "https://kaleandcrave.se/roslagsgatan", "https://kaleandcrave.se/garnisonen", "https://kaleandcrave.se/", "https://kaleandcrave.se/stureplan", "https://kaleandcrave.se/catering", "https://kaleandcrave.se/company-customer", "#", "https://kaleandcrave.se/roslagsgatan", "https://kaleandcrave.se/garnisonen", "https://kaleandcrave.se/stureplan", "https://kaleandcrave.se/roslagsgatan", "https://kaleandcrave.se/garnisonen", "https://kaleandcrave.se/stureplan", "https://thatsup.website/en?utm_source=Thatsup+Web&utm_medium=referral&utm_campaign=footer-branding&utm_term=kale-crave"]
+
+=== FULL TEXT (som programmet ser den) ===
+Kale & Crave - Stockholm. Welcome to join us for lunch, dinner or coffee
+      ORDER
+        Go to content
+    Roslagsgatan
+    Garnisonen
+    Stureplan
+    Roslagsgatan
+    Garnisonen
+    Stureplan

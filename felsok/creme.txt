@@ -1,0 +1,105 @@
+URL: https://creme.se/meny
+robots ok: True
+Content-Type: text/html; charset=utf-8
+HTML-längd: 48261
+PDF-länkar: ['https://static.thatsup.website/162/105409/Lunchmeny-v-45.pdf?v=1793615002', 'https://static.thatsup.website/162/100755/Meny-hemsida.pdf?v=1790084388', 'https://static.thatsup.website/162/89487/Brunchmeny-hemsida.pdf?v=1780667936']
+Alla länkar: ["#tw-main", "https://creme.se/", "https://creme.se/", "https://creme.se/meny", "https://creme.se/catering", "https://creme.se/event", "https://creme.se/kontakt", "https://app.waiteraid.com/reservation/?hash=48828b4e5fbaff09b3834b3dac5b1b11&date=&time=&amount=&mealid=&custom_request=&from_url=bokabord&app_type=bokabord&is_bokabord_web=Y", "https://creme.se/", "https://creme.se/", "https://creme.se/creme-filmhuset", "https://creme.se/bistro-creme", "#", "https://static.thatsup.website/162/105409/Lunchmeny-v-45.pdf?v=1793615002", "https://static.thatsup.website/162/100755/Meny-hemsida.pdf?v=1790084388", "https://static.thatsup.website/162/89487/Brunchmeny-hemsida.pdf?v=1780667936", "tel:+4686607770", "mailto:creme@creme.se", "https://www.google.com/maps/?q=Cr%C3%A8me+Nybrogatan+Nybrogatan+16%2C114+39%2CStockholm&near=59.3348,18.0776", "https://www.instagram.com/cremestockholm/", "https://www.facebook.com/Crème-Stockholm-909729849097694/", "https://thatsup.se/stockholm/restaurang/crème-nybrogatan/", "https://thatsup.website/?utm_source=Thatsup+Web&utm_medium=referral&utm_campaign=footer-branding&utm_term=creme"]
+
+=== FULL TEXT (som programmet ser den) ===
+Meny créme
+        Gå till innehåll
+                        Lunch
+                        Middag
+                        Brunch
+Telefon
++46 8-660 77 70
+Email
+creme@creme.se
+Adress
+Nybrogatan 16
+114 39 Stockholm
+mån
+11 - 14:30
+tis
+11 - Sent
+ons
+11 - Sent
+tors
+11 - Sent
+fre
+11 - 01
+lör
+11:30 - 01
+
+--- Text från PDF (https://static.thatsup.website/162/105409/Lunchmeny-v-45.pdf?v=1793615002) ---
+ 
+ 
+ 
+ 
+ 
+ 
+LUNCH PÅ CRÈME – 180 kr 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ALLTID PÅ CRÉME 
+Torsdag  
+Crèmes köttbullar, potatispuré, gräddsås, 
+rårörda lingon, pressgurka 
+Fredag 195 
+Steak Minute, tomatsallad,  
+pommes frites, bearnaisesås 
+Måndag  
+Chipoltlekryddad kyckling, svartris, mango & 
+chilisalsa, limeyoghurt, picklad rödlök 
+Tisdag  
+Halstrad laxfilé, dillslungad potatis, 
+sandefjordsås, äpple & fänkålsallad  
+Onsdag  
+Kalvstek, dragonsås, rostad potatis,  
+gravad tomat,  haricot verts  
+Veckans pasta  190 
+Pasta aglio e olio con scampi, vitt vin, chili, 
+vitlök 
+ 
+Veckans vegetariska 185 
+Grillad spetskål, fetaostkräm, kryddig bulgur, 
+rostade hasselnötter, brynt smör 
+Halstrad laxfilé 215 
+Halstrad laxfilé, svartris, grillad broccoli, 
+citron, krassemajonnäs 
+Klassisk räksallad 235 
+Räkor, ägg, avokado, dill,  
+Rhode Islanddressing 
+Steak Minute 240 
+Grillad ryggbiff, tomatsallad,  
+bearnaisesås, rödvinssås, pommes 
+Omeletter  195 
+Välj mellan ost & skinkomelett eller ost & 
+svampomelett, serveras med sallad 
+Cheeseburgare 210 
+Cheddarost, karamelliserad lök, tomat, 
+dijonnaisekräm, pommes 
+Kycklingsallad 215 
+Grönkål, quinoa, granatäpple, pumpafrön, 
+citronette, krassemajonnäs 
+Gratinerad chèvresallad 215 
+Variation av betor, vinägrett,  
+kanderade valnötter 
+Sotad tonfisksallad 235 
+Glasnudlar, avokado, koriander,  
+sweet sauce 
