@@ -17,11 +17,13 @@ Kör så här:
   python scripts/hamta_menyer.py --torrkorning   # visar bara hämtad text och vad reglerna hittar, sparar inget
 """
 
+import contextlib
 import datetime
 import io
 import json
 import os
 import re
+import signal
 import sys
 import time
 import unicodedata
@@ -51,22 +53,43 @@ PDF_LEDTRADAR = re.compile(r"lunch|meny|menu|dagens|v\.?\s?\d{1,2}|vecka", re.IG
 
 # ---------- Steg 2: hämta text ----------
 
+@contextlib.contextmanager
+def tidsgrans(sekunder: float):
+    """En väckarklocka: om det som sker inuti tar längre tid än så avbryts det med TimeoutError,
+    oavsett var det har fastnat (DNS, anslutning, en sajt som skickar data droppvis ...)."""
+    def ring(*_):
+        raise TimeoutError(f"gav upp efter {sekunder:.0f} s")
+    gammal = signal.signal(signal.SIGALRM, ring)
+    signal.setitimer(signal.ITIMER_REAL, sekunder)
+    try:
+        yield
+    finally:
+        signal.setitimer(signal.ITIMER_REAL, 0)
+        signal.signal(signal.SIGALRM, gammal)
+
+
 def far_hamta(url: str) -> bool:
     """Kollar robots.txt, alltså sidans egna regler för automatiska besök."""
     delar = urlparse(url)
     rp = urllib.robotparser.RobotFileParser()
-    rp.set_url(f"{delar.scheme}://{delar.netloc}/robots.txt")
     try:
-        rp.read()
+        with tidsgrans(15):
+            svar = requests.get(f"{delar.scheme}://{delar.netloc}/robots.txt",
+                                headers={"User-Agent": USER_AGENT}, timeout=(5, 10))
     except Exception:
         return True  # ingen robots.txt går att läsa = inga uttalade regler
+    if svar.status_code >= 400:
+        return True
+    rp.parse(svar.text.splitlines())
     return rp.can_fetch(USER_AGENT, url)
 
 
-def hamta(url: str) -> requests.Response:
-    svar = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=20)
-    svar.raise_for_status()
-    return svar
+def hamta(url: str, maxtid: float = 30) -> requests.Response:
+    """Hämtar en sida, men ger upp efter maxtid sekunder totalt."""
+    with tidsgrans(maxtid):
+        svar = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=(5, 15))
+        svar.raise_for_status()
+        return svar
 
 
 def text_ur_pdf(data: bytes) -> str:

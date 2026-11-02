@@ -21,6 +21,7 @@ permissions:
 jobs:
   register:
     runs-on: ubuntu-latest
+    timeout-minutes: 45   # stoppa körningen om något hänger sig
     steps:
       - name: Hämta projektets filer
         uses: actions/checkout@v4

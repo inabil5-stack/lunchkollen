@@ -18,6 +18,7 @@ Kör så här:
   python scripts/bygg_register.py --lat 59.33 --lng 18.06 --radie 800
   python scripts/bygg_register.py --torrkorning        # visar vad som skulle läggas till, sparar inget
   python scripts/bygg_register.py --utan-hemsidor      # snabbare: letar inte efter lunchsidor
+  python scripts/bygg_register.py --maxtid 10          # sluta leta lunchsidor efter 10 minuter (standard 20)
 """
 
 import argparse
@@ -40,7 +41,8 @@ REGISTER = ROT / "data" / "restauranger.json"
 OVERPASS = "https://overpass-api.de/api/interpreter"
 
 START_LAT, START_LNG = 59.33675, 18.07175   # Birger Jarlsgatan 25
-SAMMA_STALLE_METER = 60                      # så nära två ställen med samma namn får ligga för att räknas som samma
+SAMMA_STALLE_METER = 60
+EJ_UNDERSOKT = "hemsidan inte undersökt ännu (tidsgräns), undersöks vid nästa körning"                      # så nära två ställen med samma namn får ligga för att räknas som samma
 
 
 # ---------- Steg 1: fråga OpenStreetMap ----------
@@ -163,7 +165,9 @@ def main() -> None:
     p.add_argument("--radie", type=int, default=1000, help="meter")
     p.add_argument("--torrkorning", action="store_true")
     p.add_argument("--utan-hemsidor", action="store_true")
+    p.add_argument("--maxtid", type=float, default=20, help="minuter att leta lunchsidor innan programmet sparar och slutar")
     arg = p.parse_args()
+    start = time.monotonic()
 
     register = json.loads(REGISTER.read_text(encoding="utf-8"))
     print(f"Registret har {len(register)} restauranger.")
@@ -173,18 +177,36 @@ def main() -> None:
 
     nya, kvall, kanda = [], 0, 0
     upptagna = {r["id"] for r in register}
-    for s in sorted(stallen, key=lambda s: avstand(arg.lat, arg.lng, s["lat"], s["lng"])):
+    tidsgrans_meddelad = False
+    for nr, s in enumerate(sorted(stallen, key=lambda s: avstand(arg.lat, arg.lng, s["lat"], s["lng"])), 1):
         befintlig = finns_redan(s, register)
         if befintlig:
             befintlig.setdefault("osm", s["osm"])  # kom ihåg kopplingen till kartan, ändrar inget annat
             kanda += 1
+            # Hann vi inte undersöka hemsidan förra gången? Gör det nu, om det finns tid kvar.
+            if EJ_UNDERSOKT in befintlig.get("kommentar", "") and befintlig.get("hemsida") \
+                    and not befintlig.get("menyadress") and time.monotonic() - start < arg.maxtid * 60:
+                try:
+                    menyadress, forklaring = hitta_lunchsida(befintlig["hemsida"])
+                except Exception as fel:
+                    menyadress, forklaring = "", f"hemsidan gick inte att öppna ({str(fel)[:80]})"
+                befintlig["menyadress"] = menyadress
+                befintlig["kommentar"] = f"Automatiskt tillagd: {forklaring}"
+                print(f"[{nr}/{len(stallen)}] {'+' if menyadress else '·'}  {befintlig['namn']} (undersökt nu): {forklaring}")
+                time.sleep(1)
             continue
         if bara_kvall(s["oppettider"]):
             kvall += 1
             continue
 
         menyadress, forklaring = "", "ingen hemsida i kartdatan"
-        if s["hemsida"] and not arg.utan_hemsidor:
+        slut_pa_tid = time.monotonic() - start > arg.maxtid * 60
+        if slut_pa_tid and not tidsgrans_meddelad:
+            print(f"\nTidsgränsen på {arg.maxtid:.0f} minuter är nådd. Resten läggs till utan att hemsidan undersöks.\n")
+            tidsgrans_meddelad = True
+        if s["hemsida"] and slut_pa_tid:
+            forklaring = EJ_UNDERSOKT
+        elif s["hemsida"] and not arg.utan_hemsidor:
             try:
                 menyadress, forklaring = hitta_lunchsida(s["hemsida"])
             except Exception as fel:
@@ -207,7 +229,7 @@ def main() -> None:
         }
         upptagna.add(ny["id"])
         nya.append(ny)
-        print(f"{'+' if menyadress else '·'}  {s['namn']}: {forklaring}")
+        print(f"[{nr}/{len(stallen)}] {'+' if menyadress else '·'}  {s['namn']}: {forklaring}")
 
     print(f"\n{len(nya)} nya, {kanda} fanns redan, {kvall} hoppades över (bara kvällsöppet).")
     print(f"{sum(1 for n in nya if n['menyadress'])} av de nya fick en menyadress automatiskt.")
