@@ -6,196 +6,428 @@
 <title>Lunchkollen</title>
 <meta name="description" content="Dagens lunch i närheten, sorterat på avstånd och pris.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
-/* Färger och typsnitt. Ändra här för att byta utseende på hela sidan. */
+/* Layout: mörkgrönt huvudfält med sökruta, sedan filterpanel (vänsterkolumn på stora skärmar) och en lista med lunchkort. */
 :root {
-  --bg: #eef2ef; --surface: #ffffff; --ink: #17231d; --muted: #5b6b63;
-  --line: #d3ddd7; --accent: #b3263a; --accent-soft: #f6dfe2; --veg: #2f7a4b;
+  --bg: #edf2ee;          /* sidans bakgrund, svagt dillgrön */
+  --surface: #ffffff;     /* kort och paneler */
+  --ink: #142019;         /* text */
+  --muted: #5b6a62;       /* sekundär text */
+  --line: #d5dfd9;        /* linjer och kanter */
+  --band: #17402e;        /* huvudfältet */
+  --band-ink: #f1f6f2;    /* text i huvudfältet */
+  --accent: #d62f45;      /* lingonröd: favoriter, val, priser */
+  --accent-soft: #fbe3e6;
+  --veg: #2e7b4a;
+  --fish: #2a6c94;
   --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-  --font-body: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-data: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --radius: 14px;
+  --shadow: 0 1px 2px rgb(20 32 25 / .06), 0 6px 20px -12px rgb(20 32 25 / .25);
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #111814; --surface: #1a231e; --ink: #e6ede9; --muted: #9aaaa1;
-    --line: #2c3a33; --accent: #ef6b7c; --accent-soft: #3a1d22; --veg: #6cc58f;
+    --bg: #0e1512; --surface: #17201b; --ink: #e6eee9; --muted: #9aaaa1; --line: #29372f;
+    --band: #0b2a1d; --band-ink: #e6f1ea; --accent: #f2677b; --accent-soft: #3b1c22;
+    --veg: #6cc58f; --fish: #6fb7e0;
+    --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 8px 24px -14px rgb(0 0 0 / .6);
     color-scheme: dark;
   }
 }
 * { box-sizing: border-box; }
-body {
-  margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.5;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
-  padding-block: 24px 48px;
-}
-.wrap { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
-header { display: flex; flex-direction: column; gap: 8px; }
-.brand { font-family: var(--font-display); font-weight: 700; font-size: 2rem; letter-spacing: -0.02em; line-height: 1.1; margin: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.5; }
+button, input { font: inherit; color: inherit; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* ---------- Huvudfält ---------- */
+.band { background: var(--band); color: var(--band-ink); padding-top: env(safe-area-inset-top, 0px); }
+.band .wrap { padding-block: 22px 26px; display: flex; flex-direction: column; gap: 14px; }
+.top { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; }
+.brand { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.9rem, 5vw, 2.6rem); letter-spacing: -0.03em; line-height: 1; margin: 0; }
 .brand span { color: var(--accent); }
-.where { color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; }
-.pin { display: inline-flex; align-items: center; gap: 6px; color: var(--ink); font-weight: 500; }
-.pin svg { width: 14px; height: 14px; fill: var(--accent); }
-.locate { font: inherit; font-size: 0.85rem; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
-.locate:hover { border-color: var(--accent); }
-.notice { font-size: 0.85rem; color: var(--muted); background: var(--surface); border: 1px dashed var(--line); border-radius: 8px; padding: 10px 12px; margin: 0; }
-.notice strong { color: var(--ink); }
+.today { font-size: .9rem; opacity: .85; }
+.today b { font-weight: 600; opacity: 1; }
+.searchbox { position: relative; }
+.searchbox svg { position: absolute; left: 14px; top: 50%; translate: 0 -50%; width: 18px; height: 18px; opacity: .55; pointer-events: none; }
+#q { width: 100%; padding: 13px 44px 13px 42px; border-radius: 12px; border: 1px solid transparent; background: var(--surface); color: var(--ink); font-size: 1rem; box-shadow: 0 6px 20px -10px rgb(0 0 0 / .5); }
+#q::placeholder { color: var(--muted); }
+#q::-webkit-search-cancel-button { display: none; }
+#q:focus { outline: none; border-color: var(--accent); }
+#clearQ { position: absolute; right: 8px; top: 50%; translate: 0 -50%; border: 0; background: transparent; color: var(--muted); width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 1.1rem; }
+#clearQ:hover { background: var(--bg); }
+.where { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; font-size: .9rem; }
+.where .pin { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+.where .pin svg { width: 14px; height: 14px; fill: var(--accent); }
+.ghost { border: 1px solid rgb(255 255 255 / .28); background: transparent; color: var(--band-ink); padding: 5px 12px; border-radius: 999px; cursor: pointer; font-size: .85rem; transition: background .15s; }
+.ghost:hover { background: rgb(255 255 255 / .1); }
+.stale { background: var(--accent); color: #fff; padding: 6px 12px; border-radius: 8px; font-size: .85rem; }
 
-.filters { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 20px; }
-@media (max-width: 520px) { .filters { grid-template-columns: 1fr; } }
-.field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
-.field.wide { grid-column: 1 / -1; }
-.field > label, .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; display: flex; justify-content: space-between; }
-.field output { font-family: var(--font-data); color: var(--ink); text-transform: none; letter-spacing: 0; font-size: 0.85rem; }
-input[type=range] { width: 100%; accent-color: var(--accent); }
-.check { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; cursor: pointer; }
-.check input { accent-color: var(--veg); width: 18px; height: 18px; }
-button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* ---------- Sidans uppdelning ---------- */
+.layout { display: grid; grid-template-columns: 1fr; gap: 20px; padding-block: 20px 48px; align-items: start; }
+@media (min-width: 940px) { .layout { grid-template-columns: 290px minmax(0, 1fr); gap: 28px; } .filters { position: sticky; top: 16px; } }
 
-.count { color: var(--muted); font-size: 0.9rem; margin: 0; }
-.count b { color: var(--ink); font-family: var(--font-data); }
-.list { display: flex; flex-direction: column; gap: 12px; list-style: none; padding: 0; margin: 0; }
-.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; }
-.card h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; margin: 0; letter-spacing: -0.01em; min-width: 0; }
-.price { font-family: var(--font-data); font-size: 1.15rem; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
-.price small { font-size: 0.75rem; color: var(--muted); }
-.meta { grid-column: 1 / -1; color: var(--muted); font-size: 0.85rem; display: flex; flex-wrap: wrap; gap: 2px 14px; }
-.num { color: var(--ink); font-family: var(--font-data); font-variant-numeric: tabular-nums; }
-.dishes { grid-column: 1 / -1; list-style: none; padding: 8px 0 0; margin: 4px 0 0; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; }
-.dishes li { display: flex; gap: 8px; align-items: baseline; min-width: 0; }
-.tag { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; padding: 1px 6px; border-radius: 4px; flex-shrink: 0; }
-.tag.kott { background: var(--accent-soft); color: var(--accent); }
-.tag.fisk { background: var(--line); color: var(--ink); }
-.tag.veg { background: color-mix(in srgb, var(--veg) 18%, transparent); color: var(--veg); }
-.empty { text-align: center; color: var(--muted); padding: 32px 16px; background: var(--surface); border: 1px dashed var(--line); border-radius: 12px; }
-.missing { font-size: 0.85rem; color: var(--muted); }
+/* ---------- Filter ---------- */
+.filters { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; display: flex; flex-direction: column; gap: 18px; box-shadow: var(--shadow); }
+.fbody { display: flex; flex-direction: column; gap: 18px; }
+.ftoggle { display: none; }
+@media (max-width: 939px) {
+  .filters { padding: 0; gap: 0; }
+  .ftoggle { display: flex; align-items: center; gap: 10px; width: 100%; padding: 14px 16px; border: 0; background: none; cursor: pointer; font-weight: 600; text-align: left; }
+  .ftoggle .fsum { flex: 1; min-width: 0; font-weight: 400; color: var(--muted); font-size: .88rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ftoggle svg { width: 18px; height: 18px; transition: transform .2s; }
+  .ftoggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+  .fbody { padding: 4px 16px 18px; }
+  .ftoggle[aria-expanded="false"] + .fbody { display: none; }
+}
+.fgroup { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.flabel { font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); display: flex; justify-content: space-between; align-items: baseline; }
+.flabel output { font-family: var(--font-data); font-size: .85rem; letter-spacing: 0; text-transform: none; color: var(--ink); }
+input[type=range] { width: 100%; accent-color: var(--accent); margin: 0; }
+.scale { display: flex; justify-content: space-between; font-size: .72rem; color: var(--muted); font-family: var(--font-data); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--bg); cursor: pointer; font-size: .9rem; transition: background .15s, border-color .15s, color .15s, transform .1s; user-select: none; }
+.chip:hover { border-color: var(--muted); }
+.chip:active { transform: scale(.97); }
+.chip .dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; opacity: .8; }
+.chip[data-typ="veg"] .dot { background: var(--veg); }
+.chip[data-typ="fisk"] .dot { background: var(--fish); }
+.chip[data-typ="kott"] .dot { background: var(--accent); }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.chip[aria-pressed="true"] .dot { background: var(--bg); }
+.chip .heart { width: 15px; height: 15px; }
+.reset { align-self: flex-start; border: 0; background: none; color: var(--accent); font-weight: 600; cursor: pointer; padding: 0; font-size: .9rem; }
+.reset:hover { text-decoration: underline; }
+.hint { font-size: .78rem; color: var(--muted); margin: -2px 0 0; }
+
+/* ---------- Resultat ---------- */
+.results { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.status { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px; color: var(--muted); font-size: .9rem; }
+.status b { color: var(--ink); font-family: var(--font-data); font-weight: 500; }
+.list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; box-shadow: var(--shadow); transition: border-color .15s, transform .15s; }
+.card:hover { border-color: color-mix(in srgb, var(--muted) 45%, var(--line)); }
+.card.top-pick { border-color: var(--accent); }
+.card.in { animation: in .35s ease both; }
+@keyframes in { from { opacity: 0; transform: translateY(6px); } }
+.head { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 4px 12px; align-items: start; }
+.name { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; letter-spacing: -0.015em; line-height: 1.2; margin: 0; overflow-wrap: anywhere; }
+.badge { display: inline-block; vertical-align: 3px; margin-left: 8px; font-family: var(--font-body); font-size: .68rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); padding: 2px 7px; border-radius: 5px; }
+.from { font-family: var(--font-data); font-size: 1.05rem; white-space: nowrap; padding-top: 2px; font-variant-numeric: tabular-nums; }
+.from small { font-family: var(--font-body); font-size: .75rem; color: var(--muted); }
+.fav { border: 0; background: transparent; width: 38px; height: 38px; margin: -6px -8px 0 0; border-radius: 50%; display: grid; place-items: center; cursor: pointer; color: var(--muted); transition: background .15s, color .15s; }
+.fav:hover { background: var(--accent-soft); color: var(--accent); }
+.fav svg { width: 21px; height: 21px; }
+.fav[aria-pressed="true"] { color: var(--accent); }
+.fav[aria-pressed="true"] svg path { fill: currentColor; }
+.fav.pop svg { animation: pop .35s ease; }
+@keyframes pop { 40% { transform: scale(1.35); } }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; font-size: .86rem; color: var(--muted); }
+.meta .walk { display: inline-flex; align-items: center; gap: 5px; color: var(--ink); font-family: var(--font-data); font-size: .82rem; font-variant-numeric: tabular-nums; }
+.meta .walk svg { width: 14px; height: 14px; }
+.meta .closed { color: var(--accent); font-weight: 600; }
+.menulink { display: inline-flex; align-items: center; gap: 4px; color: var(--accent); font-weight: 600; text-decoration: none; }
+.menulink:hover { text-decoration: underline; }
+
+.dishes { list-style: none; margin: 0; padding: 10px 0 0; border-top: 1px dashed var(--line); display: flex; flex-direction: column; gap: 7px; }
+.dish { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: baseline; }
+.dish .dname { min-width: 0; overflow-wrap: anywhere; }
+.dish .dname::after { content: ""; }
+.dish .price { font-family: var(--font-data); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tag { display: inline-block; margin-right: 6px; font-size: .66rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 1px 6px; border-radius: 4px; vertical-align: 1px; }
+.tag.veg { color: var(--veg); background: color-mix(in srgb, var(--veg) 15%, transparent); }
+.tag.fisk { color: var(--fish); background: color-mix(in srgb, var(--fish) 15%, transparent); }
+mark { background: color-mix(in srgb, var(--accent) 22%, transparent); color: inherit; border-radius: 3px; padding: 0 1px; }
+.more { align-self: flex-start; border: 0; background: none; padding: 2px 0; color: var(--muted); cursor: pointer; font-size: .86rem; font-weight: 600; }
+.more:hover { color: var(--ink); }
+
+.empty { text-align: center; padding: 40px 20px; background: var(--surface); border: 1px dashed var(--line); border-radius: var(--radius); color: var(--muted); display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.empty strong { color: var(--ink); font-family: var(--font-display); font-size: 1.15rem; }
+.missing { font-size: .86rem; color: var(--muted); }
 .missing summary { cursor: pointer; }
 .missing p { margin: 6px 0 0; }
-footer { color: var(--muted); font-size: 0.8rem; }
-footer a { color: inherit; }
+footer { color: var(--muted); font-size: .8rem; padding-bottom: 32px; }
+.toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); translate: -50% 0; background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: 10px; font-size: .9rem; box-shadow: var(--shadow); opacity: 0; transform: translateY(8px); transition: opacity .2s, transform .2s; pointer-events: none; z-index: 10; }
+.toast.show { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <h1 class="brand">Lunch<span>kollen</span></h1>
+<header class="band">
+  <div class="wrap">
+    <div class="top">
+      <h1 class="brand">Lunch<span>kollen</span></h1>
+      <div class="today" id="today"></div>
+    </div>
+    <div class="searchbox">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Sök rätt eller restaurang, t.ex. lax, pasta, sushi" autocomplete="off" aria-label="Sök rätt eller restaurang">
+      <button id="clearQ" type="button" aria-label="Rensa sökningen" hidden>×</button>
+    </div>
     <div class="where">
       <span class="pin"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span id="place">Birger Jarlsgatan 25</span></span>
-      <button type="button" class="locate" id="locate">Använd min position</button>
-      <span id="today"></span>
+      <button type="button" class="ghost" id="locate">Använd min position</button>
+      <span id="updated"></span>
     </div>
-  </header>
+    <div class="stale" id="stale" hidden></div>
+  </div>
+</header>
 
-  <p class="notice" id="notice" hidden></p>
+<main class="wrap layout">
+  <aside class="filters" aria-label="Filter">
+    <button type="button" class="ftoggle" id="ftoggle" aria-expanded="false" aria-controls="fbody">
+      <span>Filter</span><span class="fsum" id="fsum"></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="fbody" id="fbody">
+    <div class="fgroup">
+      <label class="flabel" for="dist">Max avstånd <output id="distOut"></output></label>
+      <input type="range" id="dist" min="100" max="2000" step="50" value="800">
+      <div class="scale"><span>100 m</span><span>2 km</span></div>
+    </div>
+    <div class="fgroup">
+      <label class="flabel" for="price">Max pris <output id="priceOut"></output></label>
+      <input type="range" id="price" min="80" max="300" step="5" value="200">
+      <div class="scale"><span>80 kr</span><span>300 kr</span></div>
+    </div>
+    <div class="fgroup">
+      <span class="flabel">Mat</span>
+      <div class="chips" role="group" aria-label="Typ av mat">
+        <button type="button" class="chip" data-typ="veg" aria-pressed="false"><span class="dot"></span>Vegetariskt</button>
+        <button type="button" class="chip" data-typ="fisk" aria-pressed="false"><span class="dot"></span>Fisk</button>
+        <button type="button" class="chip" data-typ="kott" aria-pressed="false"><span class="dot"></span>Kött &amp; övrigt</button>
+      </div>
+    </div>
+    <div class="fgroup">
+      <span class="flabel">Visa</span>
+      <div class="chips">
+        <button type="button" class="chip" id="onlyFav" aria-pressed="false"><svg class="heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z"/></svg>Bara favoriter</button>
+        <button type="button" class="chip" id="hideClosed" aria-pressed="false">Dölj stängd lunch</button>
+      </div>
+      <p class="hint">Lunchtiden är bara känd för en del ställen. De andra visas alltid.</p>
+    </div>
+    <button type="button" class="reset" id="reset" hidden>Rensa alla filter</button>
+    </div>
+  </aside>
 
-  <section class="filters" aria-label="Filter">
-    <div class="field">
-      <label for="dist">Max avstånd <output id="distOut"></output></label>
-      <input type="range" id="dist" min="100" max="2000" step="50" value="600">
-    </div>
-    <div class="field">
-      <label for="price">Max pris <output id="priceOut"></output></label>
-      <input type="range" id="price" min="90" max="250" step="5" value="160">
-    </div>
-    <div class="field wide">
-      <span class="label">Kost</span>
-      <label class="check" for="veg"><input type="checkbox" id="veg"> Har vegetariskt alternativ</label>
-    </div>
+  <section class="results" aria-live="polite">
+    <div class="status"><span id="count">Laddar dagens luncher …</span><span>Närmast och billigast först</span></div>
+    <ul class="list" id="list"></ul>
+    <details class="missing" id="missing" hidden>
+      <summary><span id="missingCount"></span> inom avståndet har ingen meny idag</summary>
+      <p id="missingList"></p>
+    </details>
   </section>
+</main>
 
-  <p class="count" id="count">Laddar dagens luncher …</p>
-  <ul class="list" id="list"></ul>
-  <details class="missing" id="missing" hidden>
-    <summary><span id="missingCount"></span> inom avståndet har ingen meny idag</summary>
-    <p id="missingList"></p>
-  </details>
-
-  <footer>Avstånd räknas fågelvägen. Gångtid uppskattas till 80 meter per minut. Listan visar det som är närmast och billigast först. Restaurangdata delvis från © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap-bidragsgivare</a>.</footer>
-</div>
+<footer class="wrap">Avstånd räknas fågelvägen, gångtid med 80 meter per minut. Menyerna hämtas automatiskt varje vardagsmorgon och kan innehålla fel, så kolla gärna restaurangens egen meny. Restaurangdata delvis från © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap-bidragsgivare</a>.</footer>
+<div class="toast" id="toast" role="status"></div>
 
 <script>
 // ===== Inställningar =====
-const START = { lat: 59.33675, lng: 18.07175, namn: "Birger Jarlsgatan 25" }; // utgångsläge innan användaren delar sin position
+const START = { lat: 59.33675, lng: 18.07175, namn: "Birger Jarlsgatan 25" };
 const GANG_M_PER_MIN = 80;
-const TAGS = { kott: "Kött", fisk: "Fisk", veg: "Veg" };
+const VISA_RATTER = 3;   // så många rätter visas innan "visa fler"
+const TYPNAMN = { veg: "Veg", fisk: "Fisk" };
+const STANDARD = { dist: 800, price: 200, typer: [], onlyFav: false, hideClosed: false };
 
 let home = { ...START };
-let restauranger = [];   // från data/restauranger.json
-let menyer = {};         // från data/menyer.json
+let restauranger = [], menyer = {};
+let favoriter = new Set(las("lunchkollen-favoriter", []));
+let state = { ...STANDARD, ...las("lunchkollen-filter", {}) , q: "" };
+const oppna = new Set();   // kort där användaren valt "visa fler"
+let forstaRitning = true;
 
 const $ = id => document.getElementById(id);
-const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-// Avstånd i meter mellan två punkter på jorden (haversine-formeln)
+// Webbläsarens minne, för favoriter och filter. Fungerar inte överallt (t.ex. privat läge), därav try/catch.
+function las(nyckel, standard) { try { const v = localStorage.getItem(nyckel); return v ? JSON.parse(v) : standard; } catch { return standard; } }
+function spara(nyckel, varde) { try { localStorage.setItem(nyckel, JSON.stringify(varde)); } catch {} }
+
 function avstand(a, b) {
   const R = 6371000, rad = x => x * Math.PI / 180;
   const dLat = rad(b.lat - a.lat), dLng = rad(b.lng - a.lng);
-  const h = Math.sin(dLat/2)**2 + Math.cos(rad(a.lat))*Math.cos(rad(b.lat))*Math.sin(dLng/2)**2;
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(rad(a.lat)) * Math.cos(rad(b.lat)) * Math.sin(dLng / 2) ** 2;
   return 2 * R * Math.asin(Math.sqrt(h));
 }
+function skala(v, arr) { const lo = Math.min(...arr), hi = Math.max(...arr); return hi === lo ? 0 : (v - lo) / (hi - lo); }
+const normal = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");   // "Crème" hittas med "creme"
 
-// Skalar ett värde till 0–1 inom en lista, så att avstånd och pris kan vägas ihop
-function skala(v, arr) {
-  const lo = Math.min(...arr), hi = Math.max(...arr);
-  return hi === lo ? 0 : (v - lo) / (hi - lo);
+// Markera sökordet i en text, utan att röra HTML-tecknen
+function markera(text, q) {
+  if (!q) return esc(text);
+  const n = normal(text), nq = normal(q);
+  let ut = "", i = 0, j;
+  while ((j = n.indexOf(nq, i)) !== -1) { ut += esc(text.slice(i, j)) + "<mark>" + esc(text.slice(j, j + nq.length)) + "</mark>"; i = j + nq.length; }
+  return ut + esc(text.slice(i));
 }
 
+// Har lunchen slutat för idag? Bara känt om lunchtiden står i registret, t.ex. "11:00–14:00".
+function lunchSlut(r) {
+  const m = /(\d{1,2})[:.](\d{2})\s*[–-]\s*(\d{1,2})[:.](\d{2})/.exec(r.lunchtid || "");
+  if (!m) return false;
+  const nu = new Date(), min = nu.getHours() * 60 + nu.getMinutes();
+  return min > (+m[3]) * 60 + (+m[4]);
+}
+
+function aktivaFilter() {
+  let n = 0;
+  if (state.dist !== STANDARD.dist) n++;
+  if (state.price !== STANDARD.price) n++;
+  n += state.typer.length;
+  if (state.onlyFav) n++;
+  if (state.hideClosed) n++;
+  return n;
+}
+
+const IKON_HJARTA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z"/></svg>';
+const IKON_GA = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="13" cy="4" r="2"/><path d="M10.6 8.2 8 9.6V13h2v-2.2l1.2-.6-1.1 5.3L7 20.5l1.6 1.2 3.4-4.6.9-3.5 2.1 2v5.4h2v-6.3l-2.2-2.2.6-2.8c.9 1.3 2.4 2.2 4 2.3v-2c-1.4-.1-2.4-.9-2.9-2l-.9-1.6c-.5-.8-1.3-1.1-2.1-1l-3 1.1z"/></svg>';
+
 function rita() {
-  const maxDist = +$("dist").value, maxPris = +$("price").value, baraVeg = $("veg").checked;
-  $("distOut").textContent = maxDist >= 1000 ? (maxDist / 1000).toLocaleString("sv-SE") + " km" : maxDist + " m";
-  $("priceOut").textContent = maxPris + " kr";
+  const q = state.q.trim();
+  const nq = normal(q);
+  $("distOut").textContent = state.dist >= 1000 ? (state.dist / 1000).toLocaleString("sv-SE") + " km" : state.dist + " m";
+  $("priceOut").textContent = state.price >= 300 ? "alla priser" : state.price + " kr";
 
-  const alla = restauranger.map(r => {
-    const meny = menyer[r.id] || { status: "saknas", ratter: [] };
-    const ratter = (meny.ratter || []).filter(d => d.pris != null);
-    return {
-      ...r,
-      ratter,
-      dist: Math.round(avstand(home, r) / 10) * 10,
-      minPris: ratter.length ? Math.min(...ratter.map(d => d.pris)) : null,
-      harVeg: ratter.some(d => d.typ === "veg"),
-    };
-  }).filter(r => r.dist <= maxDist);
+  const inom = [], utanMeny = [];
+  for (const r of restauranger) {
+    const dist = Math.round(avstand(home, r) / 10) * 10;
+    if (dist > state.dist) continue;
+    const meny = menyer[r.id];
+    const alla = (meny && meny.ratter || []).filter(d => d.pris != null);
+    if (!alla.length) { utanMeny.push(r); continue; }
+    const namnTraff = nq && normal(r.namn).includes(nq);
+    const ratter = alla.filter(d =>
+      (state.price >= 300 || d.pris <= state.price) &&
+      (!state.typer.length || state.typer.includes(d.typ)) &&
+      (!nq || namnTraff || normal(d.namn).includes(nq)));
+    if (!ratter.length) continue;
+    ratter.sort((a, b) => a.pris - b.pris);   // billigaste rätten först, så att "från"-priset syns
+    const fav = favoriter.has(r.id);
+    if (state.onlyFav && !fav) continue;
+    const stangd = lunchSlut(r);
+    if (state.hideClosed && stangd) continue;
+    inom.push({ r, dist, ratter, fav, stangd, minPris: Math.min(...ratter.map(d => d.pris)) });
+  }
 
-  const medMeny = alla.filter(r => r.minPris != null);
-  const utanMeny = alla.filter(r => r.minPris == null);
+  // Sortering: avstånd och pris med lika vikt, favoriter först
+  const ds = inom.map(x => x.dist), ps = inom.map(x => x.minPris);
+  inom.forEach(x => x.poang = skala(x.dist, ds) + skala(x.minPris, ps));
+  inom.sort((a, b) => (b.fav - a.fav) || (a.poang - b.poang) || (a.dist - b.dist));
+  const basta = inom.slice().sort((a, b) => a.poang - b.poang)[0];
 
-  const rader = medMeny.filter(r => r.minPris <= maxPris && (!baraVeg || r.harVeg));
-  const ds = rader.map(r => r.dist), ps = rader.map(r => r.minPris);
-  rader.forEach(r => { r.poang = skala(r.dist, ds) + skala(r.minPris, ps); });
-  rader.sort((a, b) => a.poang - b.poang || a.dist - b.dist);
+  const totalt = inom.length;
+  $("count").innerHTML = totalt ? `<b>${totalt}</b> ${totalt === 1 ? "ställe" : "ställen"} med lunch som passar` : "Inga träffar";
+  const n = aktivaFilter();
+  const delar = [$("distOut").textContent, state.price >= 300 ? "alla priser" : "max " + state.price + " kr"];
+  if (state.typer.length) delar.push(state.typer.map(t => ({ veg: "veg", fisk: "fisk", kott: "kött" })[t]).join(", "));
+  if (state.onlyFav) delar.push("favoriter");
+  if (state.hideClosed) delar.push("dölj stängda");
+  $("fsum").textContent = delar.join(" · ");
+  $("reset").hidden = !n;
+  $("reset").textContent = n === 1 ? "Rensa filtret" : `Rensa alla filter (${n})`;
 
-  $("count").innerHTML = `<b>${rader.length}</b> av ${medMeny.length} luncher matchar`;
+  if (!totalt) {
+    const tips = q ? `Inget matchar ”${esc(q)}” med dina filter.` : state.onlyFav ? "Du har inga favoriter som matchar. Tryck på hjärtat på ett kort för att spara en favorit." : "Höj maxpriset, öka avståndet eller ta bort något filter.";
+    $("list").innerHTML = `<li class="empty"><strong>Ingen lunch hittades</strong><span>${tips}</span>${n || q ? '<button type="button" class="reset" data-reset>Rensa sökning och filter</button>' : ""}</li>`;
+  } else {
+    $("list").innerHTML = inom.map((x, i) => kort(x, x === basta && !q, q, i)).join("");
+  }
+  forstaRitning = false;
 
-  $("list").innerHTML = rader.length ? rader.map(r => {
-    const ratter = r.ratter.filter(d => !baraVeg || d.typ === "veg").map(d =>
-      `<li><span class="tag ${esc(d.typ)}">${TAGS[d.typ] || "Rätt"}</span><span>${esc(d.namn)} · <span class="num">${d.pris} kr</span></span></li>`).join("");
-    const gang = Math.max(1, Math.round(r.dist / GANG_M_PER_MIN));
-    return `<li class="card">
-      <h2>${esc(r.namn)}</h2>
-      <div class="price"><small>från </small>${r.minPris} kr</div>
-      <div class="meta"><span class="num">${r.dist} m · ${gang} min</span>${r.adress ? `<span>${esc(r.adress)}</span>` : ""}${r.lunchtid ? `<span>Lunch ${esc(r.lunchtid)}</span>` : ""}</div>
-      <ul class="dishes">${ratter}</ul>
-    </li>`;
-  }).join("") : `<li class="empty">Inga luncher matchar. Höj maxpriset eller öka avståndet.</li>`;
-
-  // Ställen utan meny visas hopfällda, så att listan inte drunknar när registret växer
-  $("missing").hidden = !utanMeny.length;
+  $("missing").hidden = !utanMeny.length || !!q;
   $("missingCount").textContent = utanMeny.length === 1 ? "1 ställe" : utanMeny.length + " ställen";
   $("missingList").textContent = utanMeny.map(r => r.namn).join(", ");
 }
 
-function visaInfo(data) {
-  const idag = new Date().toLocaleDateString("sv-CA"); // ger formatet ÅÅÅÅ-MM-DD
-  const delar = [];
-  if (data.exempel) delar.push("<strong>Exempeldata.</strong> Restaurangerna är riktiga, men rätterna och priserna är påhittade tills morgonprogrammet har körts.");
-  else if (data.datum !== idag) delar.push(`<strong>Gamla menyer.</strong> Senaste uppdateringen gäller ${esc(data.datum)}.`);
-  if (delar.length) { $("notice").innerHTML = delar.join(" "); $("notice").hidden = false; }
+function kort({ r, dist, ratter, fav, stangd, minPris }, toppval, q, i) {
+  const gang = Math.max(1, Math.round(dist / GANG_M_PER_MIN));
+  const oppen = oppna.has(r.id) || (q && !normal(r.namn).includes(normal(q)));
+  const synliga = oppen ? ratter : ratter.slice(0, VISA_RATTER);
+  const dolda = ratter.length - synliga.length;
+  const lank = r.menyadress || r.hemsida;
+  const rader = synliga.map(d => `<li class="dish"><span class="dname">${TYPNAMN[d.typ] ? `<span class="tag ${d.typ}">${TYPNAMN[d.typ]}</span>` : ""}${markera(d.namn, q)}</span><span class="price">${d.pris} kr</span></li>`).join("");
+  const delay = forstaRitning ? ` style="animation-delay:${Math.min(i, 12) * 35}ms"` : "";
+  return `<li class="card${toppval ? " top-pick" : ""}${forstaRitning ? " in" : ""}"${delay}>
+    <div class="head">
+      <h2 class="name">${markera(r.namn, q)}${toppval ? '<span class="badge">Toppval</span>' : ""}</h2>
+      <div class="from"><small>från </small>${minPris} kr</div>
+      <button type="button" class="fav" data-fav="${esc(r.id)}" aria-pressed="${fav}" aria-label="${fav ? "Ta bort" : "Spara"} ${esc(r.namn)} som favorit">${IKON_HJARTA}</button>
+    </div>
+    <div class="meta">
+      <span class="walk">${IKON_GA}${gang} min · ${dist} m</span>
+      ${r.adress ? `<span>${esc(r.adress)}</span>` : ""}
+      ${r.lunchtid ? `<span${stangd ? ' class="closed"' : ""}>${stangd ? "Lunchen har slutat" : "Lunch " + esc(r.lunchtid)}</span>` : ""}
+      ${lank ? `<a class="menulink" href="${esc(lank)}" target="_blank" rel="noopener">Se menyn ↗</a>` : ""}
+    </div>
+    <ul class="dishes">${rader}</ul>
+    ${dolda > 0 ? `<button type="button" class="more" data-more="${esc(r.id)}">Visa ${dolda} ${dolda === 1 ? "rätt" : "rätter"} till</button>` : ""}
+    ${oppen && oppna.has(r.id) && ratter.length > VISA_RATTER ? `<button type="button" class="more" data-less="${esc(r.id)}">Visa färre</button>` : ""}
+  </li>`;
 }
 
+let toastTimer;
+function toast(text) {
+  const t = $("toast"); t.textContent = text; t.classList.add("show");
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("show"), 1800);
+}
+
+function sparaFilter() { const { q, ...rest } = state; spara("lunchkollen-filter", rest); }
+function synkaKontroller() {
+  $("dist").value = state.dist; $("price").value = state.price;
+  document.querySelectorAll(".chip[data-typ]").forEach(c => c.setAttribute("aria-pressed", state.typer.includes(c.dataset.typ)));
+  $("onlyFav").setAttribute("aria-pressed", state.onlyFav);
+  $("hideClosed").setAttribute("aria-pressed", state.hideClosed);
+  $("q").value = state.q; $("clearQ").hidden = !state.q;
+}
+
+// ----- Händelser -----
+$("q").addEventListener("input", e => { state.q = e.target.value; $("clearQ").hidden = !state.q; rita(); });
+$("clearQ").addEventListener("click", () => { state.q = ""; synkaKontroller(); rita(); $("q").focus(); });
+$("dist").addEventListener("input", e => { state.dist = +e.target.value; sparaFilter(); rita(); });
+$("price").addEventListener("input", e => { state.price = +e.target.value; sparaFilter(); rita(); });
+document.querySelectorAll(".chip[data-typ]").forEach(c => c.addEventListener("click", () => {
+  const t = c.dataset.typ;
+  state.typer = state.typer.includes(t) ? state.typer.filter(x => x !== t) : [...state.typer, t];
+  synkaKontroller(); sparaFilter(); rita();
+}));
+$("onlyFav").addEventListener("click", () => { state.onlyFav = !state.onlyFav; synkaKontroller(); sparaFilter(); rita(); });
+$("hideClosed").addEventListener("click", () => { state.hideClosed = !state.hideClosed; synkaKontroller(); sparaFilter(); rita(); });
+function nollstall() { state = { ...STANDARD, typer: [], q: "" }; synkaKontroller(); sparaFilter(); rita(); }
+$("reset").addEventListener("click", nollstall);
+$("ftoggle").addEventListener("click", () => { const t = $("ftoggle"); t.setAttribute("aria-expanded", t.getAttribute("aria-expanded") !== "true"); });
+
+$("list").addEventListener("click", e => {
+  const fav = e.target.closest("[data-fav]");
+  if (fav) {
+    const id = fav.dataset.fav, namn = (restauranger.find(r => r.id === id) || {}).namn || "";
+    const pa = !favoriter.has(id);
+    pa ? favoriter.add(id) : favoriter.delete(id);
+    spara("lunchkollen-favoriter", [...favoriter]);
+    // Uppdatera bara hjärtat, så att kortet inte hoppar iväg medan man tittar på det
+    fav.setAttribute("aria-pressed", pa);
+    fav.setAttribute("aria-label", `${pa ? "Ta bort" : "Spara"} ${namn} som favorit`);
+    fav.classList.remove("pop"); void fav.offsetWidth; fav.classList.add("pop");
+    toast(pa ? `${namn} sparad som favorit` : `${namn} borttagen från favoriter`);
+    if (state.onlyFav && !pa) rita();
+    return;
+  }
+  const mer = e.target.closest("[data-more]");
+  if (mer) { oppna.add(mer.dataset.more); rita(); return; }
+  const mindre = e.target.closest("[data-less]");
+  if (mindre) { oppna.delete(mindre.dataset.less); rita(); return; }
+  if (e.target.closest("[data-reset]")) nollstall();
+});
+
 $("locate").addEventListener("click", () => {
-  if (!navigator.geolocation) { $("place").textContent = "Platstjänster saknas i webbläsaren"; return; }
+  if (!navigator.geolocation) { toast("Webbläsaren kan inte dela din position"); return; }
   $("locate").textContent = "Hämtar position …";
   navigator.geolocation.getCurrentPosition(pos => {
     home = { lat: pos.coords.latitude, lng: pos.coords.longitude };
@@ -204,26 +436,32 @@ $("locate").addEventListener("click", () => {
     rita();
   }, () => {
     $("locate").textContent = "Använd min position";
-    $("place").textContent = START.namn + " (positionen kunde inte hämtas)";
+    toast("Positionen kunde inte hämtas, visar från " + START.namn);
   }, { enableHighAccuracy: true, timeout: 10000 });
 });
 
-["dist", "price"].forEach(id => $(id).addEventListener("input", rita));
-$("veg").addEventListener("change", rita);
+function visaDatum(data) {
+  const nu = new Date();
+  const vecka = (() => { const d = new Date(Date.UTC(nu.getFullYear(), nu.getMonth(), nu.getDate())); const dag = d.getUTCDay() || 7; d.setUTCDate(d.getUTCDate() + 4 - dag); const ar = new Date(Date.UTC(d.getUTCFullYear(), 0, 1)); return Math.ceil(((d - ar) / 864e5 + 1) / 7); })();
+  const dag = nu.toLocaleDateString("sv-SE", { weekday: "long", day: "numeric", month: "long" });
+  $("today").innerHTML = `<b>${dag.charAt(0).toUpperCase() + dag.slice(1)}</b> · vecka ${vecka}`;
+  if (data.uppdaterad) {
+    const t = new Date(data.uppdaterad);
+    if (!isNaN(t)) $("updated").textContent = "Menyerna hämtades " + t.toLocaleTimeString("sv-SE", { hour: "2-digit", minute: "2-digit" });
+  }
+  const idag = nu.toLocaleDateString("sv-CA");
+  if (data.exempel) { $("stale").textContent = "Exempeldata: rätterna och priserna är påhittade tills morgonprogrammet har körts."; $("stale").hidden = false; }
+  else if (data.datum && data.datum !== idag) { $("stale").textContent = `Menyerna är från ${data.datum}. Dagens har inte hämtats ännu.`; $("stale").hidden = false; }
+}
 
-$("today").textContent = "Dagens lunch, " + new Date().toLocaleDateString("sv-SE", { weekday: "long", day: "numeric", month: "long" });
-
+synkaKontroller();
 Promise.all([
   fetch("data/restauranger.json").then(r => r.json()),
   fetch("data/menyer.json", { cache: "no-store" }).then(r => r.json()),
 ]).then(([reg, data]) => {
-  restauranger = reg;
-  menyer = data.menyer || {};
-  visaInfo(data);
-  rita();
-}).catch(() => {
-  $("count").textContent = "Kunde inte läsa lunchdatan. Öppna sidan via webbadressen, inte som en fil på datorn.";
-});
+  restauranger = reg; menyer = data.menyer || {};
+  visaDatum(data); rita();
+}).catch(() => { $("count").textContent = "Kunde inte läsa lunchdatan. Öppna sidan via webbadressen, inte som en fil på datorn."; });
 </script>
 </body>
 </html>
