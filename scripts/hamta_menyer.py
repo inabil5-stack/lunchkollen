@@ -130,8 +130,13 @@ def text_ur_html(html: str) -> tuple[str, list[str]]:
 
 def hamta_menytext(url: str) -> str:
     svar = hamta(url)
-    if "pdf" in svar.headers.get("Content-Type", "").lower() or url.lower().endswith(".pdf"):
+    typ = svar.headers.get("Content-Type", "").lower()
+    if "pdf" in typ or url.lower().split("?")[0].endswith(".pdf") or svar.content[:5] == b"%PDF-":
         return text_ur_pdf(svar.content)
+    if typ.startswith(("image/", "video/", "audio/")) or re.search(r"\.(png|jpe?g|gif|webp|heic|svg)(\?|$)", url, re.I):
+        raise ValueError("menyn är en bild och kan inte läsas automatiskt")
+    if typ and "html" not in typ and "text" not in typ:
+        raise ValueError(f"okänt filformat ({typ.split(';')[0]})")
 
     text, pdf_lankar = text_ur_html(svar.text)
     # Hittade vi en meny-PDF? Hämta den första och lägg till texten.
@@ -232,7 +237,8 @@ def tolka_text(text: str, idag: datetime.date) -> list[dict]:
     """Läser menytexten rad för rad och bygger 'block': en rätt kan bestå av flera rader,
     med priset på samma rad som namnet, på en egen rad efteråt, eller gemensamt för hela menyn."""
     rader = [re.sub(r"\s+", " ", r).strip() for r in text.splitlines()]
-    rader = [r for r in rader if r and re.search(r"[a-zåäö0-9]", r, re.IGNORECASE)]
+    rader = [r for r in rader if r and re.search(r"[a-zåäö0-9]", r, re.IGNORECASE)
+             and "\ufffd" not in r and not re.search(r"[\x00-\x08\x0b-\x1f\x7f]", r)]
 
     # 1. Slå ihop rader som uppenbart fortsätter på nästa ("mango &" + "chilisalsa, ...")
     hopslagna = []
