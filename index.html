@@ -154,6 +154,87 @@ mark { background: var(--accent-soft); color: inherit; border-radius: 4px; paddi
 footer { color: var(--muted); font-size: .8rem; padding-bottom: 40px; max-width: 1120px; }
 .toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); translate: -50% 0; background: var(--ink); color: var(--bg); padding: 11px 18px; border-radius: 999px; font-size: .9rem; box-shadow: var(--shadow); opacity: 0; transform: translateY(8px); transition: opacity .25s, transform .25s; pointer-events: none; z-index: 10; }
 .toast.show { opacity: 1; transform: none; }
+[hidden] { display: none !important; }
+
+/* ---------- Växla lista/karta ---------- */
+.seg { display: inline-flex; background: var(--sunk); border-radius: 999px; padding: 4px; gap: 2px; }
+.seg button { border: 0; background: transparent; padding: 6px 16px; border-radius: 999px; cursor: pointer; font-size: .88rem; font-weight: 500; color: var(--muted); transition: background .2s, color .2s; }
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgb(60 48 30 / .12); }
+.tokarta { border: 0; background: none; padding: 3px 4px; color: var(--accent); font-weight: 600; font-size: .84rem; cursor: pointer; }
+.tokarta:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Karta ---------- */
+.kartwrap { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); background: var(--sunk); position: relative; }
+#karta { height: min(72vh, 680px); min-height: 420px; }
+.kartfel { position: absolute; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center; color: var(--muted); }
+/* Grundstil för kartbiblioteket Leaflet (en förenklad version av dess egen CSS) */
+.leaflet-pane, .leaflet-tile, .leaflet-marker-icon, .leaflet-marker-shadow, .leaflet-tile-container, .leaflet-pane > svg, .leaflet-pane > canvas, .leaflet-zoom-box, .leaflet-image-layer, .leaflet-layer { position: absolute; left: 0; top: 0; }
+.leaflet-container { overflow: hidden; background: var(--sunk); font-family: var(--font); -webkit-tap-highlight-color: transparent; outline-offset: 1px; }
+.leaflet-tile, .leaflet-marker-icon, .leaflet-marker-shadow { user-select: none; -webkit-user-drag: none; }
+.leaflet-container .leaflet-tile-pane img, .leaflet-container img.leaflet-tile, .leaflet-container .leaflet-marker-pane img { max-width: none !important; max-height: none !important; width: auto; padding: 0; }
+.leaflet-container img.leaflet-tile { mix-blend-mode: plus-lighter; }
+.leaflet-container.leaflet-touch-zoom { touch-action: pan-x pan-y; }
+.leaflet-container.leaflet-touch-drag { touch-action: pinch-zoom; }
+.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom { touch-action: none; }
+.leaflet-tile { filter: inherit; visibility: hidden; }
+.leaflet-tile-loaded { visibility: inherit; }
+.leaflet-zoom-box { width: 0; height: 0; box-sizing: border-box; z-index: 800; }
+.leaflet-pane { z-index: 400; }
+.leaflet-tile-pane { z-index: 200; }
+.leaflet-overlay-pane { z-index: 400; }
+.leaflet-shadow-pane { z-index: 500; }
+.leaflet-marker-pane { z-index: 600; }
+.leaflet-tooltip-pane { z-index: 650; }
+.leaflet-popup-pane { z-index: 700; }
+.leaflet-control { position: relative; z-index: 800; pointer-events: auto; float: left; clear: both; }
+.leaflet-top, .leaflet-bottom { position: absolute; z-index: 1000; pointer-events: none; }
+.leaflet-top { top: 0; } .leaflet-right { right: 0; } .leaflet-bottom { bottom: 0; } .leaflet-left { left: 0; }
+.leaflet-right .leaflet-control { float: right; }
+.leaflet-top .leaflet-control { margin-top: 12px; }
+.leaflet-bottom .leaflet-control { margin-bottom: 0; }
+.leaflet-left .leaflet-control { margin-left: 12px; }
+.leaflet-right .leaflet-control { margin-right: 0; }
+.leaflet-fade-anim .leaflet-popup { opacity: 0; transition: opacity .2s linear; }
+.leaflet-fade-anim .leaflet-map-pane .leaflet-popup { opacity: 1; }
+.leaflet-zoom-animated { transform-origin: 0 0; }
+.leaflet-zoom-anim .leaflet-zoom-animated { transition: transform .25s cubic-bezier(0, 0, .25, 1); }
+.leaflet-zoom-anim .leaflet-tile, .leaflet-pan-anim .leaflet-tile { transition: none; }
+.leaflet-zoom-anim .leaflet-zoom-hide { visibility: hidden; }
+.leaflet-interactive { cursor: pointer; }
+.leaflet-grab { cursor: grab; }
+.leaflet-dragging .leaflet-grab, .leaflet-dragging .leaflet-marker-draggable { cursor: grabbing; }
+.leaflet-marker-icon, .leaflet-marker-shadow, .leaflet-image-layer, .leaflet-pane > svg path, .leaflet-tile-container { pointer-events: none; }
+.leaflet-marker-icon.leaflet-interactive, .leaflet-image-layer.leaflet-interactive { pointer-events: auto; }
+.leaflet-bar { border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
+.leaflet-bar a { display: block; width: 36px; height: 36px; line-height: 36px; text-align: center; text-decoration: none; background: var(--surface); color: var(--ink); font-size: 20px; }
+.leaflet-bar a + a { border-top: 1px solid var(--line); }
+.leaflet-bar a:hover { background: var(--sunk); }
+.leaflet-bar a.leaflet-disabled { color: var(--line); cursor: default; }
+.leaflet-control-attribution { background: color-mix(in srgb, var(--surface) 85%, transparent); padding: 2px 8px; color: var(--muted); font-size: 11px; line-height: 1.4; border-top-left-radius: 8px; }
+.leaflet-control-attribution a { color: var(--muted); }
+.leaflet-attribution-flag { display: none !important; }
+.leaflet-popup { position: absolute; text-align: left; margin-bottom: 26px; }
+.leaflet-popup-content-wrapper { background: var(--surface); color: var(--ink); border-radius: 18px; box-shadow: 0 12px 34px -12px rgb(40 30 15 / .45); padding: 2px; }
+.leaflet-popup-content { margin: 14px 16px; font-size: 14px; line-height: 1.45; min-height: 1px; }
+.leaflet-popup-tip-container { width: 40px; height: 20px; position: absolute; left: 50%; margin-top: -1px; margin-left: -20px; overflow: hidden; pointer-events: none; }
+.leaflet-popup-tip { width: 16px; height: 16px; padding: 1px; margin: -9px auto 0; transform: rotate(45deg); background: var(--surface); }
+.leaflet-container a.leaflet-popup-close-button { position: absolute; top: 6px; right: 6px; width: 28px; height: 28px; line-height: 26px; text-align: center; border-radius: 50%; color: var(--muted); text-decoration: none; font-size: 20px; }
+.leaflet-container a.leaflet-popup-close-button:hover { background: var(--sunk); color: var(--ink); }
+/* Prislappar och "du är här" */
+.pris-ikon span { position: absolute; left: 0; top: 0; transform: translate(-50%, calc(-100% - 6px)); white-space: nowrap; background: var(--surface); color: var(--ink); font-weight: 600; font-size: 12.5px; padding: 4px 10px; border-radius: 999px; box-shadow: 0 2px 8px -2px rgb(40 30 15 / .35); transition: transform .15s; }
+.pris-ikon span::after { content: ""; position: absolute; left: 50%; bottom: -4px; width: 8px; height: 8px; background: inherit; transform: translateX(-50%) rotate(45deg); border-radius: 1px; }
+.pris-ikon:hover span { transform: translate(-50%, calc(-100% - 6px)) scale(1.08); }
+.pris-ikon .topp { background: var(--accent); color: var(--surface); }
+.pris-ikon .favv { background: var(--rose); color: var(--surface); }
+.hem-ikon span { display: block; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); border: 3px solid var(--surface); box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 22%, transparent); }
+.pop { display: flex; flex-direction: column; gap: 6px; padding-right: 18px; }
+.pop strong { font-size: 1.02rem; letter-spacing: -0.01em; }
+.pop .pmeta { color: var(--muted); font-size: .82rem; }
+.pop ul { list-style: none; margin: 2px 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.pop li { display: flex; justify-content: space-between; gap: 10px; font-size: .86rem; }
+.pop li b { white-space: nowrap; }
+.pop a { color: var(--accent); font-weight: 600; text-decoration: none; }
+
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 </style>
 </head>
@@ -216,8 +297,11 @@ footer { color: var(--muted); font-size: .8rem; padding-bottom: 40px; max-width:
   </aside>
 
   <section class="results" aria-live="polite">
-    <div class="status"><span id="count">Laddar dagens luncher …</span><span>Närmast och billigast först</span></div>
+    <div class="status"><span id="count">Laddar dagens luncher …</span>
+      <div class="seg" role="group" aria-label="Visa som"><button type="button" id="vyLista" aria-pressed="true">Lista</button><button type="button" id="vyKarta" aria-pressed="false">Karta</button></div>
+    </div>
     <ul class="list" id="list"></ul>
+    <div class="kartwrap" id="kartaWrap" hidden><div id="karta" role="region" aria-label="Karta över restaurangerna"></div></div>
     <details class="missing" id="missing" hidden>
       <summary><span id="missingCount"></span> inom avståndet har ingen meny idag</summary>
       <p id="missingList"></p>
@@ -228,6 +312,7 @@ footer { color: var(--muted); font-size: .8rem; padding-bottom: 40px; max-width:
 <footer class="wrap">Avstånd räknas fågelvägen, gångtid med 80 meter per minut. Menyerna hämtas automatiskt varje vardagsmorgon och kan innehålla fel, så kolla gärna restaurangens egen meny. Restaurangdata delvis från © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap-bidragsgivare</a>.</footer>
 <div class="toast" id="toast" role="status"></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 <script>
 // ===== Inställningar =====
 const START = { lat: 59.33675, lng: 18.07175, namn: "Birger Jarlsgatan 25" };
@@ -240,7 +325,10 @@ let home = { ...START };
 let restauranger = [], menyer = {};
 let favoriter = new Set(las("lunchkollen-favoriter", []));
 let state = { ...STANDARD, ...las("lunchkollen-filter", {}) , q: "" };
-const oppna = new Set();   // kort där användaren valt "visa fler"
+const oppna = new Set();
+let vy = las("lunchkollen-vy", "lista");             // "lista" eller "karta"
+let karta = null, kartlager = null, senaste = [];
+const markorer = new Map();   // kort där användaren valt "visa fler"
 let forstaRitning = true;
 
 const $ = id => document.getElementById(id);
@@ -321,9 +409,11 @@ function rita() {
   inom.forEach(x => x.poang = skala(x.dist, ds) + skala(x.minPris, ps));
   inom.sort((a, b) => (b.fav - a.fav) || (a.poang - b.poang) || (a.dist - b.dist));
   const basta = inom.slice().sort((a, b) => a.poang - b.poang)[0];
+  inom.forEach(x => x.toppval = x === basta && !q);
+  senaste = inom;
 
   const totalt = inom.length;
-  $("count").innerHTML = totalt ? `<b>${totalt}</b> ${totalt === 1 ? "ställe" : "ställen"} med lunch som passar` : "Inga träffar";
+  $("count").innerHTML = totalt ? `<b>${totalt}</b> ${totalt === 1 ? "ställe" : "ställen"} med lunch som passar${vy === "lista" ? " · närmast och billigast först" : ""}` : "Inga träffar";
   const n = aktivaFilter();
   const delar = [$("distOut").textContent, state.price >= 300 ? "alla priser" : "max " + state.price + " kr"];
   if (state.typer.length) delar.push(state.typer.map(t => ({ veg: "veg", fisk: "fisk", kott: "kött" })[t]).join(", "));
@@ -340,8 +430,9 @@ function rita() {
     $("list").innerHTML = inom.map((x, i) => kort(x, x === basta && !q, q, i)).join("");
   }
   forstaRitning = false;
+  if (vy === "karta") ritaKarta(false);
 
-  $("missing").hidden = !utanMeny.length || !!q;
+  $("missing").hidden = !utanMeny.length || !!q || vy === "karta";
   $("missingCount").textContent = utanMeny.length === 1 ? "1 ställe" : utanMeny.length + " ställen";
   $("missingList").textContent = utanMeny.map(r => r.namn).join(", ");
 }
@@ -365,6 +456,7 @@ function kort({ r, dist, ratter, fav, stangd, minPris }, toppval, q, i) {
       ${r.adress ? `<span>${esc(r.adress)}</span>` : ""}
       ${r.lunchtid ? `<span${stangd ? ' class="closed"' : ""}>${stangd ? "Lunchen har slutat" : "Lunch " + esc(r.lunchtid)}</span>` : ""}
       ${lank ? `<a class="menulink" href="${esc(lank)}" target="_blank" rel="noopener">Se menyn ↗</a>` : ""}
+      <button type="button" class="tokarta" data-karta="${esc(r.id)}">Visa på karta</button>
     </div>
     <ul class="dishes">${rader}</ul>
     ${dolda > 0 ? `<button type="button" class="more" data-more="${esc(r.id)}">Visa ${dolda} ${dolda === 1 ? "rätt" : "rätter"} till</button>` : ""}
@@ -422,8 +514,82 @@ $("list").addEventListener("click", e => {
   if (mer) { oppna.add(mer.dataset.more); rita(); return; }
   const mindre = e.target.closest("[data-less]");
   if (mindre) { oppna.delete(mindre.dataset.less); rita(); return; }
+  const pk = e.target.closest("[data-karta]");
+  if (pk) { visaVy("karta"); visaPaKarta(pk.dataset.karta); return; }
   if (e.target.closest("[data-reset]")) nollstall();
 });
+
+// ----- Karta -----
+function visaVy(v) {
+  vy = v; spara("lunchkollen-vy", v);
+  $("vyLista").setAttribute("aria-pressed", v === "lista");
+  $("vyKarta").setAttribute("aria-pressed", v === "karta");
+  $("list").hidden = v !== "lista";
+  $("kartaWrap").hidden = v !== "karta";
+  if (v === "karta") {
+    const ny = startaKarta();
+    rita();
+    if (karta) { karta.invalidateSize(); if (ny) anpassaKarta(); }
+  } else rita();
+}
+
+// Skapar kartan första gången den visas. Returnerar true om den är ny.
+function startaKarta() {
+  if (karta) return false;
+  if (typeof L === "undefined") {
+    $("kartaWrap").innerHTML = '<div id="karta"></div><p class="kartfel">Kartan kunde inte laddas. Kontrollera internetanslutningen och ladda om sidan.</p>';
+    return false;
+  }
+  karta = L.map("karta", { zoomControl: true, scrollWheelZoom: true }).setView([home.lat, home.lng], 15);
+  const mork = matchMedia("(prefers-color-scheme: dark)").matches;
+  L.tileLayer(`https://{s}.basemaps.cartocdn.com/${mork ? "dark_all" : "light_all"}/{z}/{x}/{y}{r}.png`, {
+    subdomains: "abcd", maxZoom: 20,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-bidragsgivare &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  }).addTo(karta);
+  karta.attributionControl.setPrefix(false);
+  kartlager = L.layerGroup().addTo(karta);
+  return true;
+}
+
+function popupHtml(x) {
+  const gang = Math.max(1, Math.round(x.dist / GANG_M_PER_MIN));
+  const kort = t => t.length > 60 ? t.slice(0, 58).trim() + " …" : t;
+  const rader = x.ratter.slice(0, 3).map(d => `<li><span>${esc(kort(d.namn))}</span><b>${d.pris} kr</b></li>`).join("");
+  const lank = x.r.menyadress || x.r.hemsida;
+  return `<div class="pop"><strong>${esc(x.r.namn)}</strong><span class="pmeta">${gang} min · ${x.dist} m${x.r.adress ? " · " + esc(x.r.adress) : ""}</span><ul>${rader}</ul>${lank ? `<a href="${esc(lank)}" target="_blank" rel="noopener">Se menyn ↗</a>` : ""}</div>`;
+}
+
+function ritaKarta() {
+  if (!karta) return;
+  kartlager.clearLayers(); markorer.clear();
+  L.marker([home.lat, home.lng], { icon: L.divIcon({ className: "hem-ikon", html: "<span></span>", iconSize: [18, 18] }), interactive: false, keyboard: false, zIndexOffset: -1000 }).addTo(kartlager);
+  for (const x of senaste) {
+    const klass = x.toppval ? "topp" : x.fav ? "favv" : "";
+    const m = L.marker([x.r.lat, x.r.lng], {
+      icon: L.divIcon({ className: "pris-ikon", html: `<span class="${klass}">${x.minPris} kr</span>`, iconSize: [0, 0] }),
+      title: x.r.namn, riseOnHover: true, zIndexOffset: x.toppval ? 1000 : x.fav ? 500 : 0,
+    }).bindPopup(popupHtml(x), { maxWidth: 290, minWidth: 230, autoPanPadding: [24, 24] });
+    m.addTo(kartlager); markorer.set(x.r.id, m);
+  }
+}
+
+function anpassaKarta() {
+  if (!karta) return;
+  const punkter = senaste.map(x => [x.r.lat, x.r.lng]).concat([[home.lat, home.lng]]);
+  if (punkter.length > 1) karta.fitBounds(L.latLngBounds(punkter), { padding: [48, 48], maxZoom: 17 });
+  else karta.setView([home.lat, home.lng], 15);
+}
+
+function visaPaKarta(id) {
+  const m = markorer.get(id);
+  if (!m) return;
+  karta.setView(m.getLatLng(), 17);
+  m.openPopup();
+  $("kartaWrap").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+}
+
+$("vyLista").addEventListener("click", () => visaVy("lista"));
+$("vyKarta").addEventListener("click", () => { const forsta = !karta; visaVy("karta"); if (!forsta) anpassaKarta(); });
 
 $("locate").addEventListener("click", () => {
   if (!navigator.geolocation) { toast("Webbläsaren kan inte dela din position"); return; }
@@ -433,6 +599,7 @@ $("locate").addEventListener("click", () => {
     $("place").textContent = "Din position";
     $("locate").textContent = "Uppdatera position";
     rita();
+    if (vy === "karta") anpassaKarta();
   }, () => {
     $("locate").textContent = "Använd min position";
     toast("Positionen kunde inte hämtas, visar från " + START.namn);
@@ -459,7 +626,8 @@ Promise.all([
   fetch("data/menyer.json", { cache: "no-store" }).then(r => r.json()),
 ]).then(([reg, data]) => {
   restauranger = reg; menyer = data.menyer || {};
-  visaDatum(data); rita();
+  visaDatum(data);
+  if (vy === "karta") visaVy("karta"); else rita();
 }).catch(() => { $("count").textContent = "Kunde inte läsa lunchdatan. Öppna sidan via webbadressen, inte som en fil på datorn."; });
 </script>
 </body>
