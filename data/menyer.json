@@ -3710,49 +3710,9 @@
       "orsak": "ingen menyadress"
     },
     "prime-burgers-and-smokehouse": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": ")W����J�\b���$�\u0001-\u0005�.J�y��̯��\u0014{N�\u0017Np�, RI7�\u0003��\u000e\u0018 \u0019����d�Ɖe\"J�c�\u0000�Db���Z'k�b�\u000f�~\u0010 'I�����h $�3��\u0019��=�\u0014q �, ��C��v�X�[h\u0004Hd�",
-          "pris": 90
-        },
-        {
-          "typ": "kott",
-          "namn": "�]9�, a5_q��I}No5����s�̪�c��YҌg���3H�޴A�-�m���\"�\u0011B��\u0001���, Iד�], M�?EJ��i`.Y, �JC5�#a��JCU�[, ��\u0017�\u0015�W�׵, �Us, \u0006�˶7u��a, �",
-          "pris": 73
-        },
-        {
-          "typ": "kott",
-          "namn": ">O�\"�\u0006߃�u�\u001b+�}+RJD�\u0015\u0015��, �x����H��z�K.^���\u0003n��o}ѫo?��z�N��C ��_�",
-          "pris": 96
-        },
-        {
-          "typ": "kott",
-          "namn": "׿\u0014��~3!�ʖ�c�M��Sl\u0011�\u001a3\"���\u0018�r\u001a{e\u0004QDN�=�, �b$-F�\u0018z��, ��/\u0014\u0012�t�,��\u0019J7��\u0018c��L\u001a3)�� 'qK$e,\u0005���\u0018�p���J�f_��\u0002k h]bi��0�%�`���\u0004�",
-          "pris": 66
-        },
-        {
-          "typ": "kott",
-          "namn": "�\u0013��~, �2�u��\u0006A� \u0017���y�\u0003]S۬�;uNA��YQBx, ��n\u0012�>�v�B�ٙdm�Er���;\u0015�L, [����Y]u\u0002��8z�d��, �J��o/V�-��&\u00117�u�S�\u0011\u0011X��7S?_٢j��8��",
-          "pris": 61
-        },
-        {
-          "typ": "kott",
-          "namn": "��z��Tɐ��\"\u0002l��\u000eD�Wa4�bf\u0015؈, �׶���\u0010b�^,CV%\u0018j\u0013\u0012\u0004�, ����M�r����ƙ�E��k��\u000e,V���\\S-\u0017�S�##���K�a�QIh'\u0003Q���C\u0018w8&*)�5\u0016\u0017�����\u0001o�5�g",
-          "pris": 93
-        },
-        {
-          "typ": "kott",
-          "namn": "��'l�i�NU1ӏ�, de�f�?b<�ͳW�dhR�'��H9, ���p���H��S���%�(���n*A�*61��:���,፵>w��+S, 2EZ����N��{H*��;�\u0012����y\u0016��Ԋ����h�y�t\u0017\u0002� ",
-          "pris": 70
-        },
-        {
-          "typ": "kott",
-          "namn": "���\bF�`\u0018]e����\u0003�H��, �e�e\u000e�Zn��H\u0004\u0018�k�}��MW��R��Ͻ\u0007>�%H:\u0014\b��g�� zlj��hY\u0000\u0018^�BD���yz�D���2��e��\u0002\u0000\u0019O�p\u0000\u0000\u0010��7� \u0000X�d���<�?�Q�C�",
-          "pris": 72
-        }
-      ],
+      "status": "fel",
+      "ratter": [],
+      "orsak": "menyn är en bild och kan inte läsas automatiskt",
       "kalla": "https://primeburgerssmokehouse.se/wp-content/uploads/2026/04/Lunch2@2x.png"
     },
     "nem-nem": {
