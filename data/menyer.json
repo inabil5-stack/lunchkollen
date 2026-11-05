@@ -1,6 +1,6 @@
 {
-  "datum": "2026-11-04",
-  "uppdaterad": "2026-11-04T08:40:04+01:00",
+  "datum": "2026-11-05",
+  "uppdaterad": "2026-11-05T08:42:52+01:00",
   "exempel": false,
   "menyer": {
     "kung-carl": {
@@ -10,6 +10,11 @@
           "typ": "kott",
           "namn": "Omelett med sallad",
           "pris": 195
+        },
+        {
+          "typ": "kott",
+          "namn": "Klassisk ärtsoppa, serverad med rimmad fläsk, Skånsk senap",
+          "pris": 175
         },
         {
           "typ": "kott",
@@ -90,7 +95,7 @@
       "ratter": [
         {
           "typ": "kott",
-          "namn": "Kalvstek, dragonsås, rostad potatis, gravad tomat, haricot verts",
+          "namn": "Crèmes köttbullar, potatispuré, gräddsås, rårörda lingon, pressgurka",
           "pris": 180
         },
         {
@@ -102,31 +107,6 @@
           "typ": "veg",
           "namn": "Grillad spetskål, fetaostkräm, kryddig bulgur, rostade hasselnötter, brynt smör",
           "pris": 185
-        },
-        {
-          "typ": "fisk",
-          "namn": "Halstrad laxfilé, halstrad laxfilé, svartris, grillad broccoli, citron, krassemajonnäs",
-          "pris": 215
-        },
-        {
-          "typ": "fisk",
-          "namn": "Klassisk räksallad, räkor, ägg, avokado, dill, Rhode Islanddressing",
-          "pris": 235
-        },
-        {
-          "typ": "kott",
-          "namn": "Steak Minute, grillad ryggbiff, tomatsallad, bearnaisesås, rödvinssås, pommes",
-          "pris": 240
-        },
-        {
-          "typ": "kott",
-          "namn": "Cheeseburgare, cheddarost, karamelliserad lök, tomat, dijonnaisekräm, pommes",
-          "pris": 210
-        },
-        {
-          "typ": "veg",
-          "namn": "Kycklingsallad, grönkål, quinoa, granatäpple, pumpafrön, citronette, krassemajonnäs",
-          "pris": 215
         }
       ],
       "kalla": "https://creme.se/meny"
@@ -136,7 +116,7 @@
       "ratter": [
         {
           "typ": "kott",
-          "namn": "Veal patties / crushed potatoes / sautéed peas / browned butter",
+          "namn": "Roasted pork tenderloin / dirty aji-rice / charred gem lettuce / smoked sour cream",
           "pris": 185
         },
         {
@@ -214,6 +194,11 @@
           "typ": "kott",
           "namn": "Omelett med sallad",
           "pris": 195
+        },
+        {
+          "typ": "kott",
+          "namn": "Klassisk ärtsoppa, serverad med rimmad fläsk, Skånsk senap",
+          "pris": 175
         },
         {
           "typ": "kott",
@@ -683,9 +668,9 @@
       "orsak": "ingen menyadress"
     },
     "pom-friterie": {
-      "status": "saknas",
+      "status": "fel",
       "ratter": [],
-      "kalla": "https://pomfriterie.com/site/assets/files/1299/october_2026_website-1.pdf"
+      "orsak": "HTTPSConnectionPool(host='pomfriterie.com', port=443): Max retries exceeded with url: /site/assets/files/1299/october_2026_website-1.pdf (Caused by NewConnectionError(\"HTTPSConnection(host='pomfriteri"
     },
     "waipo": {
       "status": "ok",
@@ -743,7 +728,7 @@
       "ratter": [
         {
           "typ": "kott",
-          "namn": "Kåldolmar med potatismos, gräddsås och lingon",
+          "namn": "Stekta picanhia (brasiliansk styckdetalj av, nötkött) med rostade potatis, och chimichurri",
           "pris": 99
         },
         {
@@ -825,17 +810,12 @@
       "ratter": [
         {
           "typ": "kott",
-          "namn": "Originalet version av världens mest älskade maträtt, gongbao jiding, (Starkt)",
+          "namn": "Yuxiang jiding, (Starkt)",
           "pris": 165
         },
         {
           "typ": "veg",
-          "namn": "Wokat entrecote (EU) med padron paprika, ostronsås, doubanjiang och Sichuan-pepparpulver, serverad med gurksallad och zh",
-          "pris": 195
-        },
-        {
-          "typ": "veg",
-          "namn": "Vegetarisk, tofu med färska svampar, säsongs grönsaker i doubanjiang och söt sojapasta, servas med ris och stekta dumpli",
+          "namn": "Vegetarisk, tofu med färska svampar (shimeji, ostronskivling) säsongs grönsaker i doubanjiang och söt chilisås. Servas m",
           "pris": 295
         }
       ],
@@ -973,7 +953,7 @@
         },
         {
           "typ": "kott",
-          "namn": "Kalvfärsbiffar, dijonkräm, mustig löksky, potatispuré smaksatt med Västerbottensost",
+          "namn": "Ölbräserad Fläskkarré, potatisgratäng, smörstekt brysselkål",
           "pris": 175
         }
       ],
@@ -1005,7 +985,7 @@
         {
           "typ": "kott",
           "namn": "Förrätter, assiette Charcuterie, gmc’s Rillette, Charkuterier & Cornichons",
-          "pris": 155
+          "pris": 160
         },
         {
           "typ": "kott",
@@ -1014,18 +994,18 @@
         },
         {
           "typ": "kott",
-          "namn": "Boeuf Tartare 1/2, handskuret innanlår (60g) med majonnäs, picklade senapsfrön, confiterade tomater, schalottenlök, peco",
+          "namn": "Boeuf Tartare 1/2, handskuret innanlår (60g) med kapris, cornichon, confiterad lök, gräslök, ägg, citron, Tegelost",
           "pris": 190
         },
         {
           "typ": "kott",
           "namn": "Escargots à la Bourguignonne, sniglar i vitlöks-& örtsmör",
-          "pris": 140
+          "pris": 155
         },
         {
           "typ": "kott",
           "namn": "Chèvre Chaud, bakad getost med levain, päron, pinjenötter & sallad",
-          "pris": 150
+          "pris": 155
         }
       ],
       "kalla": "https://www.glennmillercafe.se/meny"
@@ -1127,9 +1107,9 @@
       "orsak": "ingen menyadress"
     },
     "ted": {
-      "status": "saknas",
+      "status": "fel",
       "ratter": [],
-      "kalla": "https://www.restaurangted.se/meny/"
+      "orsak": "HTTPSConnectionPool(host='www.restaurangted.se', port=443): Max retries exceeded with url: /meny/ (Caused by NewConnectionError(\"HTTPSConnection(host='www.restaurangted.se', port=443): Failed to estab"
     },
     "husman-s-deli": {
       "status": "saknas",
@@ -1380,6 +1360,11 @@
       "status": "ok",
       "ratter": [
         {
+          "typ": "fisk",
+          "namn": "& seafood stew, served with shrimps, shaved vegetables, aioli and croutons",
+          "pris": 225
+        },
+        {
           "typ": "kott",
           "namn": "Toscansk brödsoppa, med cannelinibönor, svartkål, riven parmesan och gremolata, tuscan bread soupe with cannelini beans,",
           "pris": 295
@@ -1413,50 +1398,9 @@
       "kalla": "https://konstnarsbaren.se/brunch/"
     },
     "schmaltz": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "Fröknäcke, färskost & gräslök",
-          "pris": 125
-        },
-        {
-          "typ": "kott",
-          "namn": "Toast & citron",
-          "pris": 145
-        },
-        {
-          "typ": "kott",
-          "namn": "St Maure, L ’Etivaz, fänkål & marmelad",
-          "pris": 135
-        },
-        {
-          "typ": "kott",
-          "namn": "Inkokt aprikos, hasselnö/t_ter, apelsin, & gruyére",
-          "pris": 125
-        },
-        {
-          "typ": "kott",
-          "namn": "Saltad oxbringa, surkål, senap, ost & russian dressing",
-          "pris": 195
-        },
-        {
-          "typ": "fisk",
-          "namn": "Havskräftsås, fänkål, dragon & potatis",
-          "pris": 275
-        },
-        {
-          "typ": "kott",
-          "namn": "Kycklingbuljong, plockat kycklinglår, grönsaker & persilja",
-          "pris": 175
-        },
-        {
-          "typ": "kott",
-          "namn": "En halv Reuben Sandwich & en halv, portion kycklingsoppa",
-          "pris": 195
-        }
-      ],
-      "kalla": "https://schmaltz.se/matdryck"
+      "status": "fel",
+      "ratter": [],
+      "orsak": "HTTPSConnectionPool(host='schmaltz.se', port=443): Max retries exceeded with url: /matdryck (Caused by NewConnectionError(\"HTTPSConnection(host='schmaltz.se', port=443): Failed to establish a new conn"
     },
     "watami": {
       "status": "saknas",
@@ -1468,7 +1412,7 @@
       "ratter": [
         {
           "typ": "kott",
-          "namn": "Pulled Pork Bao",
+          "namn": "Hainanese Chicken Rice",
           "pris": 165
         }
       ],
@@ -1726,20 +1670,9 @@
       "kalla": "http://www.kommendoren.se/index.php/lunch"
     },
     "lebanon-meza-lounge": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "veg",
-          "namn": "Falafel, halloumi, spenatpirog, hommus, labneh och mhamara, med bulgur, vitlökskräm och hommus, med fetaost, ris, grönsa",
-          "pris": 185
-        },
-        {
-          "typ": "veg",
-          "namn": "Chicken skewers, served with potato, wedges, garlic cream and hummus, falafel, halloumi, spinach pie, hommus, labneh and",
-          "pris": 185
-        }
-      ],
-      "kalla": "https://mezalounge.se/wp-content/uploads/2026/10/meza-ny-meza-lunchmeny-2026-10.pdf"
+      "status": "fel",
+      "ratter": [],
+      "orsak": "HTTPSConnectionPool(host='mezalounge.se', port=443): Max retries exceeded with url: /wp-content/uploads/2026/10/meza-ny-meza-lunchmeny-2026-10.pdf (Caused by NewConnectionError(\"HTTPSConnection(host='"
     },
     "izakaya-ninja": {
       "status": "saknas",
@@ -2091,8 +2024,8 @@
       "status": "ok",
       "ratter": [
         {
-          "typ": "fisk",
-          "namn": "Pensionär, salladsbuffé, bröd, lingondricka, k, idag, 4/11, dagens kött, klassisk Wallenbergare med potatispuré, rårörda",
+          "typ": "kott",
+          "namn": "Pensionär, salladsbuffé, bröd, lingondricka, k, idag, 5/11, dagens kött, högrevsgryta med morot, lök, champinjoner, baco",
           "pris": 145
         }
       ],
@@ -2192,9 +2125,9 @@
       "orsak": "ingen menyadress"
     },
     "sushi-oi": {
-      "status": "saknas",
+      "status": "fel",
       "ratter": [],
-      "kalla": "https://sushioi.se/#sidewidgetarea"
+      "orsak": "HTTPSConnectionPool(host='sushioi.se', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='sushioi.se', port=443): Failed to establish a new connection: [E"
     },
     "chioi": {
       "status": "saknas",
@@ -2257,23 +2190,23 @@
       "ratter": [
         {
           "typ": "kott",
-          "namn": "Ratatouille biffar, M. Nötfärs, aubergine, zucchini, krossade tomater & bulgur",
+          "namn": "Marinerad kycklingfilé, M. Rostad potatis, pepparsås & haricorts vert",
           "pris": 139
         },
         {
           "typ": "kott",
-          "namn": "Dagens pasta: Carbonara, M. Bacon, grädde, svartpeppar, lök, äggula & grana padano",
-          "pris": 139
+          "namn": "Dagens pasta: Husets köttfärspasta, M. Spaghetti, köttfärssås & grana padano",
+          "pris": 149
         },
         {
           "typ": "kott",
-          "namn": "Dagens pizza: Salami, M, tomatsås, mozzarella & salami",
-          "pris": 139
+          "namn": "Dagens pizza: Burrata, M, tomatsås, mozzarella & Burrata",
+          "pris": 159
         },
         {
           "typ": "fisk",
           "namn": "Dagens sallad: Laxsallad, M, blandad sallad, laxfilé, bulgur, ägghalva, citronklyfta & gräddfilsbaserad romdressing",
-          "pris": 149
+          "pris": 139
         },
         {
           "typ": "kott",
@@ -2289,6 +2222,11 @@
           "typ": "veg",
           "namn": "Vegetarisk lasagne, M. Färska pastaplattor med spenat, fetaost, aubergine, zucchini, basilika, tomatsås, béchamelsås & g",
           "pris": 139
+        },
+        {
+          "typ": "veg",
+          "namn": "Tidemans vegetariska: Spenat- och fetaost bakelse, M. Blandad sallad & rödbetskräm",
+          "pris": 150
         }
       ],
       "kalla": "https://www.tidemans.se/veckans-lunch/"
@@ -2573,8 +2511,8 @@
           "pris": 95
         },
         {
-          "typ": "kott",
-          "namn": "Our take on a classic bento box, with the best, dishes from our kitchen & raw bar, chefs choice of Sushi & Sashimi, hois",
+          "typ": "fisk",
+          "namn": "Our take on a classic bento box, with the best, dishes from our kitchen & raw bar, chefs choice of Sushi & Sashimi, rib ",
           "pris": 299
         },
         {
@@ -2785,50 +2723,9 @@
       "kalla": "https://www.barschiacciate.se/meny"
     },
     "rayavadee": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "A. Kyckling i rÃ¶d curry & kokosmjÃ¶lk Â°Â°Â°, jasminris",
-          "pris": 149
-        },
-        {
-          "typ": "kott",
-          "namn": "B. Grillspett med FlÃ¤skkÃ¶tt & jordnÃ¶tssÃ¥s Â°, jasminris",
-          "pris": 149
-        },
-        {
-          "typ": "kott",
-          "namn": "C. Wokad Biff, grÃ¶nsaker & cashewnÃ¶tter Â°",
-          "pris": 149
-        },
-        {
-          "typ": "kott",
-          "namn": "Mixen: Kombination av de tre rÃ¤tterna",
-          "pris": 169
-        },
-        {
-          "typ": "kott",
-          "namn": "A. KÃ¶ttbullar i paneng curry & kokosmjÃ¶lk Â°Â°Â°, jasminris",
-          "pris": 149
-        },
-        {
-          "typ": "veg",
-          "namn": "B. Vegetariska vÃ¥rrullar med sweet chilisÃ¥s Â°, jasminris",
-          "pris": 149
-        },
-        {
-          "typ": "kott",
-          "namn": "C. Wokad Kyckling, grÃ¶nsaker i jordnÃ¶tssÃ¥s Â°",
-          "pris": 149
-        },
-        {
-          "typ": "kott",
-          "namn": "Mixen: Kombination av de tre rÃ¤tterna",
-          "pris": 169
-        }
-      ],
-      "kalla": "https://rayavadee.se/hem/lunchmeny.html"
+      "status": "fel",
+      "ratter": [],
+      "orsak": "HTTPSConnectionPool(host='rayavadee.se', port=443): Max retries exceeded with url: /hem/lunchmeny.html (Caused by NewConnectionError(\"HTTPSConnection(host='rayavadee.se', port=443): Failed to establis"
     },
     "espresso-house-4": {
       "status": "saknas",
@@ -2856,50 +2753,9 @@
       "orsak": "ingen menyadress"
     },
     "indian-stories": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "4, paneer Shashliq",
-          "pris": 110
-        },
-        {
-          "typ": "kott",
-          "namn": "5, onion Bhadji",
-          "pris": 85
-        },
-        {
-          "typ": "kott",
-          "namn": "6, daal Soup, linssoppa, indiskkryddor, vitlök och tomatpuré",
-          "pris": 85
-        },
-        {
-          "typ": "kott",
-          "namn": "7, chicken Soup, kycklingfiléer med indiska kryddor, vitlök och koriander",
-          "pris": 110
-        },
-        {
-          "typ": "veg",
-          "namn": "8, veg Pakora",
-          "pris": 85
-        },
-        {
-          "typ": "kott",
-          "namn": "9, kyckling Sallad, grillade, kycklingfléer med gurka, tomat,rödlök, såsongssallad och yoghurt sås",
-          "pris": 105
-        },
-        {
-          "typ": "fisk",
-          "namn": "10, fish Chops",
-          "pris": 105
-        },
-        {
-          "typ": "kott",
-          "namn": "Vi serverar endast kyckling från svensk kronkyckling, 1, chicken Tikka Butter Masala (mild), grillade kycklingfiléer til",
-          "pris": 225
-        }
-      ],
-      "kalla": "https://www.colorofindia.se/indian-stories/"
+      "status": "fel",
+      "ratter": [],
+      "orsak": "HTTPSConnectionPool(host='www.colorofindia.se', port=443): Max retries exceeded with url: /indian-stories/ (Caused by NewConnectionError(\"HTTPSConnection(host='www.colorofindia.se', port=443): Failed "
     },
     "german-beer-hall-gallerian": {
       "status": "saknas",
@@ -2917,8 +2773,24 @@
       "orsak": "ingen menyadress"
     },
     "strandvagen-1": {
-      "status": "saknas",
-      "ratter": [],
+      "status": "ok",
+      "ratter": [
+        {
+          "typ": "fisk",
+          "namn": "Å ngad ri mm ad r ö dt u nga, skaldjurssås, krispiga bönor, potatispur é, & handskalade räkor, steamed cured sole with s",
+          "pris": 205
+        },
+        {
+          "typ": "kott",
+          "namn": "& fredag, S 1 B u rgare, H ängmörad burgare på 200 g, karamelliserad lök, G ruy è re, dijonnaise & pommes frites, 200 g ",
+          "pris": 255
+        },
+        {
+          "typ": "veg",
+          "namn": "Fö rr ä tter, 2 8 5 sallad ni Ç oise, H alstrad ton fi sk, oli v er, kapris, sardeller, v a x bönor, haricots v erts, mi",
+          "pris": 225
+        }
+      ],
       "kalla": "https://strandvagen1.se/wp-content/uploads/2026/11/SV1-LUNCH-A3-Vecka-45.pdf"
     },
     "oves-hjulkorv": {
@@ -2973,50 +2845,9 @@
       "kalla": "https://www.menomale.se/meny"
     },
     "saya-sushi": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "10 bitar  15 bitar",
-          "pris": 159
-        },
-        {
-          "typ": "kott",
-          "namn": "10 bitar  15 bitar",
-          "pris": 159
-        },
-        {
-          "typ": "kott",
-          "namn": "10 bitar  15 bitar, sushi",
-          "pris": 189
-        },
-        {
-          "typ": "veg",
-          "namn": "Mango, avokado, edamamebönor, sjögrässallad, gurka, salladslök, ingefära, soja, ris, extra lax, tonfisk, kyckling, tofu,",
-          "pris": 159
-        },
-        {
-          "typ": "kott",
-          "namn": "Allergener? Fråga gärna vår personal",
-          "pris": 189
-        },
-        {
-          "typ": "fisk",
-          "namn": "Sjögrässallad, edamamebönor, kimchi, bläckfisksallad, tillbehör",
-          "pris": 149
-        },
-        {
-          "typ": "kott",
-          "namn": "Labrune Chardonnay, Frankrike, castelnuovo Pinot Grigio delle Venezie DOC",
-          "pris": 79
-        },
-        {
-          "typ": "kott",
-          "namn": "Sake shot, japansk sakeprovning - 4 sorter",
-          "pris": 149
-        }
-      ],
-      "kalla": "https://www.sayasushi.se/menyer"
+      "status": "fel",
+      "ratter": [],
+      "orsak": "HTTPSConnectionPool(host='www.sayasushi.se', port=443): Max retries exceeded with url: /menyer (Caused by NewConnectionError(\"HTTPSConnection(host='www.sayasushi.se', port=443): Failed to establish a "
     },
     "miss-clara": {
       "status": "saknas",
@@ -3050,9 +2881,9 @@
       "orsak": "ingen menyadress"
     },
     "harry-b-james": {
-      "status": "saknas",
+      "status": "fel",
       "ratter": [],
-      "kalla": "https://harrybjames.se/#hbjmeny"
+      "orsak": "HTTPSConnectionPool(host='harrybjames.se', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='harrybjames.se', port=443): Failed to establish a new connec"
     },
     "subway-4": {
       "status": "saknas",
@@ -3122,50 +2953,9 @@
       "kalla": "https://ikkisushibar.se/lunchmeny/"
     },
     "saya": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "10 bitar  15 bitar",
-          "pris": 159
-        },
-        {
-          "typ": "kott",
-          "namn": "10 bitar  15 bitar",
-          "pris": 159
-        },
-        {
-          "typ": "kott",
-          "namn": "10 bitar  15 bitar, sushi",
-          "pris": 189
-        },
-        {
-          "typ": "veg",
-          "namn": "Mango, avokado, edamamebönor, sjögrässallad, gurka, salladslök, ingefära, soja, ris, extra lax, tonfisk, kyckling, tofu,",
-          "pris": 159
-        },
-        {
-          "typ": "kott",
-          "namn": "Allergener? Fråga gärna vår personal",
-          "pris": 189
-        },
-        {
-          "typ": "fisk",
-          "namn": "Sjögrässallad, edamamebönor, kimchi, bläckfisksallad, tillbehör",
-          "pris": 149
-        },
-        {
-          "typ": "kott",
-          "namn": "Labrune Chardonnay, Frankrike, castelnuovo Pinot Grigio delle Venezie DOC",
-          "pris": 79
-        },
-        {
-          "typ": "kott",
-          "namn": "Sake shot, japansk sakeprovning - 4 sorter",
-          "pris": 149
-        }
-      ],
-      "kalla": "https://sayasushi.se/menyer"
+      "status": "fel",
+      "ratter": [],
+      "orsak": "HTTPSConnectionPool(host='sayasushi.se', port=443): Max retries exceeded with url: /menyer (Caused by NewConnectionError(\"HTTPSConnection(host='sayasushi.se', port=443): Failed to establish a new conn"
     },
     "joe-the-juice-5": {
       "status": "saknas",
@@ -3290,50 +3080,9 @@
       "orsak": "ingen menyadress"
     },
     "tabbouli-street": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "veg",
-          "namn": "Mixed Meze Grill, grillad högrevsfärs, grillad kycklingfilé, yoghurt, hommus, aubergineröra, paprikaröra, vitlökskräm, o",
-          "pris": 185
-        },
-        {
-          "typ": "veg",
-          "namn": "Vegan Stuff, hommus, aubergineröra, paprikaröra, spenatröra, mousaka, vinbladsdolmar, blomkål, falafel, tabbouli, lins o",
-          "pris": 155
-        },
-        {
-          "typ": "kott",
-          "namn": "Shish Kafta 1",
-          "pris": 60
-        },
-        {
-          "typ": "kott",
-          "namn": "Shish Tauk, grillad kycklingfilé, sallad, vitlökskräm, yoghurt, grillade tomater, paprikaröra",
-          "pris": 160
-        },
-        {
-          "typ": "veg",
-          "namn": "Falafel, friterade kikärtor, hommus, blomkål, tabbouli, sesamsås, sallad, picklade grönsaker, chicken Shaworma 1",
-          "pris": 160
-        },
-        {
-          "typ": "veg",
-          "namn": "Falafel Salad, friterade kikärtor, blandsallad, tomat, picklade grönsaker, gurka, aubergine, rödbeta, sesam, vallmofrö, ",
-          "pris": 160
-        },
-        {
-          "typ": "fisk",
-          "namn": "Salmon Salad, laxfile, blandsallad, gurka, tomat, sesamsås",
-          "pris": 169
-        },
-        {
-          "typ": "kott",
-          "namn": "Mighty Kafta, grillad högrevsfärs, rödlök, persilja, sallad, vitlökskräm, tomat",
-          "pris": 149
-        }
-      ],
-      "kalla": "https://tabboulistreet.se/#meny"
+      "status": "fel",
+      "ratter": [],
+      "orsak": "HTTPSConnectionPool(host='tabboulistreet.se', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='tabboulistreet.se', port=443): Failed to establish a new "
     },
     "milles": {
       "status": "saknas",
@@ -3581,17 +3330,17 @@
       "ratter": [
         {
           "typ": "kott",
-          "namn": "rÃ¶dspÃ¤tta med saffranrisotto , grÃ¶nsaker och citronmajo",
+          "namn": "Med grÃ¤ddsÃ¥s, lingonsylt och potatismos",
           "pris": 160
         },
         {
           "typ": "kott",
-          "namn": "Kycklingpasta med chevrÃ©, spenat, grÃ¤dde och pinjenÃ¶tter",
+          "namn": "Med salsiccia, bacon, tomatsÃ¥s parmigiano reggiano och Ã¤ggula",
           "pris": 160
         },
         {
           "typ": "fisk",
-          "namn": "Med scampi, grÃ¶nsaker, grÃ¤dde och lite chili",
+          "namn": "Oliver, tonfisk, kapris, chili, tomatsÃ¥s",
           "pris": 160
         },
         {
@@ -3611,12 +3360,12 @@
         },
         {
           "typ": "kott",
-          "namn": "Med brynt smÃ¶r, lingonsylt och potatismos",
+          "namn": "klyftpotatis, grÃ¶nsaker och rÃ¶dvinsÃ¥s",
           "pris": 160
         },
         {
           "typ": "kott",
-          "namn": "Med salsiccia, bacon, tomatsÃ¥s parmigiano reggiano och Ã¤ggula",
+          "namn": "tomatsÃ¥s, oliver, kapris, soltorkade tomater och kokt potatis",
           "pris": 160
         }
       ],
@@ -4015,7 +3764,12 @@
         },
         {
           "typ": "kott",
-          "namn": "Wallenbergare med gräddsås, lingon, ärtor och potatispuré",
+          "namn": "Bratwurst med smörstekt spetskål, potatisstomp och krämig senapssås",
+          "pris": 165
+        },
+        {
+          "typ": "fisk",
+          "namn": "Fish and chips med tartardressing och gröna ärtor",
           "pris": 165
         },
         {
@@ -4267,30 +4021,9 @@
       "kalla": "https://banacado.com/menus"
     },
     "allegrine": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "Brooklyn Lager",
-          "pris": 95
-        },
-        {
-          "typ": "kott",
-          "namn": "Neon IPA, alkoholfritt",
-          "pris": 110
-        },
-        {
-          "typ": "kott",
-          "namn": "Carré de porc",
-          "pris": 135
-        },
-        {
-          "typ": "kott",
-          "namn": "Helgrillad fläskkarré med tomat, zucchini, fårost och ras el hanout",
-          "pris": 135
-        }
-      ],
-      "kalla": "https://allegrine.se/menus-allegrine/"
+      "status": "fel",
+      "ratter": [],
+      "orsak": "HTTPSConnectionPool(host='allegrine.se', port=443): Max retries exceeded with url: /menus-allegrine/ (Caused by NewConnectionError(\"HTTPSConnection(host='allegrine.se', port=443): Failed to establish "
     },
     "di-napoli": {
       "status": "saknas",
@@ -4561,13 +4294,13 @@
       "status": "ok",
       "ratter": [
         {
-          "typ": "fisk",
-          "namn": "kr, fiskgryta, med saffran och aioli",
+          "typ": "kott",
+          "namn": "kr, ugnsbakad regnbågsfilé",
           "pris": 145
         },
         {
           "typ": "kott",
-          "namn": "kr, kockens val, kåldolmar med potatispuré och lingon",
+          "namn": "kr, kockens val, ärtsoppa och pannkakor med sylt och grädde",
           "pris": 125
         }
       ],
@@ -4620,15 +4353,9 @@
       "kalla": "https://hamburgerbors.se/mat-dryck/"
     },
     "barbeque-steakhouse": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "Ölkanna, 1,6L",
-          "pris": 119
-        }
-      ],
-      "kalla": "https://bbqsteakhouse.se/"
+      "status": "fel",
+      "ratter": [],
+      "orsak": "HTTPSConnectionPool(host='bbqsteakhouse.se', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='bbqsteakhouse.se', port=443): Failed to establish a new co"
     },
     "yushi": {
       "status": "saknas",
@@ -4752,6 +4479,11 @@
       "ratter": [
         {
           "typ": "kott",
+          "namn": "Pris, noga utvalda råvaror, av högsta kvalitet, alla rätter tillagas från grunden, med kärlek & omsorg",
+          "pris": 165
+        },
+        {
+          "typ": "kott",
           "namn": "gräddsås, rårörda lingon, husets pressgurka, potatispuré",
           "pris": 175
         },
@@ -4784,50 +4516,9 @@
       "orsak": "ingen menyadress"
     },
     "vallonen": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "Hot Shot 4cl, kaffe, Galliano & grädde, irish Coffee, whisky, farinsocker, kaffe, grädde, kaffe Karlsson, baileys, Apels",
-          "pris": 99
-        },
-        {
-          "typ": "kott",
-          "namn": "Något innan, vitlöksbröd, vitlöksbröd toppat med riven hård ost",
-          "pris": 188
-        },
-        {
-          "typ": "kott",
-          "namn": "Pimientos de Padrón Milda, gröna paprikor stekta med havssalt",
-          "pris": 98
-        },
-        {
-          "typ": "kott",
-          "namn": "Chevretoast, grillad Chevre med honung och valnötter på toast",
-          "pris": 169
-        },
-        {
-          "typ": "kott",
-          "namn": "Svamptoast, gräddstuvad svamp på rostat, bröd",
-          "pris": 149
-        },
-        {
-          "typ": "kott",
-          "namn": "Toastskagen Hemlagad, sk, med dill och citron, toppad med löjrom på rostat bröd",
-          "pris": 169
-        },
-        {
-          "typ": "kott",
-          "namn": "Friterade kycklingvingar, slungad i stark glaze, toppad med riven",
-          "pris": 149
-        },
-        {
-          "typ": "fisk",
-          "namn": "Chillifrästa Tigeräkor, tigerräkor frästa i chilli, vitlök, tomatsås & citron",
-          "pris": 169
-        }
-      ],
-      "kalla": "https://vallonen.com/#9AF32691-FA42-4A71-B01C-F748B6D02821"
+      "status": "fel",
+      "ratter": [],
+      "orsak": "HTTPSConnectionPool(host='vallonen.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='vallonen.com', port=443): Failed to establish a new connection"
     },
     "espresso-house-6": {
       "status": "saknas",
@@ -5084,29 +4775,29 @@
       "status": "ok",
       "ratter": [
         {
-          "typ": "fisk",
-          "namn": "Avjut i våra kaféer, CAESARSALLAD med räkor & bacon",
+          "typ": "kott",
+          "namn": "Avjut i våra kaféer",
           "pris": 129
         },
         {
-          "typ": "kott",
-          "namn": "Avjut i våra kaféer",
-          "pris": 170
-        },
-        {
-          "typ": "kott",
-          "namn": "Avjut i våra kaféer",
+          "typ": "fisk",
+          "namn": "Avjut i våra kaféer, CAESARSALLAD med räkor & bacon",
           "pris": 165
         },
         {
           "typ": "kott",
           "namn": "Avjut i våra kaféer, CAESARWRAP (med bacon)",
-          "pris": 155
+          "pris": 170
+        },
+        {
+          "typ": "kott",
+          "namn": "Avjut i våra kaféer",
+          "pris": 129
         },
         {
           "typ": "kott",
           "namn": "Avjut i våra kaféer, CAESARSALLAD med kyckling & bacon",
-          "pris": 129
+          "pris": 155
         },
         {
           "typ": "kott",
@@ -5147,17 +4838,17 @@
         {
           "typ": "veg",
           "namn": "Meny - Shiro Sushi, lunchmeny, sushi, mama Sushi, vegetarisk sushi, rullar, specialrullar, friterade rullar, tempura & N",
-          "pris": 99
-        },
-        {
-          "typ": "fisk",
-          "namn": "3 maki, 3 lax, 1 räka, 1 avokado, mellan 10 bit",
           "pris": 109
         },
         {
           "typ": "fisk",
-          "namn": "4 maki, 4 lax, 1 räka, 1 avokado, stor 12 bit",
+          "namn": "3 maki, 3 lax, 1 räka, 1 avokado, mellan 10 bit",
           "pris": 119
+        },
+        {
+          "typ": "fisk",
+          "namn": "4 maki, 4 lax, 1 räka, 1 avokado, stor 12 bit",
+          "pris": 129
         },
         {
           "typ": "fisk",
@@ -5172,17 +4863,17 @@
         {
           "typ": "fisk",
           "namn": "5 maki, 4 lax, 1 räka, 1 avokado, 4 mix fisk, mama Sushi, liten 8 bit",
-          "pris": 99
-        },
-        {
-          "typ": "fisk",
-          "namn": "3 california rullar, 1 räka, 2 ägg, 2 avokado, mellan 10 bit",
           "pris": 109
         },
         {
           "typ": "fisk",
-          "namn": "4 california rullar, 2 räka, 2 ägg, 2 avokado, stor 12 bit",
+          "namn": "3 california rullar, 1 räka, 2 ägg, 2 avokado, mellan 10 bit",
           "pris": 119
+        },
+        {
+          "typ": "fisk",
+          "namn": "4 california rullar, 2 räka, 2 ägg, 2 avokado, stor 12 bit",
+          "pris": 129
         }
       ],
       "kalla": "https://www.shirosushi.se/lunchmeny"
@@ -5193,50 +4884,9 @@
       "orsak": "ingen menyadress"
     },
     "tengu": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "Plates, kimchi",
-          "pris": 75
-        },
-        {
-          "typ": "kott",
-          "namn": "Frisee Salad, Edamame beans, Rice Puffs & Sesame Dressing, baka Uma Kyuri",
-          "pris": 78
-        },
-        {
-          "typ": "kott",
-          "namn": "Crisp cucumber with a sweet, sour and chili sauce, chicken Karaage, 105/125, with yuzu-kosho mayonnaise, sashimi",
-          "pris": 165
-        },
-        {
-          "typ": "kott",
-          "namn": "Sesame braised burdock root, lotus root & carrots, menbosha, fried shrimp toast with sweet chili sauce, edamame",
-          "pris": 65
-        },
-        {
-          "typ": "kott",
-          "namn": "Edamame with lime and chilli salt, ramen, spicy Miso, chicken broth, miso, pork belly, egg, corn, onions and menma, shoy",
-          "pris": 195
-        },
-        {
-          "typ": "kott",
-          "namn": "Chicken broth, miso, menma, corn, egg & pork belly, shio",
-          "pris": 210
-        },
-        {
-          "typ": "kott",
-          "namn": "Pork and Chicken Broth, menma, spring onion, egg, mussels & pork belly, tantanmen",
-          "pris": 210
-        },
-        {
-          "typ": "veg",
-          "namn": "Chicken broth, sichuan pepper, sesame, menma, cashew nuts, egg & spicy pork mince, (We always have a vegetarian or vegan",
-          "pris": 80
-        }
-      ],
-      "kalla": "https://tengu.se/#tile-2"
+      "status": "fel",
+      "ratter": [],
+      "orsak": "HTTPSConnectionPool(host='tengu.se', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='tengu.se', port=443): Failed to establish a new connection: [Errno"
     },
     "keemchi-3": {
       "status": "saknas",
@@ -5280,30 +4930,9 @@
       "kalla": "https://adamalbin.se/menu"
     },
     "indian-street-food-co": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "Day’s Dal, veggies and paneer served with basmati Rice, salad and Naan",
-          "pris": 140
-        },
-        {
-          "typ": "kott",
-          "namn": "Day’s chicken, dal and veggies served with basmati rice, salad and Naan",
-          "pris": 140
-        },
-        {
-          "typ": "kott",
-          "namn": "Day’s lamb, dal and veggies served with basmati rice, salad and Naan",
-          "pris": 155
-        },
-        {
-          "typ": "kott",
-          "namn": "Day’s chicken, lamb and dal served with basmati rice, salad and Naan, indian bread rolls with fillings, spices and sauce",
-          "pris": 165
-        }
-      ],
-      "kalla": "https://www-static.indianstreetfood.com/wp-content/uploads/2026/08/JIT22-LUNCH-260814.pdf"
+      "status": "fel",
+      "ratter": [],
+      "orsak": "HTTPSConnectionPool(host='www-static.indianstreetfood.com', port=443): Max retries exceeded with url: /wp-content/uploads/2026/08/JIT22-LUNCH-260814.pdf (Caused by NewConnectionError(\"HTTPSConnection("
     },
     "lejonet-bjornen": {
       "status": "saknas",
@@ -5453,50 +5082,9 @@
       "orsak": "ingen menyadress"
     },
     "tjabba-thai": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "Kryddstark papayasallad med chili, vitlÃ¶k och jordnÃ¶tter â, 2, (Poh Pea Pack)",
-          "pris": 155
-        },
-        {
-          "typ": "veg",
-          "namn": "Vegetariska vÃ¥rrullar serverade med sweet chilisÃ¥s â, 3, (Tom Yam Gong) ð¶ï¸ð¶ï¸",
-          "pris": 129
-        },
-        {
-          "typ": "kott",
-          "namn": "Tom Yam soppa med rÃ¤kor, svamp, citrongrÃ¤s, limeblad, tomat, galangal och koriander â, 4, (Pad Hoi Horapa) ð¶ï¸",
-          "pris": 159
-        },
-        {
-          "typ": "fisk",
-          "namn": "Wokade musslor i ostronsÃ¥s med vitlÃ¶k, chili, lÃ¶k, peppar och sÃ¶t basilika â, fisk, 8, (Plaa Tap Tim Tot Grap) ð",
-          "pris": 149
-        },
-        {
-          "typ": "fisk",
-          "namn": "Friterad hel rÃ¶d tilapiafisk med chili sojasÃ¥s â, 9, (Plaa Sam Rod) ð¶ï¸",
-          "pris": 289
-        },
-        {
-          "typ": "fisk",
-          "namn": "Friterad hel rÃ¶d tilapiafisk serverad med sÃ¶tsur sÃ¥s â, 10, (Plaa Rad Prik Geng) ð¶ï¸ð¶ï¸",
-          "pris": 299
-        },
-        {
-          "typ": "fisk",
-          "namn": "Wokade skaldjur med thaibasilika, grÃ¶nsaker, chili och vitlÃ¶k â, 15, (Pat Thai Gong)",
-          "pris": 259
-        },
-        {
-          "typ": "kott",
-          "namn": "Wokade risnudlar med jÃ¤tterÃ¤kor, Ã¤gg, broccoli, bÃ¶ngroddar och jordnÃ¶tter â, 16, (Geng Gong) ð¶ï¸ð¶ï¸ð¶ï¸",
-          "pris": 259
-        }
-      ],
-      "kalla": "https://www.tjabbathai.se/meny"
+      "status": "fel",
+      "ratter": [],
+      "orsak": "HTTPSConnectionPool(host='www.tjabbathai.se', port=443): Max retries exceeded with url: /meny (Caused by NewConnectionError(\"HTTPSConnection(host='www.tjabbathai.se', port=443): Failed to establish a "
     },
     "caffetteria-italiana": {
       "status": "saknas",
@@ -6085,18 +5673,18 @@
         },
         {
           "typ": "kott",
-          "namn": "Korv stroganoff med paprika, purjolÃ¶k, grÃ¤dde & tomat. Ris",
-          "pris": 125
+          "namn": "Ãrtsoppa med eller utan flÃ¤sk, pannkakor med jordgubbsylt & vispad grÃ¤dde",
+          "pris": 120
         },
         {
-          "typ": "fisk",
-          "namn": "Scampirisotto med saffran, grÃ¤dde, broccoli & Grana Padano",
+          "typ": "kott",
+          "namn": "KÃ¶ttbullar i mild vitpeppargrÃ¤ddsÃ¥s, rÃ¥rÃ¶rda lingon, saltgurka och potatispurÃ©",
           "pris": 135
         },
         {
-          "typ": "veg",
-          "namn": "Gnocchi med fÃ¤rsk salvia, grÃ¶n sparris, skirat smÃ¶r & Grana Padano",
-          "pris": 125
+          "typ": "fisk",
+          "namn": "FiskgratÃ¤ng pÃ¥ torsk-, laxfilÃ©, tomat, creme fraiche & fÃ¤rska, champinjoner. PotatispurÃ©",
+          "pris": 135
         },
         {
           "typ": "kott",
@@ -6186,8 +5774,13 @@
       "status": "ok",
       "ratter": [
         {
+          "typ": "fisk",
+          "namn": "Tagliatelle al salmone - Tagliatelle, med lax, grädde, citronzest, datterini",
+          "pris": 60
+        },
+        {
           "typ": "kott",
-          "namn": "Bräserad fläskkarré med svampsås, smörslungad savoykål, chili, morot",
+          "namn": "tomater, dill, svartpeppar",
           "pris": 165
         },
         {
@@ -6219,11 +5812,6 @@
           "typ": "kott",
           "namn": "Affogato, vår vaniljgelato dränkt i espresso",
           "pris": 75
-        },
-        {
-          "typ": "kott",
-          "namn": "Sgroppino, hemgjord citronsorbet rörd med grappa och prosecco",
-          "pris": 115
         }
       ],
       "kalla": "https://www.adriaristorante.se/menyer"
@@ -6350,7 +5938,7 @@
       "ratter": [
         {
           "typ": "kott",
-          "namn": "Ostpanerad schnitzel med vispat chilibearnaise och tomatsallad",
+          "namn": "Kalvfärsbiff med potatispuré, gräddsås, pressgurka och rårörda lingon",
           "pris": 145
         }
       ],
@@ -6616,50 +6204,9 @@
       "kalla": "https://babeldeli.com/sv/catering/foretag"
     },
     "la-esquina": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "Pan de Cristal med tomat, vitlök & olivolja",
-          "pris": 75
-        },
-        {
-          "typ": "kott",
-          "namn": "Spanish salted potato chips, ett urval av spanska ostar",
-          "pris": 125
-        },
-        {
-          "typ": "kott",
-          "namn": "A selection of Spanish cheeses, friterade Patatas Bravas med het Bravassås",
-          "pris": 75
-        },
-        {
-          "typ": "kott",
-          "namn": "Fries Patatas bravas with spicy Bravas sauce, friterade Pimientos de padron med havssalt",
-          "pris": 75
-        },
-        {
-          "typ": "kott",
-          "namn": "Fried Pimientos de padron with sea salt, spansk potatistsortilla",
-          "pris": 85
-        },
-        {
-          "typ": "kott",
-          "namn": "Spanish potato tortilla, sparrisbroccoli med chili, vitlök & manchego",
-          "pris": 110
-        },
-        {
-          "typ": "fisk",
-          "namn": "Heta räkor i chili & vitlök",
-          "pris": 130
-        },
-        {
-          "typ": "kott",
-          "namn": "Hot shrimps with chili & garlic, boquerones i vinäger",
-          "pris": 95
-        }
-      ],
-      "kalla": "https://laesquina.se/meny/#vekan-lunch"
+      "status": "fel",
+      "ratter": [],
+      "orsak": "HTTPSConnectionPool(host='laesquina.se', port=443): Max retries exceeded with url: /meny/ (Caused by NewConnectionError(\"HTTPSConnection(host='laesquina.se', port=443): Failed to establish a new conne"
     },
     "hannas-cafe-antik": {
       "status": "saknas",
@@ -6701,7 +6248,7 @@
         },
         {
           "typ": "kott",
-          "namn": "Ãrtmarinerad flÃ¤skfilÃ© med whiskeysÃ¥s, ugnsrostade morÃ¶tter och stekt potatis",
+          "namn": "Stekt biff med bearnaise, rÃ¶dvinssky, ugnsbakad tomat och pommes",
           "pris": 149
         },
         {
@@ -6866,50 +6413,9 @@
       "kalla": "https://ligula.se/sv/restauranger/la-gare-stockholm/#menyer-oppettider"
     },
     "zio-s-pasta": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "Meny – Zios Pasta, vi gör bästa Italienska pizzan, i Stockholm, njut av våra läckra rätter, gör en beställning nu!, välk",
-          "pris": 119
-        },
-        {
-          "typ": "kott",
-          "namn": "1. Margarita, mozzarella, tomatsås, färsk basilika",
-          "pris": 119
-        },
-        {
-          "typ": "kott",
-          "namn": "2. Funghi, mozzarella, tomatsås, champinjoner",
-          "pris": 119
-        },
-        {
-          "typ": "kott",
-          "namn": "3. Ruccola, mozzarella, tomatsås, ruccola, olivolja",
-          "pris": 119
-        },
-        {
-          "typ": "kott",
-          "namn": "4. Caprese, mozzarella, tomatsås, körsbärstomater, basilika",
-          "pris": 119
-        },
-        {
-          "typ": "kott",
-          "namn": "5. Vesuvio, mozzarella, tomatsås, skinka",
-          "pris": 119
-        },
-        {
-          "typ": "kott",
-          "namn": "6. Capricciosa, mozzarella, tomatsås, skinka, champinjoner",
-          "pris": 125
-        },
-        {
-          "typ": "fisk",
-          "namn": "7. Bussola, mozzarella, tomatsås, räkor, skinka",
-          "pris": 125
-        }
-      ],
-      "kalla": "https://www.ziospasta.se/meny/"
+      "status": "fel",
+      "ratter": [],
+      "orsak": "HTTPSConnectionPool(host='www.ziospasta.se', port=443): Max retries exceeded with url: /meny/ (Caused by NewConnectionError(\"HTTPSConnection(host='www.ziospasta.se', port=443): Failed to establish a n"
     },
     "the-lobby": {
       "status": "saknas",
@@ -7024,9 +6530,9 @@
       "kalla": "https://duvelcafe.com/meny#lunch"
     },
     "kottmastarn": {
-      "status": "saknas",
+      "status": "fel",
       "ratter": [],
-      "kalla": "https://kottmastarn.se/#meny"
+      "orsak": "HTTPSConnectionPool(host='kottmastarn.se', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='kottmastarn.se', port=443): Failed to establish a new connec"
     },
     "espresso-house-10": {
       "status": "saknas",
@@ -7101,50 +6607,9 @@
       "orsak": "ingen menyadress"
     },
     "brasserie-elverket": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "& hasselnötter* (L)(SE)(N)(S)(SO)",
-          "pris": 235
-        },
-        {
-          "typ": "kott",
-          "namn": "Valencia almonds",
-          "pris": 70
-        },
-        {
-          "typ": "kott",
-          "namn": "Pimientos de Padrón 110 //or “Hot” with Manchego & chilioil",
-          "pris": 125
-        },
-        {
-          "typ": "kott",
-          "namn": "Tonights cheese",
-          "pris": 95
-        },
-        {
-          "typ": "kott",
-          "namn": "Smetana, pickled wild cucumber & honey 85 add 3cl ice-cold vodka, oysters & Caviar",
-          "pris": 60
-        },
-        {
-          "typ": "kott",
-          "namn": "Swedish Black Caviar, on the hand with 2cl Vodka, starters",
-          "pris": 195
-        },
-        {
-          "typ": "kott",
-          "namn": "Deep-fried potato cake with chanterelles & Västerbotten horseradish crème",
-          "pris": 145
-        },
-        {
-          "typ": "kott",
-          "namn": "Escargots provençale, 6pce with bread, steak tartare with ́Nduja mayo, marcona almonds, Manchego & pickled onion(SWE) 1⁄",
-          "pris": 155
-        }
-      ],
-      "kalla": "https://www.brasserieelverket.se/#Dlunch"
+      "status": "fel",
+      "ratter": [],
+      "orsak": "HTTPSConnectionPool(host='www.brasserieelverket.se', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='www.brasserieelverket.se', port=443): Failed to es"
     },
     "vallhallagrillen": {
       "status": "saknas",
@@ -7391,50 +6856,9 @@
       "orsak": "ingen menyadress"
     },
     "da-peppe-due": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "Pane all’ Aglio, grillat lantbrödsskiva med vitlök / Grilled country bread with garlic",
-          "pris": 69
-        },
-        {
-          "typ": "kott",
-          "namn": "Olive Marinate, örtmarinerade oliver / Herb marinated olives",
-          "pris": 78
-        },
-        {
-          "typ": "kott",
-          "namn": "Insalata della Casa, italiensk mixsallad, friterad getost, rödbetor, honungs-och balsamicodressing / Mix salad, fried go",
-          "pris": 169
-        },
-        {
-          "typ": "kott",
-          "namn": "Caprese al Burrata, burrata, marinerade färska coctailtomater med olivolja, basilika & svart peppar / Burrata, marinated",
-          "pris": 164
-        },
-        {
-          "typ": "kott",
-          "namn": "Bruschetta CON PARMIGIANO REGGIANO, italiensk lantbröd med parmaskinka, Roma-tomater, olivolja, basilika, vitlök, balsam",
-          "pris": 164
-        },
-        {
-          "typ": "kott",
-          "namn": "Antipasto Tipico, ett urval av italienska charkuterier med tillbehör / Typicall Italian mix of charcuteries with accesso",
-          "pris": 249
-        },
-        {
-          "typ": "fisk",
-          "namn": "Hummer soppa, krämig hummersoppa / Creamy lobster soup",
-          "pris": 189
-        },
-        {
-          "typ": "fisk",
-          "namn": "Scampi all Aglio, vitlöksfrästa scampi, piri piri, olivolja, persilja serve- ras med tomat carpaccio / Garlic prawns, pi",
-          "pris": 199
-        }
-      ],
-      "kalla": "https://dapeppedue.se/meny/"
+      "status": "fel",
+      "ratter": [],
+      "orsak": "HTTPSConnectionPool(host='dapeppedue.se', port=443): Max retries exceeded with url: /meny/ (Caused by NewConnectionError(\"HTTPSConnection(host='dapeppedue.se', port=443): Failed to establish a new con"
     },
     "the-meat": {
       "status": "ok",
@@ -7648,9 +7072,9 @@
       "kalla": "https://vapiano.se/meny/"
     },
     "shere-khan": {
-      "status": "saknas",
+      "status": "fel",
       "ratter": [],
-      "kalla": "https://www.sherekhan.se/meny/"
+      "orsak": "HTTPSConnectionPool(host='www.sherekhan.se', port=443): Max retries exceeded with url: /meny/ (Caused by NewConnectionError(\"HTTPSConnection(host='www.sherekhan.se', port=443): Failed to establish a n"
     },
     "breeze": {
       "status": "saknas",
@@ -7668,50 +7092,9 @@
       "orsak": "ingen menyadress"
     },
     "topclass-sushi-dumpling": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "Meny | toppclass-sushi.se, hem, meny, kontakt, Ãppettider, bilder, hem, meny, kontakt, Ãppettider, bilder, more, more ",
-          "pris": 109
-        },
-        {
-          "typ": "kott",
-          "namn": "Mix sushi, mellan sushi 11bitar, (4st maki & 7st nigiri)",
-          "pris": 139
-        },
-        {
-          "typ": "kott",
-          "namn": "Stor sushi 15bitar, (5st maki & 10st nigiri)",
-          "pris": 179
-        },
-        {
-          "typ": "veg",
-          "namn": "Vegetarisk sushi 11bitar, (3st avokado, 2 st Ã¤gg, 2st tofu & 4st maki)",
-          "pris": 139
-        },
-        {
-          "typ": "fisk",
-          "namn": "Halstrad lax (grillad) & rÃ¤kor 8/10/12 bitar, 139/159/189, lax & av0kado sushi 8/10/12 bitar, 129/149/179, nigiri sushi",
-          "pris": 179
-        },
-        {
-          "typ": "kott",
-          "namn": "Stor sashimi 18 bitar mix",
-          "pris": 229
-        },
-        {
-          "typ": "fisk",
-          "namn": "Futomaki, (lax, gurka, avokado & krabbfish)",
-          "pris": 119
-        },
-        {
-          "typ": "veg",
-          "namn": "Vegetarisk roll, (gurka, avokado, tofu)",
-          "pris": 119
-        }
-      ],
-      "kalla": "https://toppclass-sushi.se/meny"
+      "status": "fel",
+      "ratter": [],
+      "orsak": "HTTPSConnectionPool(host='toppclass-sushi.se', port=443): Max retries exceeded with url: /meny (Caused by NewConnectionError(\"HTTPSConnection(host='toppclass-sushi.se', port=443): Failed to establish "
     },
     "alegria-tapas-bar": {
       "status": "ok",
