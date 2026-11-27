@@ -1,6 +1,6 @@
 {
-  "datum": "2026-11-26",
-  "uppdaterad": "2026-11-26T08:48:24+01:00",
+  "datum": "2026-11-27",
+  "uppdaterad": "2026-11-27T08:46:27+01:00",
   "exempel": false,
   "menyer": {
     "kung-carl": {
@@ -27,11 +27,6 @@
           "pris": 195
         },
         {
-          "typ": "kott",
-          "namn": "Klassik ärtsoppa, serverad med rimmad fläsk, Skånsk senap",
-          "pris": 175
-        },
-        {
           "typ": "fisk",
           "namn": "Kolja i misobuljong med pak choi, salladslök, koriander",
           "pris": 270
@@ -50,9 +45,50 @@
       "kalla": "https://kungcarl.se/en/lunch"
     },
     "sturehof": {
-      "status": "fel",
-      "ratter": [],
-      "orsak": "HTTPSConnectionPool(host='sturehof.com', port=443): Read timed out. (read timeout=15)"
+      "status": "ok",
+      "ratter": [
+        {
+          "typ": "kott",
+          "namn": "Book a table, starters, yellow beetroots, ricotta, browned butter, candied hazelnuts, salad and monte enebro",
+          "pris": 155
+        },
+        {
+          "typ": "kott",
+          "namn": "Gratinated Snails, garlic, mushrooms, parsley and sourdough bread",
+          "pris": 195
+        },
+        {
+          "typ": "kott",
+          "namn": "Pâté en Croûte, pork, chicken liver, pistachios and pickled cauliflower",
+          "pris": 175
+        },
+        {
+          "typ": "kott",
+          "namn": "Deep-fried langoustine tails, potato purée, truffle, grilled onion and soy browned butter",
+          "pris": 275
+        },
+        {
+          "typ": "fisk",
+          "namn": "/275, dalarö sandwich, smoked whitefish, red onion, chive, vendace roe and egg yolk",
+          "pris": 215
+        },
+        {
+          "typ": "fisk",
+          "namn": "Soup of Langoustines, quenelle of scallop, crayfish and lobster oil",
+          "pris": 285
+        },
+        {
+          "typ": "kott",
+          "namn": "“Toast Skagen”",
+          "pris": 295
+        },
+        {
+          "typ": "kott",
+          "namn": "1/2  1/1, 5 x langoustine",
+          "pris": 175
+        }
+      ],
+      "kalla": "https://sturehof.com/en/menu/"
     },
     "leche-negra": {
       "status": "saknas",
@@ -69,8 +105,8 @@
       "ratter": [
         {
           "typ": "kott",
-          "namn": "Grillade nötfärsbiffar, rostad potatis, tomatsås, auberginröra",
-          "pris": 180
+          "namn": "Steak Minute, tomatsallad, pommes frites, bearnaisesås",
+          "pris": 195
         },
         {
           "typ": "kott",
@@ -90,7 +126,7 @@
       "ratter": [
         {
           "typ": "kott",
-          "namn": "Grilled chicken thigh / mojo rojo / roasted potatoes / roasted cauliflower",
+          "namn": "Wagyu roast / cauliflower purée / baked leek / red wine jus / capers",
           "pris": 185
         },
         {
@@ -183,11 +219,6 @@
           "typ": "fisk",
           "namn": "Omelett med sallad, avocado, kallrökt lax & örter, chark",
           "pris": 195
-        },
-        {
-          "typ": "kott",
-          "namn": "Klassik ärtsoppa, serverad med rimmad fläsk, Skånsk senap",
-          "pris": 175
         },
         {
           "typ": "fisk",
@@ -405,38 +436,38 @@
         },
         {
           "typ": "kott",
-          "namn": "lime, jordgubb, rom, twisted T",
-          "pris": 179
+          "namn": "/ st, schalottenlöksvinegrette, toast Skagen 1/2",
+          "pris": 208
         },
         {
           "typ": "kott",
-          "namn": "chili, ananas, tequila, mezcal, nam Cooler",
-          "pris": 179
+          "namn": "rödbetor, kapris, rödlök, dijonsenap & äggula, kantarelltoast",
+          "pris": 198
         },
         {
           "typ": "kott",
-          "namn": "kokos, kaffe, vodka, halo Rhubarb",
-          "pris": 179
+          "namn": "smörstekt brioche, kantareller, inkokt svartrot, pepparmajonnäs & friterad svartkål, tures ost & chark",
+          "pris": 238
         },
         {
           "typ": "kott",
-          "namn": "rabarber, vanilj, citrus, mjölktvättad vodka, spice Me Up",
-          "pris": 179
+          "namn": "Tryffelchips",
+          "pris": 164
         },
         {
           "typ": "kott",
-          "namn": "jalapeño, lime, rom, mansion Sour",
-          "pris": 179
+          "namn": "198 /, moules asiatique",
+          "pris": 298
         },
         {
           "typ": "kott",
-          "namn": "passionsfrukt, mango, vanilj, vodka, herb’s Collins",
-          "pris": 179
+          "namn": "198 /, toast Skagen",
+          "pris": 298
         },
         {
-          "typ": "kott",
-          "namn": "rosmarin, rosépeppar, salvia, gin, lemonade Q",
-          "pris": 179
+          "typ": "fisk",
+          "namn": "rödbetor, kapris, rödlök, dijonsenap, äggula & pommes frites, tures fisk- & skaldjursgryta",
+          "pris": 298
         }
       ],
       "kalla": "https://tures.se/#menyer"
@@ -611,49 +642,8 @@
       "orsak": "ingen menyadress"
     },
     "knut": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "Restaurang Knut - Upplandsgatan - Norrländsk restaurang, knut serverar norrländsk mat med ena, foten i vildmarken och de",
-          "pris": 164
-        },
-        {
-          "typ": "fisk",
-          "namn": "Rimmad lax, med dillstuvad potatis, senapsmarinerad fänkål & citron",
-          "pris": 164
-        },
-        {
-          "typ": "kott",
-          "namn": "Fetaostsallad, med ägg, avokado, gröna bönor, ört- och vitlöksdressing & krutonger",
-          "pris": 164
-        },
-        {
-          "typ": "kott",
-          "namn": "Hjortskav, med potatispuré, rårörda lingon, pressgurka och rostad lök",
-          "pris": 260
-        },
-        {
-          "typ": "kott",
-          "namn": "Take Away, det går även bra att beställa take away, förrätter, norrlandstallrik, med renkorv, varmrökt hjorthjärta, copp",
-          "pris": 220
-        },
-        {
-          "typ": "kott",
-          "namn": "Knuts minipalt, med vedrökt Jokkmokkskarré, sirapssmör & ättikslingon",
-          "pris": 155
-        },
-        {
-          "typ": "fisk",
-          "namn": "Laxtartar, med vårlök, ingefära, pepparrotspäron, sobasås, rökt majonnäs & friterad wonton",
-          "pris": 215
-        },
-        {
-          "typ": "kott",
-          "namn": "Friterat kalvbräss, med oxsvansragu, tryffelkräm, syltad svamp & lingon",
-          "pris": 225
-        }
-      ],
+      "status": "saknas",
+      "ratter": [],
       "kalla": "https://restaurangknut.se/upplandsgatan"
     },
     "ming": {
@@ -722,56 +712,15 @@
       "ratter": [
         {
           "typ": "kott",
-          "namn": "Kyckling schnitzel med rostade potatis och kaprismajo",
+          "namn": "Angusburgare med sallad, tomat, picklad, rödlök, ost, chillimajo och rostad potatis",
           "pris": 99
         }
       ],
       "kalla": "https://stockholm.bongobar.se/lunch"
     },
     "din-din-club-mood": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "fisk",
-          "namn": "Lax, avokado, creme cheese, tryffelmajo, rostad lök, sesamfrön, salladslök, nori",
-          "pris": 184
-        },
-        {
-          "typ": "veg",
-          "namn": "(Går att få friterad), friterad tofu, avokado, chilimajo, sesamfrön, gräslök",
-          "pris": 188
-        },
-        {
-          "typ": "kott",
-          "namn": "(Friterad), bulgogimarinerat högrev, gurka, cheddar, jalapeno, rödkål, kimchimajo",
-          "pris": 164
-        },
-        {
-          "typ": "fisk",
-          "namn": "(Friterad), lax, mango, avokado, cream cheese, sojamajo, teriyakisås, sriracha, rostad lök",
-          "pris": 178
-        },
-        {
-          "typ": "kott",
-          "namn": "(Friterad), rostad majs, portabello, cheddarost, chilimajo, sojabönor, toban djan, salladslök och koriander",
-          "pris": 182
-        },
-        {
-          "typ": "kott",
-          "namn": "Chili mayo, Koriander",
-          "pris": 108
-        },
-        {
-          "typ": "kott",
-          "namn": "Smoky mayo, gräslök",
-          "pris": 72
-        },
-        {
-          "typ": "kott",
-          "namn": "Sweet & spicy gochujang, sesamfrö, gräslök",
-          "pris": 81
-        }
-      ],
+      "status": "saknas",
+      "ratter": [],
       "kalla": "https://dindinclub.se/meny/"
     },
     "monster-chicken": {
@@ -799,13 +748,13 @@
       "ratter": [
         {
           "typ": "kott",
-          "namn": "Yuxiang jiding, (Starkt)",
+          "namn": "Jiangbao jiding, (Lite Starkt)",
           "pris": 165
         },
         {
           "typ": "veg",
-          "namn": "Vegetarisk, tofu med färska svampar (shimeji, ostronskivling) säsongs grönsaker i doubanjiang och söt chilisås. Servas m",
-          "pris": 295
+          "namn": "Fredags special, huntun + Mapo tofu, (Starkt), hemgjorda dumplings (egenmalen finsk fläskfärs, rödräkor och chayote) som",
+          "pris": 270
         }
       ],
       "kalla": "https://ingerskitchen.com/menyer/lunchmeny/"
@@ -830,8 +779,13 @@
         },
         {
           "typ": "kott",
-          "namn": "BOULARD, PAYS D’AUGE, V. S . O . P. France, RÉMY MARTIN, V.S.O.P., France .................................240",
+          "namn": "BOULARD, PAYS D’AUGE, V. S . O . P. France",
           "pris": 190
+        },
+        {
+          "typ": "kott",
+          "namn": "RÉMY MARTIN, V.S.O.P., France",
+          "pris": 240
         },
         {
           "typ": "kott",
@@ -862,49 +816,8 @@
       "orsak": "ingen menyadress"
     },
     "italiano-moderno": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "Herb-infused tomato sauce, roasted Salsiccia, Pancetta, Salami Ventricina, fior, di latte mozzarella and red onions. Fin",
-          "pris": 213
-        },
-        {
-          "typ": "kott",
-          "namn": "portobello, Grana Padano, parsley. (V)",
-          "pris": 219
-        },
-        {
-          "typ": "kott",
-          "namn": "vegetable chips, sticky balsamic dressing, Grana Padano. (V)",
-          "pris": 184
-        },
-        {
-          "typ": "veg",
-          "namn": "Vegetarian options available",
-          "pris": 189
-        },
-        {
-          "typ": "kott",
-          "namn": "roasted portabello mushroom, rosemary & thyme",
-          "pris": 177
-        },
-        {
-          "typ": "kott",
-          "namn": "chips, Västerbotten cheese and lingonberries",
-          "pris": 194
-        },
-        {
-          "typ": "kott",
-          "namn": "Padano. Accompanied by a intense truffle dip. (V)",
-          "pris": 79
-        },
-        {
-          "typ": "kott",
-          "namn": "Rootfruit chips topped with freshly grated Grana, padano cheese. Accompanied by an black truffle dip",
-          "pris": 79
-        }
-      ],
+      "status": "saknas",
+      "ratter": [],
       "kalla": "https://v.restaurant/Stockholm/#menu"
     },
     "joe-the-juice-2": {
@@ -926,9 +839,24 @@
           "pris": 245
         },
         {
-          "typ": "kott",
-          "namn": "Krispig fläsksida, senapsstuvad kål, picklade senapsfrön",
+          "typ": "fisk",
+          "namn": "Helstekt ryggbiff, dragonmajo, fermenterad mo, rot, rostad potatis, veckans fisk",
           "pris": 175
+        },
+        {
+          "typ": "fisk",
+          "namn": "Ugnsbakad lax, stuvad spenat, kokt potatis, äpple- & fänkålskrudite, veckans Sallad",
+          "pris": 175
+        },
+        {
+          "typ": "veg",
+          "namn": "Asiatisk tonfisksallad, wasabimajo, rättika glasnudlar, pak choy, veckans vegetariska",
+          "pris": 185
+        },
+        {
+          "typ": "kott",
+          "namn": "Svamp- och tryffelrisotto",
+          "pris": 185
         }
       ],
       "kalla": "https://boqueriastockholm.se/lunch"
@@ -1432,56 +1360,15 @@
       "ratter": [
         {
           "typ": "kott",
-          "namn": "Hainanese Chicken Rice",
-          "pris": 165
+          "namn": "Tiew Tom Yam Pork Dumplings Soup Noodle",
+          "pris": 175
         }
       ],
       "kalla": "https://happyrooster.se/"
     },
     "brasserie-astoria": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "Späda cruditéer, kryddig yuzu ranchdressing",
-          "pris": 175
-        },
-        {
-          "typ": "kott",
-          "namn": "Spansk lufttorkad skinka (Pata Negra Gran Reserva, 36 månader), charentaismelon från Philibon, rostade pinjenötter & esp",
-          "pris": 260
-        },
-        {
-          "typ": "kott",
-          "namn": "Ostron «Rockefeller», kimchi, sesamfrön, parmesan, sauce hollandaise & korianderkrasse",
-          "pris": 80
-        },
-        {
-          "typ": "kott",
-          "namn": "Ostron au naturelle (Frankrike, Bretagne nr 3), champagne- & schalottenlöksvinaigrette",
-          "pris": 65
-        },
-        {
-          "typ": "kott",
-          "namn": "Gougères, jalapeños, engelsk cheddar, tryffelhonung & parmesan",
-          "pris": 95
-        },
-        {
-          "typ": "kott",
-          "namn": "Marinerade oliver, chili & citrontimjan",
-          "pris": 85
-        },
-        {
-          "typ": "kott",
-          "namn": "«Kebabpizza», confiterat anklår, tomatsås, fontina, picklad jalapeño, harissayoghurt & persilja",
-          "pris": 295
-        },
-        {
-          "typ": "kott",
-          "namn": "Fråga er servitör",
-          "pris": 235
-        }
-      ],
+      "status": "saknas",
+      "ratter": [],
       "kalla": "https://www.brasserieastoria.se/menyn/brunch/"
     },
     "fafelle": {
@@ -1651,9 +1538,39 @@
           "pris": 185
         },
         {
+          "typ": "kott",
+          "namn": "Grillad pluma, pico de gallo, padrónpaprika, jalapeñomajonnäs, och pommes frites, snacks & förrätter",
+          "pris": 98
+        },
+        {
+          "typ": "kott",
+          "namn": "Tomatsallad, ruben Special",
+          "pris": 235
+        },
+        {
+          "typ": "kott",
+          "namn": "Reuben Sandwich",
+          "pris": 195
+        },
+        {
           "typ": "veg",
           "namn": "Kikärtsbiff med tomatsås, sivripaprika och pärlcouscous",
           "pris": 255
+        },
+        {
+          "typ": "kott",
+          "namn": "Klassika köttbullar, potatismos, rårörda lingon & pressgurka",
+          "pris": 295
+        },
+        {
+          "typ": "kott",
+          "namn": "Boeuf bourguignon, champinjoner, lök, varmrökt sidfläsk, & potatispuré",
+          "pris": 265
+        },
+        {
+          "typ": "kott",
+          "namn": "Poretti, 30cl",
+          "pris": 80
         }
       ],
       "kalla": "https://rubenrestaurang.se/meny"
@@ -1884,34 +1801,8 @@
       "orsak": "ingen menyadress"
     },
     "nk-art-bakery": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "med ägg och citron på mustigt rågbröd",
-          "pris": 165
-        },
-        {
-          "typ": "veg",
-          "namn": "toppas med rostade pumpafrön, krasse och rödbetsgroddar",
-          "pris": 85
-        },
-        {
-          "typ": "kott",
-          "namn": "med avokado och färskost, toppad med picklad rödlök och dill",
-          "pris": 145
-        },
-        {
-          "typ": "kott",
-          "namn": "kyckling/ceasar med bacon, fetaost, avokado, kålmix, pico de gallo, muhammara & hummus",
-          "pris": 125
-        },
-        {
-          "typ": "fisk",
-          "namn": "Ris, grönsaker, bonitoflingor, färsk lax, majonnäs och soyasås",
-          "pris": 175
-        }
-      ],
+      "status": "saknas",
+      "ratter": [],
       "kalla": "https://artbakery.se/lunch/"
     },
     "oolong-tea-house": {
@@ -2056,13 +1947,8 @@
       "ratter": [
         {
           "typ": "fisk",
-          "namn": "Pensionär, idag, 26/11, dagens kött, fläskkarré, gräddsås, rostad potatis och vinbärsgelé, dagens fisk, friterad spätta,",
+          "namn": "Pensionär, idag, 27/11, dagens kött, helstekt ryggbiff, bearnaisesås och klyftpotatis, dagens fisk, teriyakilax, ugnsbak",
           "pris": 145
-        },
-        {
-          "typ": "kott",
-          "namn": "Veckans kött",
-          "pris": 159
         }
       ],
       "kalla": "https://johnscotts.se/kungstradgarden/veckans-lunch/"
@@ -2211,49 +2097,8 @@
       "kalla": "https://nybrogatan38.com/lunch"
     },
     "tidemans": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "Lammfärsbiff, M. Bulgur & champinjonsås",
-          "pris": 139
-        },
-        {
-          "typ": "kott",
-          "namn": "Dagens pasta: Krämig Pasta Caprese, M. Färsk spenat, mozzarella & arrabbiatasås",
-          "pris": 139
-        },
-        {
-          "typ": "kott",
-          "namn": "Dagens pizza: Capricciosa, M, tomatsås, mozzarella, kokt skinka & champinjoner",
-          "pris": 139
-        },
-        {
-          "typ": "fisk",
-          "namn": "Dagens sallad: Laxsallad, M, blandad sallad, bulgur, varmrökt lax, ägghalva, citronklyfta & romdressing",
-          "pris": 139
-        },
-        {
-          "typ": "kott",
-          "namn": "M. Mozzarella ciabattabröd",
-          "pris": 119
-        },
-        {
-          "typ": "kott",
-          "namn": "Lasagne al Forno, M. Färska pastaplattor med nötfärs, béchamelsås, tomatsås, mozzarella & grana padano",
-          "pris": 139
-        },
-        {
-          "typ": "veg",
-          "namn": "Vegetarisk lasagne, M. Färska pastaplattor med spenat, fetaost, aubergine, zucchini, basilika, tomatsås, béchamelsås & g",
-          "pris": 139
-        },
-        {
-          "typ": "veg",
-          "namn": "Tidemans vegetariska: Spenat- och fetaost bakelse, M. Blandad sallad & rödbetskräm",
-          "pris": 150
-        }
-      ],
+      "status": "saknas",
+      "ratter": [],
       "kalla": "https://www.tidemans.se/veckans-lunch/"
     },
     "damaskus-grill": {
@@ -2390,49 +2235,8 @@
       "orsak": "ingen menyadress"
     },
     "urban-deli": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "Håll dig uppdaterad, breakfast, all day & brunch, kids, deli, group Menu, nyårsafton All Day, breakfast, served until 11",
-          "pris": 115
-        },
-        {
-          "typ": "kott",
-          "namn": "Big breakfast, kaffe/te, juice/smoothie, sandwich, chia/yoghurt/gröt",
-          "pris": 145
-        },
-        {
-          "typ": "kott",
-          "namn": "Chia bowl/Yoghurt bowl, bär & nötter",
-          "pris": 70
-        },
-        {
-          "typ": "kott",
-          "namn": "All day & brunch, för all Take Away gäller 6% moms, lunch of the week, pork-Neck & Cholula Mayo, nattbakad fläskkarré, T",
-          "pris": 185
-        },
-        {
-          "typ": "kott",
-          "namn": "Roasted Point-Cabbage & Yoghurt, bakad spetskål, bulgursallad, örtyoghurt, chiliolja, parmesan och mixade frön",
-          "pris": 175
-        },
-        {
-          "typ": "kott",
-          "namn": "Good stuff, jerusalem bagel, citron- & pepparschmear, krispig chiliolja",
-          "pris": 75
-        },
-        {
-          "typ": "kott",
-          "namn": "Veggies & schmear, krispiga grönsaker, ranchschmear",
-          "pris": 95
-        },
-        {
-          "typ": "kott",
-          "namn": "A handful smoked shrimps, aioli, citron, smörstekt bröd från bageriet",
-          "pris": 175
-        }
-      ],
+      "status": "saknas",
+      "ratter": [],
       "kalla": "https://urbandeli.se/sveavagen-takparken/#meny"
     },
     "fiesta-deli": {
@@ -2639,7 +2443,7 @@
       "ratter": [
         {
           "typ": "kott",
-          "namn": "Under, 60-80, 80-100, 100+, privat eller företag?, privat, företag, datum/tid, date, time, mer detaljerad beskrivning av",
+          "namn": "Under, 60-80, 80-100, 100+, namn Stockholm? företag?, privat eller företag?, privat, företag, datum/tid, date, time, mer",
           "pris": 60
         },
         {
@@ -2772,22 +2576,22 @@
         },
         {
           "typ": "kott",
-          "namn": "A. Kyckling i grÃ¶n curry & kokosmjÃ¶lk Â°Â°Â°, jasminris",
+          "namn": "A. Kyckling i paneng curry & kokosmjÃ¶lk Â°Â°Â°, jasminris",
           "pris": 149
         },
         {
           "typ": "kott",
-          "namn": "B. Grillspett med Kyckling & jordnÃ¶tssÃ¥s Â°, jasminris",
+          "namn": "B. Grillspett med Biff & jordnÃ¶tssÃ¥s Â°, jasminris",
           "pris": 149
         },
         {
           "typ": "kott",
-          "namn": "C. Wokad Biff, grÃ¶nsaker med chilipasta Â°Â°",
+          "namn": "C. Wokad Kyckling, grÃ¶nsaker & cashewnÃ¶tter Â°",
           "pris": 149
         },
         {
           "typ": "kott",
-          "namn": "Mixen: Kombination av de tre rÃ¤tterna",
+          "namn": "Mixen: Kombination av de tre rÃ¤tterna, husets Special",
           "pris": 169
         }
       ],
@@ -2880,24 +2684,8 @@
       "orsak": "ingen menyadress"
     },
     "strandvagen-1": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "fisk",
-          "namn": "Å ngad ri mm ad r ö dt u nga, skaldjurssås, krispiga bönor, potatispur é, & handskalade räkor, steamed cured sole with s",
-          "pris": 205
-        },
-        {
-          "typ": "kott",
-          "namn": "& fredag, S 1 B u rgare, H ängmörad burgare på 200 g, karamelliserad lök, G ruy è re, dijonnaise & pommes frites, 200 g ",
-          "pris": 255
-        },
-        {
-          "typ": "veg",
-          "namn": "Fö rr ä tter, 2 8 5 sallad ni Ç oise, H alstrad ton fi sk, oli v er, kapris, sardeller, v a x bönor, haricots v erts, mi",
-          "pris": 225
-        }
-      ],
+      "status": "saknas",
+      "ratter": [],
       "kalla": "https://strandvagen1.se/wp-content/uploads/2026/11/SV1-LUNCH-A3-Vecka-45.pdf"
     },
     "oves-hjulkorv": {
@@ -2998,8 +2786,49 @@
       "kalla": "https://www.sayasushi.se/menyer"
     },
     "miss-clara": {
-      "status": "saknas",
-      "ratter": [],
+      "status": "ok",
+      "ratter": [
+        {
+          "typ": "fisk",
+          "namn": "Meat, grilled, butcher’s steak, sauce choron, tomato salad, red wine reduction, and French fries, fish, baked Arctic cha",
+          "pris": 275
+        },
+        {
+          "typ": "kott",
+          "namn": "Corn-fed chicken breast, bacon, Parmesan, and croutons, warm goat cheese",
+          "pris": 255
+        },
+        {
+          "typ": "kott",
+          "namn": "Gratinated goat cheese, salt-baked beets, hazelnuts, and, agrodolce, vinaigrette, dessert, valrhona, chocolate Truffles",
+          "pris": 75
+        },
+        {
+          "typ": "kott",
+          "namn": "Vanilla ice cream topped with espresso, sorbet or ice cream",
+          "pris": 65
+        },
+        {
+          "typ": "kott",
+          "namn": "Drink of the Week, beer of the Week",
+          "pris": 70
+        },
+        {
+          "typ": "kott",
+          "namn": "Kronenbourg Blanc, 33 cl, thirst",
+          "pris": 89
+        },
+        {
+          "typ": "kott",
+          "namn": "Coca-Cola, Coke Zero, Fanta, Sprite, house Cava",
+          "pris": 130
+        },
+        {
+          "typ": "kott",
+          "namn": "Mont Ferrant Americano, organic cava, SPA, the House's White",
+          "pris": 130
+        }
+      ],
       "kalla": "https://www.missclarahotel.com/en/restaurant/lunch/"
     },
     "sawadee-asian-bar": {
@@ -3330,19 +3159,8 @@
       "orsak": "ingen menyadress"
     },
     "holy-greens-2": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "fett, 0,3g, 7g, mättat fett, 0,15g, 4g, kolhydrater, 6g, 16g, varav sockerarter, 5,2g, 14g, protein, 15g, 17g, salt, 0,2",
-          "pris": 197
-        },
-        {
-          "typ": "veg",
-          "namn": "fett, 22g, 16g, mättat fett, 4g, 4g, kolhydrater, 25g, 25g, varav sockerarter, 1g, 1g, protein, 13g, 13g, salt, 1g, 1g, ",
-          "pris": 299
-        }
-      ],
+      "status": "saknas",
+      "ratter": [],
       "kalla": "https://holygreens.se/meny/"
     },
     "reload-foodbar": {
@@ -3468,19 +3286,8 @@
       "kalla": "https://bosphorus.se/urban-food/"
     },
     "holy-greens-3": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "fett, 0,3g, 7g, mättat fett, 0,15g, 4g, kolhydrater, 6g, 16g, varav sockerarter, 5,2g, 14g, protein, 15g, 17g, salt, 0,2",
-          "pris": 197
-        },
-        {
-          "typ": "veg",
-          "namn": "fett, 22g, 16g, mättat fett, 4g, 4g, kolhydrater, 25g, 25g, varav sockerarter, 1g, 1g, protein, 13g, 13g, salt, 1g, 1g, ",
-          "pris": 299
-        }
-      ],
+      "status": "saknas",
+      "ratter": [],
       "kalla": "https://holygreens.se/meny/"
     },
     "machi-machi": {
@@ -3520,39 +3327,8 @@
       "orsak": "ingen menyadress"
     },
     "wedholms-fisk": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "fisk",
-          "namn": "Artichoke soup with smoked char, apple and trout roe, stekta kammusslor med blomkålspuré och blåmusselsås, pan-fried sca",
-          "pris": 275
-        },
-        {
-          "typ": "kott",
-          "namn": "Handgjord löjrom från Kalix med potatiskräm, dillpulver, citronkräm, pommes alumette",
-          "pris": 295
-        },
-        {
-          "typ": "fisk",
-          "namn": "Wedholms herring serving, halv Hummer/Half Lobster",
-          "pris": 245
-        },
-        {
-          "typ": "kott",
-          "namn": "Almond cake with blueberries and lemoncurd, crème Brûlée",
-          "pris": 155
-        },
-        {
-          "typ": "kott",
-          "namn": "Crème Brûlée, en kula glass eller sorbet",
-          "pris": 110
-        },
-        {
-          "typ": "kott",
-          "namn": "One scoop of ice cream or sorbet, wedholms Chokladtryffel",
-          "pris": 88
-        }
-      ],
+      "status": "saknas",
+      "ratter": [],
       "kalla": "https://wedholmsfisk.se/lunchmeny/"
     },
     "ciao-ciao-grande": {
@@ -4010,12 +3786,7 @@
         },
         {
           "typ": "kott",
-          "namn": "Ärtsoppa med pannkakor",
-          "pris": 165
-        },
-        {
-          "typ": "fisk",
-          "namn": "Dillbakad torsk med äggsås, pepparrot och kokt potatis",
+          "namn": "Schnitzel med rödvinssås, persiljesmör och stekt potatis",
           "pris": 165
         },
         {
@@ -4541,18 +4312,43 @@
       "ratter": [
         {
           "typ": "kott",
-          "namn": "Grillad majskycklingfilé, med ris, tomatsås och krämig tzatziki",
+          "namn": "Helstekt rumpstek, med potatisgratäng, sky, aromsmör och haricots verts",
           "pris": 145
         },
         {
           "typ": "fisk",
-          "namn": "kr, panerad spättafilé, med frisk citronkräm och kokt potatis",
+          "namn": "kr, ugnsstekt gös, med klassisk Sandefjordssås och kokt potatis",
           "pris": 145
         },
         {
           "typ": "kott",
-          "namn": "kr, kockens val, ärtsoppa och pannkakor med vispad grädde och sylt",
-          "pris": 125
+          "namn": "kr, veckans, veckans pasta, lasagne al Forno med köttfärssås, béchamelsås och gratinerad ost",
+          "pris": 165
+        },
+        {
+          "typ": "kott",
+          "namn": "kr, veckans hamburgare, drottninghofs Ostburgare med smält ost, sallad, rödlök och dressing",
+          "pris": 165
+        },
+        {
+          "typ": "kott",
+          "namn": "kr, veckans sallad, grekisk sallad med fetaost, tomat, gurka, rödlök, oliver och olivolja",
+          "pris": 165
+        },
+        {
+          "typ": "veg",
+          "namn": "kr, veckans veg, falafel med bulgur och smakrik tomatsås",
+          "pris": 165
+        },
+        {
+          "typ": "kott",
+          "namn": "kr, dryck, vin / Bubbel",
+          "pris": 75
+        },
+        {
+          "typ": "kott",
+          "namn": "kr, alltid på Drottninghof, köttbullar",
+          "pris": 165
         }
       ],
       "kalla": "https://www.drottninghof.se/sv/lunch"
@@ -4604,20 +4400,9 @@
       "kalla": "https://hamburgerbors.se/mat-dryck/"
     },
     "barbeque-steakhouse": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "Vin, (rött, vitt & rosé)",
-          "pris": 65
-        },
-        {
-          "typ": "kott",
-          "namn": "Ölkanna, 1,6L",
-          "pris": 129
-        }
-      ],
-      "kalla": "https://bbqsteakhouse.se/"
+      "status": "fel",
+      "ratter": [],
+      "orsak": "503 Server Error: Service Unavailable for url: https://bbqsteakhouse.se/"
     },
     "yushi": {
       "status": "saknas",
@@ -4635,44 +4420,8 @@
       "kalla": "https://caferagazzi.se/#meny"
     },
     "restaurang-artes": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "veg",
-          "namn": "Restaurang Artes - Lunch, lunch, ARTES veganska linsburgare",
-          "pris": 175
-        },
-        {
-          "typ": "kott",
-          "namn": "med mayo, lök, guacamole, tomat & coleslaw, caesarsallad",
-          "pris": 175
-        },
-        {
-          "typ": "fisk",
-          "namn": "med bacon och kyckling, fisk- och skaldjursgryta",
-          "pris": 185
-        },
-        {
-          "typ": "kott",
-          "namn": "med vitlöksbröd, citron & aioli, grillad kycklingfilé",
-          "pris": 185
-        },
-        {
-          "typ": "veg",
-          "namn": "med klyftpotatis och champinjon- eller pepparsås, halloumiburgare",
-          "pris": 175
-        },
-        {
-          "typ": "kott",
-          "namn": "med pommes och klassiska tillbehör, klassisk lasagne",
-          "pris": 170
-        },
-        {
-          "typ": "kott",
-          "namn": "Nötfärsburgare",
-          "pris": 175
-        }
-      ],
+      "status": "saknas",
+      "ratter": [],
       "kalla": "https://www.restaurangartes.se/lrunch"
     },
     "tehuset": {
@@ -4739,7 +4488,7 @@
     "rydbergs": {
       "status": "fel",
       "ratter": [],
-      "orsak": "404 Client Error: Not Found for url: https://www.restaurangrydbergs.se/wp-content/uploads/2026/11/Rydbergs-lunchmeny-2-6-november-1.pdf"
+      "orsak": "Stream has ended unexpectedly"
     },
     "arket-cafe": {
       "status": "saknas",
@@ -4781,7 +4530,7 @@
         },
         {
           "typ": "kott",
-          "namn": "Toastskagen Hemlagad, sk, med dill och citron, toppad med löjrom på rostat bröd",
+          "namn": "Toastskagen Hemlagad, med dill och citron, toppad med löjrom på rostat bröd",
           "pris": 169
         },
         {
@@ -4808,49 +4557,8 @@
       "orsak": "ingen menyadress"
     },
     "villaggio": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "CARBONARA, krämig pasta med äggula bacon lök vitlök svartpeppar grädde Grana padano",
-          "pris": 155
-        },
-        {
-          "typ": "kott",
-          "namn": "RIGATONI CON CARNE, krämig pasta med oxfilé, champinjoner, lök vitlök, vitvin, chili, persilja & Grana Padano",
-          "pris": 155
-        },
-        {
-          "typ": "fisk",
-          "namn": "SPAGHETTI CON GAMBERONI, krämig pasta scampi ,cocktailtomater lök, chili, vitlök vitvinssås och persilja",
-          "pris": 155
-        },
-        {
-          "typ": "kott",
-          "namn": "FETTUCCINI AL FREDO, krämig pasta med kyckling lök vitlök och grana padano",
-          "pris": 155
-        },
-        {
-          "typ": "kott",
-          "namn": "PASTA TORTOLONI, pasta med riccota ost spenat lök, chili vitlök, basilika och citronsås , grana padana",
-          "pris": 155
-        },
-        {
-          "typ": "fisk",
-          "namn": "RISOTTO MED AVOKADO &RÄKOR, krämig risotto med Avokado &räkor vitlök, lök, chili, persilja och grana padano",
-          "pris": 155
-        },
-        {
-          "typ": "fisk",
-          "namn": "SALLAD MED RÄKOR, handskalade räkor, ägg, avokado, oliver, paprika, gurka, cocktailtomater, rödlök & Rhode Island-dressi",
-          "pris": 155
-        },
-        {
-          "typ": "fisk",
-          "namn": "SMÖRSTEKT GÖSFILE",
-          "pris": 165
-        }
-      ],
+      "status": "saknas",
+      "ratter": [],
       "kalla": "https://www.villaggio.se/lunch"
     },
     "espresso-house-7": {
@@ -4991,8 +4699,23 @@
       "ratter": [
         {
           "typ": "kott",
-          "namn": "TOMATSALLAD, GRÖNSALLAD .......................................................................45, FRITERAD BIMI BROCCOL",
+          "namn": "CRÈME BRÛLÉE, CLAFOUTIS .................................................................................115",
+          "pris": 95
+        },
+        {
+          "typ": "kott",
+          "namn": "CHOKLADMOUSSE",
+          "pris": 95
+        },
+        {
+          "typ": "kott",
+          "namn": "TOMATSALLAD, GRÖNSALLAD .......................................................................45",
           "pris": 65
+        },
+        {
+          "typ": "kott",
+          "namn": "FRITERAD BIMI BROCCOLI, HONUNG & SENAPSVINÄGRETT, SALTROSTADE HASSELNÖTTERHONUNG & SENAPSVINÄGRETT, SALTROSTADE HASSELNÖ",
+          "pris": 85
         },
         {
           "typ": "kott",
@@ -5013,21 +4736,6 @@
           "typ": "kott",
           "namn": "Boquerones Boquerones ()(), citron, smörstekt levainCitron, smörstekt levain",
           "pris": 115
-        },
-        {
-          "typ": "kott",
-          "namn": "Ankrillette Ankrillette ()(), rostat bröd, cornichonsRostat bröd, cornichons",
-          "pris": 150
-        },
-        {
-          "typ": "kott",
-          "namn": "baconlindade dadlar baconlindade dadlar ()(), snacks to share",
-          "pris": 85
-        },
-        {
-          "typ": "fisk",
-          "namn": "()(), FISH OF THE DAY ...................................................MARKET PRICE, BEURRE BLANC - JERUSALEM ARTICHOK",
-          "pris": 185
         }
       ],
       "kalla": "https://bistrobisous.se/wp-content/uploads/2026/09/BISOUS_meny-1.pdf"
@@ -5268,49 +4976,8 @@
       "orsak": "ingen menyadress"
     },
     "din-din-club": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "fisk",
-          "namn": "Lax, avokado, creme cheese, tryffelmajo, rostad lök, sesamfrön, salladslök, nori",
-          "pris": 184
-        },
-        {
-          "typ": "veg",
-          "namn": "(Går att få friterad), friterad tofu, avokado, chilimajo, sesamfrön, gräslök",
-          "pris": 188
-        },
-        {
-          "typ": "kott",
-          "namn": "(Friterad), bulgogimarinerat högrev, gurka, cheddar, jalapeno, rödkål, kimchimajo",
-          "pris": 164
-        },
-        {
-          "typ": "fisk",
-          "namn": "(Friterad), lax, mango, avokado, cream cheese, sojamajo, teriyakisås, sriracha, rostad lök",
-          "pris": 178
-        },
-        {
-          "typ": "kott",
-          "namn": "(Friterad), rostad majs, portabello, cheddarost, chilimajo, sojabönor, toban djan, salladslök och koriander",
-          "pris": 182
-        },
-        {
-          "typ": "kott",
-          "namn": "Chili mayo, Koriander",
-          "pris": 108
-        },
-        {
-          "typ": "kott",
-          "namn": "Smoky mayo, gräslök",
-          "pris": 72
-        },
-        {
-          "typ": "kott",
-          "namn": "Sweet & spicy gochujang, sesamfrö, gräslök",
-          "pris": 81
-        }
-      ],
+      "status": "saknas",
+      "ratter": [],
       "kalla": "https://dindinclub.se/meny/"
     },
     "la-neta-2": {
@@ -5476,49 +5143,8 @@
       "orsak": "ingen menyadress"
     },
     "spice-of-india": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "En sydindisk kycklinggryta tillagad med paprika, lök, ingefära, grön chili och kokos",
-          "pris": 120
-        },
-        {
-          "typ": "veg",
-          "namn": "En härlig mustig gryta av linser tillagade med färska tomater, lök och koriander",
-          "pris": 125
-        },
-        {
-          "typ": "kott",
-          "namn": "8. VINDALOO CHICKEN, mycket stark, en het och syrlig gryta med kyckling, chili, vitlök och heta kryddor. Ursprungligen f",
-          "pris": 130
-        },
-        {
-          "typ": "kott",
-          "namn": "Tre små rätter: Dal, Mix Shabzi och Ponir Gravi",
-          "pris": 140
-        },
-        {
-          "typ": "fisk",
-          "namn": "Tre små rätter med kyckling, lamm och räkor",
-          "pris": 140
-        },
-        {
-          "typ": "kott",
-          "namn": "3. LAMM SPENAT (Stark!), stekt bladspenat med lamm tillagat med färsk ingefära, vitlök, curry, tomat och en härlig nötss",
-          "pris": 120
-        },
-        {
-          "typ": "kott",
-          "namn": "8. VINDALOO CHICKEN, mycket stark, en het och syrlig gryta med kyckling, chili, vitlök och heta kryddor. Ursprungligen f",
-          "pris": 130
-        },
-        {
-          "typ": "kott",
-          "namn": "Tre små rätter: Dal, Mix Shabzi och Ponir Gravi",
-          "pris": 140
-        }
-      ],
+      "status": "saknas",
+      "ratter": [],
       "kalla": "https://spiceofindia.se/akersberga-meny-lunch/"
     },
     "bao-asian-tapas": {
@@ -5634,25 +5260,9 @@
       "kalla": "https://grandhotel.se/en/food-beverage/the-veranda/lunch-menu"
     },
     "il-conte": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "mån-fre, kl, från",
-          "pris": 169
-        },
-        {
-          "typ": "kott",
-          "namn": "ett, glas, vin",
-          "pris": 109
-        },
-        {
-          "typ": "veg",
-          "namn": "Dagligen, en, husman, och en, pastarätt, som, varieras, dag, till, dag, alltid, på Il, contes, lunch, vegetariska, pasta",
-          "pris": 199
-        }
-      ],
-      "kalla": "https://ilconte.nu/wp-content/uploads/2026/11/Lunch-from-22.11.docx.pdf"
+      "status": "fel",
+      "ratter": [],
+      "orsak": "Stream has ended unexpectedly"
     },
     "fosch-artisan-patisserie": {
       "status": "ok",
@@ -5809,49 +5419,8 @@
       "kalla": "https://hawaiipoke.se/meny/"
     },
     "vi-na-fresh": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "Rice noodle soup, beansprouts, onion, cilantro, chicken, beef, shrimp",
-          "pris": 145
-        },
-        {
-          "typ": "veg",
-          "namn": "2. Bun Bowl- Vietnamese bun bowl, rice noodle salad, home-made pickle carrot, cabbage, cilantro, cucumber, beansprouts, ",
-          "pris": 145
-        },
-        {
-          "typ": "kott",
-          "namn": "3. Mi Xa Xiu, egg noodle with barbecue pork, sesam, onion and home-made pickles vegetables and side soup",
-          "pris": 145
-        },
-        {
-          "typ": "veg",
-          "namn": "4. Banh Mi baguette, vietnam baguette with cilantro, cucumber, pickled carrot and side soup, grilled pork, tofu",
-          "pris": 119
-        },
-        {
-          "typ": "kott",
-          "namn": "6. Bun Bo Hue / Vietnamese spicy beef noodle, may not available everyday, vietnamese spicy beef broth, beef brisket, thi",
-          "pris": 179
-        },
-        {
-          "typ": "kott",
-          "namn": "7. Mi Quang, may not available everyday, rice noodle soup from central Vietnam, with a thick turmeric garlic chicken bro",
-          "pris": 149
-        },
-        {
-          "typ": "kott",
-          "namn": "Home-made steamed rice rolls with grilled pork, fried onions, beansprout, herbs",
-          "pris": 189
-        },
-        {
-          "typ": "kott",
-          "namn": "Vi-Na style mixed platter of our rolls",
-          "pris": 195
-        }
-      ],
+      "status": "saknas",
+      "ratter": [],
       "kalla": "https://vinafresh.se/vi-na-fresh-drottninggatan#menu"
     },
     "o-learys": {
@@ -6042,12 +5611,17 @@
         },
         {
           "typ": "kott",
-          "namn": "Ãrtsoppa med eller utan flÃ¤sk, pannkakor med jordgubbsylt & vispad grÃ¤dde",
+          "namn": "Pizza med Coppa, salami, mozzarella, tomat, rucola & olivolja",
+          "pris": 125
+        },
+        {
+          "typ": "veg",
+          "namn": "Pizza med Gorgonzola, mozzarella, Pecorino, Halkidikioliver, paprika & rucola",
           "pris": 120
         },
         {
           "typ": "kott",
-          "namn": "Baconlindad bratwurst med spetskÃ¥l, DijonsenapsÃ¥s & potatispurÃ©",
+          "namn": "KÃ¶ttbullar i mild vitpeppargrÃ¤ddsÃ¥s, lingon, gurka och potatispurÃ©",
           "pris": 135
         },
         {
@@ -6058,11 +5632,6 @@
         {
           "typ": "kott",
           "namn": "Varm chevrÃ©sallad med honung",
-          "pris": 129
-        },
-        {
-          "typ": "kott",
-          "namn": "Coppa & mozzarellasallad",
           "pris": 129
         }
       ],
@@ -6079,50 +5648,9 @@
       "kalla": "https://www.thegoodgringo.se/our-menu"
     },
     "matbaren": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "gulärtshummus, koriander, amba /st",
-          "pris": 95
-        },
-        {
-          "typ": "kott",
-          "namn": "Iberico de Bellota med potatischip",
-          "pris": 165
-        },
-        {
-          "typ": "fisk",
-          "namn": "smörstekt toast, gräddfil, rödlök, ’’Gubbröra’’ på matjessill",
-          "pris": 255
-        },
-        {
-          "typ": "fisk",
-          "namn": "stenbitsrom, äpple, rökt crème fraîche, tunt skivad rå gulfenad tonfisk",
-          "pris": 235
-        },
-        {
-          "typ": "kott",
-          "namn": "avokado, shiso, yuzu, steamed beef bun",
-          "pris": 285
-        },
-        {
-          "typ": "kott",
-          "namn": "grillad oxbringa, chipotlemajonnäs, picklad paprika /st, croissant med smörstekt svamp",
-          "pris": 130
-        },
-        {
-          "typ": "kott",
-          "namn": "jordärtskocka, tryffel, blad, skott & örter",
-          "pris": 285
-        },
-        {
-          "typ": "kott",
-          "namn": "cruditéer, vinäger, olivolja",
-          "pris": 155
-        }
-      ],
-      "kalla": "https://mathiasdahlgren.se/content/uploads/2026/10/Lunchmeny-v.44-1.pdf"
+      "status": "fel",
+      "ratter": [],
+      "orsak": "Stream has ended unexpectedly"
     },
     "kafe-arte": {
       "status": "saknas",
@@ -6144,7 +5672,7 @@
       "ratter": [
         {
           "typ": "kott",
-          "namn": "Parmigiana di melanzane, auberginegratäng med fior di latte, San, marzano tomatsås, basilika, Parmigiano",
+          "namn": "Panerad sejfilé, konfiterad potatis, Datterinitomater, taggiascheoliver, kapris, örter",
           "pris": 165
         },
         {
@@ -6303,14 +5831,8 @@
       "orsak": "ingen menyadress"
     },
     "rolf-de-mare": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "Kalvfärsbiff med potatispuré, gräddsås, pressgurka och rårörda lingon",
-          "pris": 145
-        }
-      ],
+      "status": "saknas",
+      "ratter": [],
       "kalla": "https://apelbergkrogar.com/rolf-de-mare/"
     },
     "la-fleur-cafe-bar": {
@@ -6329,9 +5851,9 @@
       "orsak": "ingen menyadress"
     },
     "ox-lan": {
-      "status": "saknas",
+      "status": "fel",
       "ratter": [],
-      "kalla": "https://oxlan.eu/menu"
+      "orsak": "402 Client Error: Payment Required for url: https://oxlan.eu/menu"
     },
     "retro": {
       "status": "saknas",
@@ -6339,49 +5861,8 @@
       "orsak": "ingen menyadress"
     },
     "grone-riddaren": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "Ost, skinka, f.champinjoner",
-          "pris": 139
-        },
-        {
-          "typ": "kott",
-          "namn": "Ost, köttfärs, lök",
-          "pris": 135
-        },
-        {
-          "typ": "kott",
-          "namn": "Ost, skinka, ananas",
-          "pris": 139
-        },
-        {
-          "typ": "fisk",
-          "namn": "Skinka, räkor",
-          "pris": 145
-        },
-        {
-          "typ": "kott",
-          "namn": "(Inbakad) – Ost, skinka",
-          "pris": 139
-        },
-        {
-          "typ": "fisk",
-          "namn": "(Dubbel inbakad) – Skinka, räkor, champinjoner, tomatsås, ost",
-          "pris": 154
-        },
-        {
-          "typ": "kott",
-          "namn": "Kyckling, ananas, banan, curry, tomatsås, ost",
-          "pris": 144
-        },
-        {
-          "typ": "kott",
-          "namn": "Ost, salami, lök, fefferoni",
-          "pris": 145
-        }
-      ],
+      "status": "saknas",
+      "ratter": [],
       "kalla": "https://groneriddaren.se/meny"
     },
     "namami": {
@@ -6536,7 +6017,7 @@
         },
         {
           "typ": "veg",
-          "namn": "kr/person, kofte, granatäppelbakad kyckling, falafel, hummus, mhamara, myntayoghurt, granatäppelsallad, bulgur, beställ,",
+          "namn": "kr/person, kofte, granatäppelbakad kyckling, falafel, hummus, mhamara, myntayoghurt, granatäppelsallad, bulgur, stenugns",
           "pris": 235
         },
         {
@@ -6643,6 +6124,11 @@
         },
         {
           "typ": "kott",
+          "namn": "FlÃ¤skfilÃ©medaljonger med potatisgratÃ¤ng, grÃ¶npepparsÃ¥s och confiterad tomat",
+          "pris": 149
+        },
+        {
+          "typ": "kott",
           "namn": "KrÃ¤mig chorizopasta med paprika och riven ost toppat med friterad spenat",
           "pris": 149
         },
@@ -6650,6 +6136,11 @@
           "typ": "kott",
           "namn": "Angus biff med bearnaise, rÃ¶dvinssky & pommes",
           "pris": 149
+        },
+        {
+          "typ": "kott",
+          "namn": "I lunchen ingÃ¥r hembakat brÃ¶d, smÃ¶r, sallad, dryck och kaffe/te, ladda ner PDF, pickwick, drottninggatan 6, 111 51 St",
+          "pris": 179
         }
       ],
       "kalla": "https://pickwick.gastrogate.com/veckans-lunch/"
@@ -6762,49 +6253,8 @@
       "orsak": "ingen menyadress"
     },
     "la-gare": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "160 gr, planche mixte du bistrot - fromages et charcuteries",
-          "pris": 245
-        },
-        {
-          "typ": "kott",
-          "namn": "ost- och charktallrik med tillbehör",
-          "pris": 165
-        },
-        {
-          "typ": "kott",
-          "namn": "Escargots à la Provençale, sniglar i vitlökssmör",
-          "pris": 165
-        },
-        {
-          "typ": "fisk",
-          "namn": "Moules Marinières • 1/2  • 1/1, vitvinskokta musslor med vitlök och persilja",
-          "pris": 185
-        },
-        {
-          "typ": "kott",
-          "namn": "Soupe à l’oignon • 1/2  • 1/1, löksoppa",
-          "pris": 145
-        },
-        {
-          "typ": "kott",
-          "namn": "Salade de Chèvre Chaud • 1/2  • 1/1, ugnsvarm getost på toast med honung, valnötter, rödbetor, och säsongens sallad",
-          "pris": 155
-        },
-        {
-          "typ": "kott",
-          "namn": "Steak Tartare de bœuf du bistrot • 90 gr",
-          "pris": 195
-        },
-        {
-          "typ": "kott",
-          "namn": "160 gr, råbiff med klassiska tillbehör",
-          "pris": 295
-        }
-      ],
+      "status": "saknas",
+      "ratter": [],
       "kalla": "https://ligula.se/sv/restauranger/la-gare-stockholm/#menyer-oppettider"
     },
     "zio-s-pasta": {
@@ -6924,43 +6374,43 @@
       "ratter": [
         {
           "typ": "kott",
-          "namn": "Yuzugranité, IV, oxfilé tournedos med bordelaisesås, lökcrème, örtglaserade morötter och mandelpotatispuré med brynt smö",
-          "pris": 170
+          "namn": "Dagens lunch Dagens lunch, förrätt, varmrätt, förrätt, varmrätt, förrätt, varmrätt, förrätt, varmrätt, förrätt, varmrätt",
+          "pris": 175
         },
         {
           "typ": "kott",
-          "namn": "Syltade kantareller, chorizosmulor, ravioli",
-          "pris": 170
+          "namn": "och parmesan",
+          "pris": 175
         },
         {
           "typ": "fisk",
-          "namn": "Getost, ricotta, brynt smör, päron, salvia, mandel, sotad tonfisk",
-          "pris": 180
-        },
-        {
-          "typ": "kott",
-          "namn": "180 /, rostat japanskt mjölkbröd, löjrom, örtsallad, syltad rödlök, kantarelltoast",
-          "pris": 280
-        },
-        {
-          "typ": "kott",
-          "namn": "180 /, gräddkokta kantareller, surdegsbröd, parmaskinka, syrad rödlök, Svedjans gårdsost, huvudrätter, cannelloni",
-          "pris": 280
+          "namn": "Sallad med chili marinerade kräftstjärtar, avokado, ägg, vitlöksbröd och rhode island",
+          "pris": 195
         },
         {
           "typ": "fisk",
-          "namn": "Kantareller, ricotta, tomatsås, rostad mandel, hyvlad parmesan, fisk- och skaldjursgryta",
+          "namn": "och skaldjursgryta med röd curry, kokos, koriander",
           "pris": 290
         },
         {
           "typ": "kott",
-          "namn": "Röd curry, kokos, koriander, helstekt rödtunga",
-          "pris": 290
-        },
-        {
-          "typ": "kott",
-          "namn": "Potatispuré, pressgurka, rårörda lingon, gräddsås, gödkalvsentrecôte",
+          "namn": "Kalvköttbullar med potatispuré, rårörda lingon, gräddsås och pressgurka, blandad råbiff på svenskt nötytterlår med dijon",
           "pris": 250
+        },
+        {
+          "typ": "kott",
+          "namn": "Alkoholfri öl",
+          "pris": 65
+        },
+        {
+          "typ": "kott",
+          "namn": "Manneken Pils fatöl",
+          "pris": 95
+        },
+        {
+          "typ": "kott",
+          "namn": "Glas husets vita, röda eller rosé",
+          "pris": 140
         }
       ],
       "kalla": "https://duvelcafe.com/meny#lunch"
@@ -7333,50 +6783,9 @@
       "orsak": "ingen menyadress"
     },
     "da-peppe-due": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "Pane all’ Aglio, grillat lantbrödsskiva med vitlök / Grilled country bread with garlic",
-          "pris": 69
-        },
-        {
-          "typ": "kott",
-          "namn": "Olive Marinate, örtmarinerade oliver / Herb marinated olives",
-          "pris": 78
-        },
-        {
-          "typ": "kott",
-          "namn": "Insalata della Casa, italiensk mixsallad, friterad getost, rödbetor, honungs-och balsamicodressing / Mix salad, fried go",
-          "pris": 169
-        },
-        {
-          "typ": "kott",
-          "namn": "Caprese al Burrata, burrata, marinerade färska coctailtomater med olivolja, basilika & svart peppar / Burrata, marinated",
-          "pris": 164
-        },
-        {
-          "typ": "kott",
-          "namn": "Bruschetta CON PARMIGIANO REGGIANO, italiensk lantbröd med parmaskinka, Roma-tomater, olivolja, basilika, vitlök, balsam",
-          "pris": 164
-        },
-        {
-          "typ": "kott",
-          "namn": "Antipasto Tipico, ett urval av italienska charkuterier med tillbehör / Typicall Italian mix of charcuteries with accesso",
-          "pris": 249
-        },
-        {
-          "typ": "fisk",
-          "namn": "Hummer soppa, krämig hummersoppa / Creamy lobster soup",
-          "pris": 189
-        },
-        {
-          "typ": "fisk",
-          "namn": "Scampi all Aglio, vitlöksfrästa scampi, piri piri, olivolja, persilja serve- ras med tomat carpaccio / Garlic prawns, pi",
-          "pris": 199
-        }
-      ],
-      "kalla": "https://dapeppedue.se/meny/"
+      "status": "fel",
+      "ratter": [],
+      "orsak": "503 Server Error: Service Unavailable for url: https://dapeppedue.se/meny/"
     },
     "the-meat": {
       "status": "ok",
@@ -7523,49 +6932,8 @@
       "kalla": "https://weidao.se/meny"
     },
     "stockholm-fisk": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "fisk",
-          "namn": "/305, smörstekt toast, räkor, majonnäs & löjrom, mixture of fresh prawns, dill & mayonnaise, bleak roe & toast",
-          "pris": 215
-        },
-        {
-          "typ": "fisk",
-          "namn": "med stuvade räkor, västerbottensost, grönsallad & pommes frites /eller svampstuvning, parmesan, grönsallad & pommes frit",
-          "pris": 225
-        },
-        {
-          "typ": "veg",
-          "namn": "med het nuddelsallad, pak choi, chilicréme & koriander, silken tofu with spicey noodle salad, pak choi, chili créme & co",
-          "pris": 185
-        },
-        {
-          "typ": "kott",
-          "namn": "Seafood plateau",
-          "pris": 95
-        },
-        {
-          "typ": "kott",
-          "namn": "Fresh shrimps",
-          "pris": 195
-        },
-        {
-          "typ": "kott",
-          "namn": "Smoked shrimps",
-          "pris": 195
-        },
-        {
-          "typ": "kott",
-          "namn": "Fresh lobster",
-          "pris": 195
-        },
-        {
-          "typ": "kott",
-          "namn": "Oysters, fråga personalen om dagens utbud, ask the staff about today´s selection",
-          "pris": 195
-        }
-      ],
+      "status": "saknas",
+      "ratter": [],
       "kalla": "https://www.stockholmfisk.se/meny-2/"
     },
     "mother-india": {
@@ -7671,49 +7039,8 @@
       "kalla": "https://toppclass-sushi.se/meny"
     },
     "alegria-tapas-bar": {
-      "status": "ok",
-      "ratter": [
-        {
-          "typ": "kott",
-          "namn": "Monvasia (Malvasia Greca), Casalone, Italien  /",
-          "pris": 165
-        },
-        {
-          "typ": "kott",
-          "namn": "Anemos Vitt (Roditis, Moscofilero), Palivou, Pelopon.  /",
-          "pris": 165
-        },
-        {
-          "typ": "kott",
-          "namn": "Gerovassiliou Vitt (Malagousia, Assyrtiko), Epanomi  /",
-          "pris": 185
-        },
-        {
-          "typ": "kott",
-          "namn": "Pandora Rött (Agiorg., Cab. Sauv.), Cavino, Achaia  /",
-          "pris": 135
-        },
-        {
-          "typ": "kott",
-          "namn": "Dialogos Red (Agiorg., Syrah), Ktima Dio Ipsi, Ilia  /",
-          "pris": 215
-        },
-        {
-          "typ": "kott",
-          "namn": "Pandora Vitt (Roditis, Sauv. Blanc), Cavino, Achaia  /",
-          "pris": 125
-        },
-        {
-          "typ": "kott",
-          "namn": "Assyrtiko, Mega Spilleo, Achaia  /, assyrtiko, Mikra Thira, Santorini 1100",
-          "pris": 145
-        },
-        {
-          "typ": "kott",
-          "namn": "Retsina, Cavino, Achaia  /",
-          "pris": 145
-        }
-      ],
+      "status": "saknas",
+      "ratter": [],
       "kalla": "https://esperia.nu/vasastan/#meny"
     },
     "brisket-friends-city": {
